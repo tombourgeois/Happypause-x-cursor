@@ -1,0 +1,61 @@
+CATEGORY,ID,TITLE,DESCRIPTION,IMAGE,URL,THUMBS_COUNTER,USER_ID_CREATOR,USER_NAME_CREATOR
+1,000100000001,Wall push-ups,"Stand facing a wall, hands at shoulder height. Do 12 slow push-ups, focusing on control and breathing.",FITNESS-1.png,https://en.wikipedia.org/wiki/Push-up,0,1,admin
+1,000100000002,Bodyweight squats,"Feet shoulder-width apart. Do 12 slow squats, keeping heels down and chest open.",FITNESS-2.png,https://en.wikipedia.org/wiki/Squat_(exercise),0,1,admin
+1,000100000003,Plank reset,Hold a forearm plank for 30?45 seconds. Keep a straight line from head to heels. Breathe steadily.,FITNESS-3.png,https://en.wikipedia.org/wiki/Plank_(exercise),0,1,admin
+1,000100000004,Glute bridges,"Lie on your back, knees bent. Lift hips and squeeze glutes for 12 reps. Slow tempo.",FITNESS-4.png,https://en.wikipedia.org/wiki/Glute_bridge,0,1,admin
+1,000100000005,Calf raises,Hold onto a chair for balance. Rise onto toes and lower slowly for 20 reps.,FITNESS-5.png,https://en.wikipedia.org/wiki/Calf_raise,0,1,admin
+1,000100000006,Standing lunges,Do 8 lunges per side. Keep front knee tracking over toes and torso upright.,FITNESS-6.png,https://en.wikipedia.org/wiki/Lunge_(exercise),0,1,admin
+1,000100000007,Jumping jacks (low impact),Do 45 seconds of step-jacks (one leg out at a time). Keep it comfortable.,FITNESS-7.png,https://en.wikipedia.org/wiki/Jumping_jack,0,1,admin
+1,000100000008,Shoulder mobility circles,"Make 10 large arm circles forward, then 10 backward. Keep ribs down and neck relaxed.",FITNESS-8.png,https://en.wikipedia.org/wiki/Shoulder,0,1,admin
+1,000100000009,Chair triceps dips (gentle),"Hands on chair edge, bend elbows slightly and press back up for 10 reps. Keep it shallow.",FITNESS-9.png,https://en.wikipedia.org/wiki/Triceps_dip,0,1,admin
+1,000100000010,Stair climb (moderate),Climb one flight of stairs up and down twice at a moderate pace. Hydrate after.,FITNESS-10.png,https://en.wikipedia.org/wiki/Stair_climbing,0,1,admin
+2,000200000001,One-song break,Play one song you enjoy and listen without multitasking until it ends.,LEISURE-1.png,https://en.wikipedia.org/wiki/Active_listening,0,1,admin
+2,000200000002,Quick tidy (2 minutes),"Pick one small area (desk corner, shelf). Put away or throw out 5 items.",LEISURE-2.png,https://en.wikipedia.org/wiki/Decluttering,0,1,admin
+2,000200000003,Mini puzzle,"Do a 2-minute word puzzle (anagram, mini crossword) just for fun.",LEISURE-3.png,https://en.wikipedia.org/wiki/Word_game,0,1,admin
+2,000200000004,Window watch,"Look outside for 2 minutes. Notice movement, light, and weather without judging it.",LEISURE-4.png,https://en.wikipedia.org/wiki/Attention,0,1,admin
+2,000200000005,Tea or water ritual,"Prepare a glass of water or tea slowly. Focus on temperature, smell, and taste.",LEISURE-5.png,https://en.wikipedia.org/wiki/Mindful_eating,0,1,admin
+2,000200000006,Fun fact dive,Read one short article on a topic you?re curious about. Stop after 5 minutes.,LEISURE-6.png,https://en.wikipedia.org/wiki/Curiosity,0,1,admin
+2,000200000007,Photo: find a texture,"Take a photo of an interesting texture (wood grain, fabric, metal). Look for light and shadows.",LEISURE-7.png,https://en.wikipedia.org/wiki/Texture_(visual_arts),0,1,admin
+2,000200000008,Doodle minute,"Draw shapes for 60?90 seconds. Let your hand move; no goal, no judgment.",LEISURE-8.png,https://en.wikipedia.org/wiki/Doodle,0,1,admin
+2,000200000009,Tiny stretch + music,Put on a calm track and do gentle neck/shoulder stretches while it plays.,LEISURE-9.png,https://en.wikipedia.org/wiki/Stretching,0,1,admin
+2,000200000010,Micro-reading,Read 2?3 pages of a book (paper or ebook). Stop when the timer ends.,LEISURE-10.png,https://en.wikipedia.org/wiki/Reading,0,1,admin
+3,000300000001,Gratitude text,Send a short message to someone: ?Thanks for ____.? Keep it simple and specific.,SOCIAL-1.png,https://en.wikipedia.org/wiki/Gratitude,0,1,admin
+3,000300000002,Check-in question,Message a friend: ?How?s your day going?? Then pause?no need to overthink.,SOCIAL-2.png,https://en.wikipedia.org/wiki/Social_connection,0,1,admin
+3,000300000003,Voice note hello,Record a 15?20 second voice note to say hi to someone you trust.,SOCIAL-3.png,https://en.wikipedia.org/wiki/Voice_message,0,1,admin
+3,000300000004,Compliment practice,"Give a specific compliment to someone nearby or online (about effort, not looks).",SOCIAL-4.png,https://en.wikipedia.org/wiki/Compliment,0,1,admin
+3,000300000005,2-minute listening,Ask someone a question and listen without interrupting for 2 minutes.,SOCIAL-5.png,https://en.wikipedia.org/wiki/Active_listening,0,1,admin
+3,000300000006,Share a helpful link,Send a useful resource to a colleague/friend with one sentence of context.,SOCIAL-6.png,https://en.wikipedia.org/wiki/Knowledge_sharing,0,1,admin
+3,000300000007,Micro-kindness,"Do one small helpful act (hold a door, reply warmly, refill something).",SOCIAL-7.png,https://en.wikipedia.org/wiki/Prosocial_behavior,0,1,admin
+3,000300000008,Reconnect list,Write down 3 people you?d like to reconnect with. Pick one to contact later.,SOCIAL-8.png,https://en.wikipedia.org/wiki/Social_network,0,1,admin
+3,000300000009,Thank-you to yourself,Write one sentence recognizing a small win you did today.,SOCIAL-9.png,https://en.wikipedia.org/wiki/Self-affirmation,0,1,admin
+3,000300000010,Plan a mini hangout,"Propose a simple plan: coffee, walk, or call. Keep the invite low pressure.",SOCIAL-10.png,https://en.wikipedia.org/wiki/Friendship,0,1,admin
+4,000400000001,Box breathing 4-4-4-4,"Inhale 4s, hold 4s, exhale 4s, hold 4s. Repeat 4 cycles to reset focus.",MIND-1.png,https://en.wikipedia.org/wiki/Box_breathing,0,1,admin
+4,000400000002,5-4-3-2-1 grounding,"Name 5 things you see, 4 you feel, 3 you hear, 2 you smell, 1 you taste.",MIND-2.png,https://en.wikipedia.org/wiki/Grounding_(psychology),0,1,admin
+4,000400000003,One-minute mindfulness,"For 60 seconds, notice your breath. When distracted, gently return to breathing.",MIND-3.png,https://en.wikipedia.org/wiki/Mindfulness,0,1,admin
+4,000400000004,Brain dump (2 minutes),Write everything on your mind. No structure. Stop when the timer ends.,MIND-4.png,https://en.wikipedia.org/wiki/Expressive_writing,0,1,admin
+4,000400000005,Single-task reset,"Pick one tiny task (open doc, reply to one email). Do only that for 3 minutes.",MIND-5.png,https://en.wikipedia.org/wiki/Multitasking,0,1,admin
+4,000400000006,Focus intention,"Choose an intention for the next 10 minutes (clarity, calm, speed). Say it once and begin.",MIND-6.png,https://en.wikipedia.org/wiki/Implementation_intention,0,1,admin
+4,000400000007,Body scan 90 seconds,Scan from head to toes. Relax the most tense area by softening it on the exhale.,MIND-7.png,https://en.wikipedia.org/wiki/Body_scan_meditation,0,1,admin
+4,000400000008,Mindful listening,Listen to nearby and distant sounds for 60?90 seconds. Don?t try to ?fix? the soundscape.,MIND-8.png,https://www.mindful.org/mindful-listening/,0,1,admin
+4,000400000009,Thought labeling,"When a thought appears, label it (plan, worry, memory) and let it pass.",MIND-9.png,https://en.wikipedia.org/wiki/Mindfulness,0,1,admin
+4,000400000010,Visual rest,Look 20 feet away for 20 seconds. Blink slowly and relax your jaw.,MIND-10.png,https://en.wikipedia.org/wiki/Eye_strain,0,1,admin
+5,000500000001,Short prayer or intention,Take 60 seconds to say a brief prayer or set a heartfelt intention for the day.,SPIRITUAL-1.png,https://en.wikipedia.org/wiki/Prayer,0,1,admin
+5,000500000002,Loving-kindness (mini),Repeat silently: ?May I be safe. May I be peaceful.? Then extend it to others.,SPIRITUAL-2.png,https://en.wikipedia.org/wiki/Mett%C4%81,0,1,admin
+5,000500000003,Values check,"Ask: ?What matters most right now?? Choose one value (care, courage, honesty) and act once.",SPIRITUAL-3.png,https://en.wikipedia.org/wiki/Personal_values,0,1,admin
+5,000500000004,Breath + gratitude,"With each exhale, name one thing you?re grateful for. Do 8 breaths.",SPIRITUAL-4.png,https://en.wikipedia.org/wiki/Gratitude,0,1,admin
+5,000500000005,Nature connection,"If possible, look at a tree/sky. Notice one detail you?ve never noticed before.",SPIRITUAL-5.png,https://en.wikipedia.org/wiki/Biophilia_hypothesis,0,1,admin
+5,000500000006,Mantra 1 minute,Choose a calming phrase and repeat it slowly for 60 seconds.,SPIRITUAL-6.png,https://en.wikipedia.org/wiki/Mantra,0,1,admin
+5,000500000007,Compassion pause,Think of someone struggling. Wish them well for 30 seconds. Keep it simple.,SPIRITUAL-7.png,https://en.wikipedia.org/wiki/Compassion,0,1,admin
+5,000500000008,Silence timer,Sit in silence for 2 minutes. Allow thoughts to come and go without chasing them.,SPIRITUAL-8.png,https://en.wikipedia.org/wiki/Meditation,0,1,admin
+5,000500000009,Meaning note,Write one sentence: ?Today I want to contribute by ____.?,SPIRITUAL-9.png,https://en.wikipedia.org/wiki/Meaning_of_life,0,1,admin
+5,000500000010,Forgiveness micro-step,"Identify one small resentment. Try this: ?I?m willing to soften this, even a little.?",SPIRITUAL-10.png,https://en.wikipedia.org/wiki/Forgiveness,0,1,admin
+6,000600000001,Progressive release (hands),"Clench fists 5s, release 10s. Repeat 3 times. Notice warmth and relaxation.",RELAXATION-1.png,https://en.wikipedia.org/wiki/Progressive_muscle_relaxation,0,1,admin
+6,000600000002,Shoulder drop,"Lift shoulders to ears, hold 2s, then drop. Repeat 8 times with slow breathing.",RELAXATION-2.png,https://en.wikipedia.org/wiki/Relaxation_technique,0,1,admin
+6,000600000003,Jaw & face relax,"Unclench jaw, relax tongue, soften forehead. Hold for 30 seconds while breathing slowly.",RELAXATION-3.png,https://en.wikipedia.org/wiki/Bruxism,0,1,admin
+6,000600000004,4-7-8 breathing,"Inhale 4s, hold 7s, exhale 8s. Do 4 cycles. Stop if you feel dizzy.",RELAXATION-4.png,https://en.wikipedia.org/wiki/4-7-8_breathing,0,1,admin
+6,000600000005,Warm drink pause,Hold a warm mug and feel the heat in your hands. Take 3 slow sips.,RELAXATION-5.png,https://en.wikipedia.org/wiki/Mindfulness,0,1,admin
+6,000600000006,Mini stretch: neck,"Tilt head right 20s, left 20s. Breathe out longer than you breathe in.",RELAXATION-6.png,https://www.nhs.uk/live-well/exercise/flexibility-exercises/,0,1,admin
+6,000600000007,Slow exhale,"Inhale 3s, exhale 6s. Do 10 breaths. Focus on the long exhale.",RELAXATION-7.png,https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6137615/,0,1,admin
+6,000600000008,Feet on floor,"Sit and press feet into the floor for 10 seconds, then release. Repeat 5 times.",RELAXATION-8.png,https://en.wikipedia.org/wiki/Grounding_(psychology),0,1,admin
+6,000600000009,Calm gaze,Pick a point and softly focus for 60 seconds. Blink slowly and relax your shoulders.,RELAXATION-9.png,https://en.wikipedia.org/wiki/Tr%C4%81%E1%B9%ADaka,0,1,admin
+6,000600000010,No-screen minute,Put the phone face down and do nothing for 60 seconds. Let your nervous system settle.,RELAXATION-10.png,https://en.wikipedia.org/wiki/Attention_restoration_theory,0,1,admin

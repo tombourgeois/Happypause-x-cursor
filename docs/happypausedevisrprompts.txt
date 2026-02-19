@@ -1,0 +1,510 @@
+Je veux faire une app qui me propose une pause de X minutes a tous les cycles de temps Y (par défaut X=5 minutes et Y=55 minutes). Pendant la pause on me propose une activité tirée d'une database. Ces activités se divisent en plusieurs catégories (et les catégories doivent pouvoir s'étendre). Pour le moment il y a 6 catégories, elles sont: 1-FITNESS 2-LEISURE 3-SOCIAL 4-MIND 5-SPIRITUAL 6-RELAXATION Donc dans chacune de ces catégories se trouve plusieurs activités. Chaque activité contient: A-Un titre B-Une icone C-Une description D-Un url pour plus d'info. Pour l'UI, la page principale contient un "timer" en forme cercle. Dans le milieu on voit le temps qui reste (basé sur Y) avant la prochaine pause. Autour du cercle, une représentation graphique du temps qui s'écoule (temps restant). Lorsque le timer arrive a zero une sonnerie se fait entendre et visuellement le cercle cache d'abord le temps restant Y, et remplace la visualisation par une activité choisie au hasard parmis les 6 catégories. Celle-ci s'affiche au centre du cercle, dans l'ordre a partir du haut du cercle: Catégorie Ttire de l'activité Icone de l'activité Description de l'activité URL (sous forme de bouton sur lequel est écrit "Learn more" et quand on clique dessus ouvre un ongle dans notre fureteur) Temps restant de la pause (basé sur X). Autour du cercle, le meme decompte se fait, mais cette fois pour montrer le temps restant a la pause. Sous le cercle, on peut ajouter deux boutons: SKIP et DONE. Si on pèse le SKIP, la pause se termine et on retourne au decompte de temps Y, et dans la database on sauvegarde la statistique suivante: Date actuelle (Année, mois, jour, heure minutes), catégorie de la pause, activité de la pause, a été "skip". Si on pèse sur DONE, la pause se termine et on retourne au decompte de temps Y, et dans la database on sauvegarde la statistique suivante: Date actuelle (Année, mois, jour, heure minutes), catégorie de la pause, activité de la pause, a été "done". Ces statistiques permettrons de faire un suivi plus tard sur les activités qui ont été skip et celle qui ont été done. De plus, si on pèse sur le cercle (en dehors du bouton URL) on entend un petit click, et l'application fait un randomise et trouve une nouvelle activité pour la pause. Ceci permet de faire une autre activité si on n'aimait pas celle proposée. En terminant, il faut aussi un bouton en haut a droite des options (cog wheel). Lorsqu'on appuie dessus, un pop up apparait au centre (boite rectangulaire par dessus le cercle) qui affiche les options. Parmis les options, il y a d'abord le choix de sonnerie: le titre sonnerie suivi d'un drop down, dans lequel on offre plusieurs sons différents pour la sonnerie. En dessous, la deuxieme option est le choix de catégories. Le titre CATÉGORIES est visible, et en dessous on liste toutes les catégories chacune suivie d'un check box qui permet de choisir quelle catégories sont actives ou non. Pour toutes les catégories et activités pour les pauses, un fichier XML sera soumis dans lequel toutes les informations sont incluses. Si un fichier XML n'est pas utilisable, me proposer une approche technique pour que je puisse fournir les données, données qui seront mise a jour avec des nouvelles activités periodiquement.
+
+
+You are building a mobile app called “HappyPause”.
+
+Goal
+- Help the user take short, guided breaks on a repeating cycle.
+- Default timing: Work cycle Y = 55 minutes, Break duration X = 5 minutes.
+- Allow the user to change X and Y in Settings.
+
+Core Data Model
+1) Categories (extensible)
+- Default categories:
+  - FITNESS, LEISURE, SOCIAL, MIND, SPIRITUAL, RELAXATION
+- User can enable/disable categories in Settings (checkbox list).
+
+2) Activities database
+Each activity has:
+- id (string)
+- category (string)
+- title (string)
+- icon (image url or local asset id)
+- description (string/paragraph)
+- infoUrl (string url)
+
+3) Event / Stats logging (local database)
+Whenever a break activity is interacted with, save:
+- timestamp (YYYY-MM-DD HH:mm)
+- category
+- activityId + activityTitle
+- action: "done" | "skip"
+Optional (if implemented): "thumb_up" | "thumb_down" | "cycle_reroll"
+
+Data Source Requirement
+- Prefer JSON over XML for a modern pipeline.
+- Support loading a JSON file bundled in the app + optional remote JSON endpoint for periodic updates.
+- If XML is provided, convert it to JSON at import time (or provide a small converter step).
+
+App Navigation (3 main screens)
+A) Work Cycle Timer (Home)
+- Top bar:
+  - Left/center: HappyPause logo + app name “HappyPause”
+  - Right: Settings (cog icon)
+- Main UI:
+  - Large centered circular timer with ONE outer progress ring.
+  - Inside the circle (stacked vertically):
+    - "FOCUS SESSION" (small label)
+    - "Ends at HH:MM AM/PM" (small label)
+    - Remaining time until break (large, e.g., 54:32)
+    - Text label: “Until break”
+    - Primary button inside the circle: “Have a HappyPause” (uses HappyPauseLogo mark)
+- Controls:
+  - Three circular control buttons (Stop / Pause / Restart) positioned consistently across screens.
+  - Target layout reference: on a 390x844 frame, center of these buttons is ~Y=728px from the top.
+  - Keep bottom safe-area spacing (approx ~200px from button bottom to device bottom, including nav area).
+- No extra “Session” or “Today” buttons.
+
+B) HappyPause In Progress (Break screen)
+- Title at top: “HAPPYPAUSE IN PROGRESS”
+- Main UI:
+  - Same circle size and vertical position as Work Cycle Timer circle.
+  - One outer progress ring showing remaining break time (X).
+  - Inside the circle:
+    - Category (small label near top of circle)
+    - Activity title (medium)
+    - Large activity icon/illustration (use the saved vector asset “Exercice1” as an example icon)
+    - Break countdown (slightly smaller than before) placed just under the icon (e.g., 05:00)
+  - Outside the circle, under it:
+    - Curved/arc text following the circle bottom outline (outside, not inside): “PRESS TO KNOW MORE”
+- Interactions:
+  - Tap inside the circle (except on buttons) opens the activity info (modal or in-app webview). No separate “Learn more” button.
+  - “Cycle” button rerolls a new random activity (from enabled categories).
+  - “Done” ends the break early (or at any time) and returns to Work cycle.
+  - “Skip” ends the break early and returns to Work cycle.
+  - Thumbs feedback icons:
+    - Place thumbs-down on the LEFT side of the circle and thumbs-up on the RIGHT side.
+    - Both aligned so their bottom aligns with the bottom of the big circle, then lowered by ~3 units and moved slightly inward (~3 units).
+    - If tapped, record optional action stats ("thumb_up"/"thumb_down") tied to the current activity.
+- Bottom controls:
+  - Three circular buttons “Cycle”, “Done”, “Skip” aligned to match the exact positions of Stop/Pause/Restart on the Work screen (same Y baseline and spacing).
+- Remove the large rectangular Done/Skip buttons (use only the three circular ones).
+
+C) Create a HappyPause (Form screen)
+- Opens when user taps a small button “Create a HappyPause” placed under the “Done” control area (about ~80 units below Done), slightly smaller than default and moved down an additional ~20 units.
+- Full-screen form, no bottom menu bar.
+- Fields:
+  1. Category (dropdown): the 6 categories + “Suggest new”
+  2. HappyPause Name (short text)
+  3. HappyPause Description (multiline)
+  4. HappyPause Icon (image picker or URL field)
+  5. Additional Info Link (URL)
+- Checkboxes:
+  A) “I want to make this HappyPause public”
+  B) “I agree to the Terms of Service and acknowledge the Privacy Policy.”
+- Primary CTA button at bottom: “ADD & SUBMIT”
+- Submission behavior:
+  - Validate required fields (name, description, category, terms checkbox).
+  - Save locally and optionally queue for upload if “public” is checked.
+
+Settings (full-width page)
+- Opens from cog icon.
+- Header: Back arrow on top-left (green/sage), title “Settings” centered.
+- Options:
+  1) Ringtone selector:
+     - Label “Ringtone”
+     - Dropdown list of available sounds
+     - Play preview (optional)
+  2) Categories:
+     - Label “CATEGORIES”
+     - List all categories with checkboxes (toggle active/inactive)
+  3) Timing:
+     - Work cycle duration Y (minutes)
+     - Break duration X (minutes)
+     - Defaults: Y=55, X=5
+- Color theme (apply globally)
+  - Primary accent (replaces “green”): #b1b7a2
+  - Background (replaces “black”): #36333a (charcoal)
+  - Text/surfaces (replaces “white”): #f5f5f5 (off-white)
+- Ensure accessibility: sufficient contrast for text on charcoal background.
+
+Logic Rules
+- Work timer counts down Y. At 0:
+  - Play selected ringtone.
+  - Transition to Break screen with random activity from enabled categories.
+- Break timer counts down X. At 0:
+  - Auto return to Work cycle and optionally record "done" if user stayed until end (or record as "completed" state).
+- Random selection:
+  - Uniform among activities in enabled categories (or category-weighted if later desired).
+- Persist:
+  - User settings (X, Y, enabled categories, ringtone)
+  - Activity data cache
+  - Stats log
+
+Branding
+- Use the “HappyPauseLogo” mark at the top and inside the primary Home button.
+- Typography suggestion:
+  - Use “Poppins” (Bold/SemiBold) for titles and brand, and regular for body.
+
+Build the UI clean, minimal, symmetric, with smooth animations between Work and Break states.
+
+
+V2
+
+Build a mobile app called “HappyPause” (iOS and Android). Use the provided mockup as the visual layout reference (dark, minimal, rounded UI).
+
+APP CONCEPT
+HappyPause helps users work in focus cycles and take structured, guided breaks.
+
+Default timing:
+- Focus session (Y) = 55 minutes
+- HappyPause (X) = 5 minutes
+- Both values editable in Settings
+
+When Focus ends, the app automatically launches a HappyPause with a recommended activity.
+
+----------------------------------------------------
+GLOBAL STRUCTURE
+
+Bottom Tab Navigation (4 tabs only):
+
+1) TIMER
+   - Contains (triggered transitions):
+     A) Focus screen
+     B) HappyPause in progress screen
+     C) Create a HappyPause form
+
+2) STATS
+   - Aggregated statistics dashboard
+
+3) HISTORY
+   - Chronological event log
+
+4) PROFILE
+   - Profile details and preferences sections
+
+Global top-right:
+- Cog Wheel icon → opens Settings (full-width page)
+
+----------------------------------------------------
+VISUAL THEME
+
+Use these exact colors:
+- Background: #36333a (charcoal)
+- Accent: #b1b7a2 (sage)
+-Statistic secondary accents:  abec13 (bright green)
+- Text/surfaces: #f5f5f5 (off-white)
+
+Typography:
+- Poppins (Bold/SemiBold headings, Regular body)
+- Rounded, calm, minimal aesthetic
+
+----------------------------------------------------
+TIMER TAB
+
+A) FOCUS SCREEN
+
+Layout:
+- Large centered circular timer
+- ONE outer progress ring
+- Same circle position used on Focus and HappyPause screens
+
+Inside circle (top to bottom):
+- “FOCUS SESSION”
+- “Ends at HH:MM”
+- Large remaining time (e.g., 54:21)
+- Small label: “Until break”
+- Button inside circle: “Have a HappyPause”
+
+Below circle:
+- 3 circular control buttons:
+  - Stop
+  - Play/Pause
+  - Restart
+- Maintain consistent vertical alignment across screens
+
+Behavior:
+- Countdown from Y
+- At 0:
+  - Play selected ringtone
+  - Automatically start HappyPause
+
+----------------------------------------------------
+B) HAPPYPAUSE IN PROGRESS
+Top:
+-X button acts as a “quit” button back to focus time.
+- Cog Wheel icon → opens Settings (full-width page)
+
+Title at top:
+- “HAPPYPAUSE IN PROGRESS”
+
+Circle:
+- Same size and position as Focus
+- Outer ring shows break countdown (X)
+
+Inside circle (top to bottom):
+- Category (small)
+- Activity title
+-Activity Description
+- Large activity icon (supports vector assets like “Exercice1”)
+- Break timer (e.g., 05:00) just below icon
+-Small “remaining” under the break timer.
+
+Under the circle (small curved text):
+- “PRESS TO KNOW MORE”
+
+Interaction:
+- Tapping inside circle opens activity infoUrl (in-app webview or browser)
+
+Below circle:
+- Thumbs Down (left)
+- Thumbs Up (right)
+- Aligned visually with lower edge of circle
+
+Below that:
+- 3 circular buttons aligned exactly like Focus controls:
+  - Cycle (reroll activity)
+  - Done (log activity done and go back to focus)
+  - Skip (Log activity undone and go back to focus)
+
+Below controls:
+- Small button: “Create a HappyPause” (opens Create HappyPause menu)
+
+----------------------------------------------------
+THUMBS UP/DOWN FEEDBACK SYSTEM (IMPORTANT)
+
+Each activity supports preference learning.
+
+When user taps:
+- Thumbs Up → log happypause_thumb_up
+- Thumbs Down → log happypause_thumb_down
+
+Store per activity:
+- thumbsUpCount
+- thumbsDownCount
+- lastShownAt
+
+Weighted selection algorithm:
+- BaseWeight = 1.0
+- WeightMultiplier = (1 + thumbsUpCount) / (1 + thumbsDownCount)
+- FinalWeight = BaseWeight * WeightMultiplier
+- Minimum weight = 0.05
+
+Anti-repetition:
+- If shown recently (last 3 breaks), multiply weight by 0.25
+- If shown within 2 hours, multiply by 0.5
+
+Activity selection uses weighted randomness from enabled categories only.
+
+This system must:
+- Work offline
+- Persist across app restarts
+- Never reduce probability to zero
+
+----------------------------------------------------
+ACTIVITY DATABASE
+
+Categories (extensible):
+- FITNESS
+- LEISURE
+- SOCIAL
+- MIND
+- SPIRITUAL
+- RELAXATION
+
+Each activity (HappyPause):
+- id
+- category
+- title (name)
+- icon (local asset or URL)
+- description
+- infoUrl
+
+Data format:
+- Prefer JSON (local + optional remote endpoint)
+- If XML provided, convert to JSON at import
+
+----------------------------------------------------
+CREATE A HAPPYPAUSE FORM
+
+Full-screen page (no bottom tab visible while editing).
+
+Fields:
+1) Category dropdown (default 6 + “Suggest new”)
+2) HappyPause Name (text)
+3) HappyPause Description (multiline)
+4) HappyPause Icon (image upload or URL)
+5) Additional Info Link (URL)
+
+Checkboxes:
+- “I want to make this HappyPause public”
+- “I agree to the Terms of Service and acknowledge the Privacy Policy.”
+
+Button:
+- “ADD & SUBMIT”
+
+Validation required.
+
+Behavior:
+- Save locally immediately
+- If public, mark as pending upload
+
+----------------------------------------------------
+STATS TAB
+
+Show at top in two boxes:
+- Total Focus time
+- Total HappyPause time
+
+Then a Weekly activity chart section with the last 7 days focus and pause time graph.
+
+Followed by a Category breakdown section, with time spent in each category
+
+Finally a Activity insight section with each category listed with how many pause done and skipped.
+
+Optional section:
+  - Most liked activities
+  - Most disliked activities
+
+Driven by event logs.
+
+----------------------------------------------------
+HISTORY TAB
+
+Chronological log including:
+- focus_started
+- focus_paused
+- focus_resumed
+- focus_stopped
+- focus_restarted
+- happypause_started
+- happypause_done
+- happypause_skipped
+- happypause_cycled
+- happypause_thumb_up
+- happypause_thumb_down
+- happypause_created
+
+Each entry stores:
+- timestamp
+- activityId (if applicable)
+- category
+- action type
+
+----------------------------------------------------
+PROFILE TAB
+
+Contains:
+- Profile card
+- Stats at a glance
+- Account preferences
+- Security
+- Support
+- Logout
+
+----------------------------------------------------
+SETTINGS (Cog Wheel)
+
+Full-width page with:
+- Back arrow top-left
+- Centered title “Settings”
+
+Sections:
+1) Ringtone selector (dropdown + optional preview)
+2) Visible Categories (checkbox list)
+3) Focus session time (Y minutes)
+4) HappyPause time (X minutes)
+5) Save Changes button
+
+Add version number at the bottom.
+
+Persist settings locally.
+
+----------------------------------------------------
+CORE REQUIREMENTS
+
+- Smooth animated transition between Focus and HappyPause
+- Persistent local storage (settings, stats, preferences)
+- Works fully offline
+- Clean, minimal, symmetric UI matching mockup
+- Weighted activity recommendation system based on feedback
+- Extensible category system
+- JSON-driven activity database
+
+Build the complete application architecture accordingly.
+
+
+
+
+NAMING LOGIC
+
+HappyPause Image Naming Convention Specification
+1. Purpose
+Each activity image filename encodes a unique 12-digit activity ID.
+This ID must match the ID stored in the database for that activity.
+The filename structure ensures:
+•	Unique identification
+•	Category grouping
+•	Future scalability
+•	Compatibility with database logic
+________________________________________
+2. File Naming Structure
+[CATEGORY]-[12_DIGIT_ID].png
+Example:
+FITNESS-000100000001.png
+________________________________________
+3. 12-Digit ID Structure
+The 12-digit ID is structured as follows:
+[CUSTOM_FLAG][CATEGORY_CODE][ACTIVITY_SEQUENCE]
+Segment	Length	Description
+CUSTOM_FLAG	1 digit	0 = default activity / 1 = custom user-created
+CATEGORY_CODE	3 digits	Encoded category
+ACTIVITY_SEQUENCE	8 digits	Sequential number within category
+________________________________________
+4. Category Codes
+Category	Code
+FITNESS	001
+LEISURE	002
+SOCIAL	003
+MIND	004
+SPIRITUAL	005
+RELAXATION	006
+________________________________________
+5. Example Breakdown
+Filename:
+FITNESS-000100000001.png
+Breakdown:
+0 001 00000001
+│ │   └────── Activity #1
+│ └────────── FITNESS category
+└──────────── Default (not custom)
+Meaning:
+•	Default activity
+•	Category: FITNESS
+•	First activity in that category
+________________________________________
+6. App Usage Logic
+Extracting ID
+When loading the activity:
+1.	Read the filename.
+2.	Extract the 12-digit ID.
+3.	Match it to the activity record in the database.
+4.	Display image where activity.id == extracted_id.
+________________________________________
+Determining Category from ID
+In code:
+category_code = id[1:4]
+Then map:
+•	001 → FITNESS
+•	002 → LEISURE
+•	etc.
+________________________________________
+Determining Custom vs Default
+isCustom = id[0] == "1"
+________________________________________
+7. Why This Structure Matters
+This system:
+•	Avoids duplicate images
+•	Allows infinite scaling (up to 99,999,999 activities per category)
+•	Separates system content from user-generated content
+•	Makes the filename itself a lightweight database key
+________________________________________
+8. Important Rule
+The filename ID MUST always match the database ID.
+The app should treat the 12-digit number as the single source of truth.
+________________________________________
+If you want, I can also generate:
+•	A JSON schema for AI Studio
+•	A Firestore document structure
+•	Or pseudo-code for the activity loader logic
+

@@ -1,0 +1,5 @@
+{
+  "name": "HappyPause",
+  "description": "A focus cycle timer with structured, guided breaks and activity recommendations.",
+  "requestFramePermissions": []
+}

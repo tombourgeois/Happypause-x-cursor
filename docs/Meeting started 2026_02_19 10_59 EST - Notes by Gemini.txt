@@ -1,0 +1,945 @@
+﻿📝 notes
+19 févr. 2026
+Réunion du 19 févr. 2026 à 10:59 EST
+Enregistrements de réunions Transcription 
+
+
+Résumé
+Alexandre Joset et Tommy Bourgeois ont examiné la fonctionnalité de connexion et de réinitialisation du mot de passe, notant que si la logique de l'IA pour l'envoi de codes par courriel est en place, l'envoi d'e-mails lui-même n'est pas pris en charge. Les participants ont largement discuté de l'utilisation de l'IA dans le développement de code et la création musicale, soulignant que l'efficacité de l'IA dépend de la clarté et de la précision des prompts, et que l'IA force l'industrie à valoriser le résultat final plutôt que le temps passé. Alexandre Joset a également confirmé que la fonctionnalité du timer est opérationnelle et a récapitulé les tâches techniques restantes pour Tommy Bourgeois, incluant l'implémentation complète du login/sign-in, la création d'une base de données d'activités à partir d'un fichier CSV, et la mise en place d'un processus d'approbation pour les activités publiques créées par les utilisateurs.
+
+
+Détails
+* Vérification du Login et du Mot de Passe Oublié: Alexandre Joset a partagé son écran pour vérifier la fonctionnalité de connexion, notant qu'un identifiant et un mot de passe non valides ont été entrés. Ils ont également vérifié la fonctionnalité de mot de passe oublié, qui n'est pas implémentée dans le flux de connexion mais a été mise en place dans la section de sécurité du profil (00:00:00).
+* Fonctionnalité de Réinitialisation du Mot de Passe via Courriel: La fonction de modification du mot de passe dans les paramètres de sécurité implique l'envoi d'un code par courriel, ce qui est fonctionnel, mais le système actuel ne permet pas la réception d'e-mails, nécessitant un tiers ou un système dédié pour le support par e-mail. Alexandre Joset a noté que l'IA avait mis en place la logique pour cette fonction, même si l'envoi réel de l'e-mail n'est pas pris en charge (00:00:49).
+* Gestion des Codes et des E-mails par l'IA: Alexandre Joset a soulevé le problème de la gestion des codes et des e-mails par l'IA, notant que lorsque l'on demande à l'IA d'envoyer un code à l'e-mail pour le changement d'adresse, l'IA exécute la fonction sans pouvoir réellement l'envoyer. Tommy Bourgeois a suggéré qu'Alexandre Joset aurait pu spécifier l'utilisation d'une API tierce pour rendre cette fonctionnalité opérationnelle (00:01:47).
+* Méthodologie de Développement et Utilisation de l'IA: Tommy Bourgeois a noté qu'il serait possible de créer un modèle pour accompagner le processus de développement, ce qui pourrait automatiser le travail à 90 % (00:01:47). Alexandre Joset a discuté de sa propre méthodologie avec l'IA pour la création de musique et de vidéos, soulignant l'importance d'utiliser des prompts clairs et précis pour obtenir les résultats souhaités, ce qui est similaire à la nécessité de spécifier les API exactes pour le code (00:02:38).
+* Règles et Réticence au Changement dans l'Industrie: Tommy Bourgeois a mentionné qu'il est possible d'ajouter des règles de compagnie dans le projet afin que l'IA les utilise lors de la génération de code, comme l'évitement de `get commit`. Ils ont ensuite discuté de la résistance de certains professionnels, notamment les développeurs web et les musiciens, face à l'IA, car celle-ci peut les remplacer ou minimiser leurs efforts et leur expertise (00:03:30).
+* Débats sur la Valeur du Travail et l'Utilisation de l'IA: Alexandre Joset a critiqué la « méritocratie » qui accorde de la valeur au temps passé sur un projet, affirmant que le résultat final est plus important que le temps investi (00:04:25). Tommy Bourgeois a noté qu'une application simple pourrait être réalisée de A à Z en une seule commande, réaffirmant le potentiel de l'IA (00:05:26).
+* Clarté de la Vision et Coût du Travail: Le principal défi avec l'IA réside dans la capacité à formuler clairement ses besoins, car de nombreux clients n'ont pas de vision précise et utilisent les développeurs pour clarifier leurs idées, souvent sans vouloir payer pour ce travail de clarification (00:06:15). Les participants ont conclu que l'IA va forcer les gens à réaliser que ce qui a de la valeur n'est pas le nombre d'heures passées, mais la capacité à être clair et à définir les choses (00:07:01).
+* Vérification des Fonctionnalités du Timer et du Design: Alexandre Joset a confirmé que la fonctionnalité du timer est opérationnelle et que l'application s'exécute correctement, y compris une animation ajoutée par l'IA sans demande spécifique. Le seul problème restant dans ce menu est l'image du logo qui est brisée, ce qu'Alexandre Joset allait demander à l'IA de corriger en utilisant une instruction simple (00:08:02).
+* Discussion sur les Outils d'IA pour la Musique et le Code: Tommy Bourgeois a fait l'éloge de la fonctionnalité de sélection d'éléments dans le studio d'IA utilisé par Alexandre Joset. Ils ont comparé l'outil à d'autres applications, notamment celles pour la musique comme Suno Studio, que Tommy Bourgeois n'a pas encore exploré, mais dont Alexandre Joset a souligné l'efficacité pour la création de musique et de paroles à l'aide de prompts (00:08:56).
+* Spécificité des Prompts dans la Création Musicale par IA: Alexandre Joset a expliqué que pour obtenir de la musique de qualité avec Suno, il est nécessaire de spécifier des détails précis comme le BPM et l'instrumentation pour éviter des résultats génériques. Ils ont décrit le processus de création musicale par IA, y compris l'utilisation de stems (pistes individuelles) pour extraire et réutiliser des éléments spécifiques, transformant ainsi l'IA en une immense bibliothèque d'échantillons (00:10:49).
+* Débat sur le Droit d'Auteur et l'Inspiration de l'IA: Les participants ont discuté du débat sur le droit d'auteur, notant que l'IA est entraînée sur de la musique existante, un processus similaire à celui par lequel les musiciens humains s'inspirent (00:11:36). Alexandre Joset a soutenu que l'être humain est le produit de ce qu'il a écouté, remettant en question la défense contre l'entraînement de l'IA sur de la musique protégée (00:12:23).
+* Avancements de Suno Studio et l'Audio Studio: Alexandre Joset a mentionné que Suno Studio a continué à évoluer, permettant désormais l'extraction de stems et l'ajustement du phrasé. Ils ont également présenté AI Studio, un outil similaire qui permet l'utilisation de fichiers MIDI ou la conversion d'une voix chantée en piste MIDI, tout en conservant les inflexions vocales, ce qui représente un grand pas par rapport aux limitations des MIDI traditionnels (00:13:13).
+* Impact Émotionnel et Professionnel de l'IA sur les Créateurs: Tommy Bourgeois a reconnu que, même si l'IA permet d'atteindre des résultats plus rapidement, elle est frustrante pour les professionnels qui ont investi beaucoup de temps dans le développement de leurs compétences, ce qu'Alexandre Joset a qualifié de « deuil » (00:15:21). Alexandre Joset a noté qu'il est déjà difficile pour les experts de distinguer la musique générée par IA de la musique humaine, ce qui indique que l'IA a atteint un niveau élevé de qualité (00:16:10).
+* Implications Futures de l'IA dans l'Industrie de la Musique et du Divertissement: Alexandre Joset a prédit que l'IA va changer l'industrie de la musique, menant à la création rapide de contenu radio friendly et probablement à de nouvelles fonctionnalités comme l'écoute personnalisée sur Spotify (00:17:49). Selon leur analyse, cela pourrait forcer les créateurs à se concentrer sur l'originalité et à revenir à des formats moins formatés, comme dans les années 1970 (00:18:57).
+* Synthèse des Tâches Techniques et Problèmes Restants: Alexandre Joset a récapitulé les problèmes à adresser par Tommy Bourgeois : l'implémentation complète du login/sign-in, la création d'une base de données pour les activités et la gestion des utilisateurs. L'IA a déjà corrigé l'erreur de l'image du logo, soulignant l'importance de comprendre le processus de correction pour éviter de futures erreurs (00:20:13) (00:29:01).
+* Structure de la Base de Données des Activités: Alexandre Joset a expliqué la logique de nomination des fichiers d'images pour les activités, utilisant un code à plusieurs chiffres pour identifier la source (utilisateur ou système), la catégorie et la séquence de l'activité (00:21:16) (00:23:15). Tommy Bourgeois a confirmé que le fichier CSV fourni par Alexandre Joset devrait être converti en une base de données (`.DB`) pour que l'application accède aux données et aux icônes d'activité (00:24:03).
+* Création d'Activités par les Utilisateurs et Approbation: Alexandre Joset a montré la fonctionnalité de création de nouvelles activités par les utilisateurs, qui inclut une option make public. Cette option nécessite l'implémentation d'un processus d'approbation (formulaire) avant que l'activité puisse être ajoutée à la base de données publique (00:30:14).
+* Intégration de Tâches via Clickup: Les participants ont procédé à l'importation de tâches dans l'outil de gestion de projet Clickup (00:38:57). Tommy Bourgeois a expliqué que l'IA (Curser dans son cas) génère souvent ces listes de tâches à partir des notes de réunion, ce qui permet d'éviter la copie manuelle, et les tâches ont été importées dans le backlog du projet de développement web (00:42:15).
+* Discussion sur l'Avenir Professionnel de Tommy Bourgeois: Alexandre Joset a discuté avec Tommy Bourgeois de ses plans après le stage, mentionnant que Nick souhaitait trouver un moyen de conserver les bons stagiaires comme eux (00:43:45). Tommy Bourgeois a indiqué qu'ils n'avaient pas de plans fixes, mais qu'ils seraient ouverts à un poste à temps partiel ou contractuel, surtout s'ils peuvent travailler sur leurs propres projets (00:44:58) (00:47:52).
+* Stratégie de Négociation Salariale et Statut d'Entrepreneur: Alexandre Joset a conseillé à Tommy Bourgeois de déterminer un revenu minimum pour être à l'aise, afin d'être en mesure de négocier avec Nick (00:46:03). Ils ont partagé l'importance d'avoir des conditions de travail flexibles et un salaire qui permet d'atteindre l'autonomie financière pour se consacrer à des projets personnels (00:49:37).
+
+
+Étapes suivantes suggérées
+* Tommy Bourgeois effectuera des recherches pour déterminer comment utiliser AWS ou un autre service pour l'envoi d'emails afin de rendre fonctionnel le système de changement de mot de passe et les autres fonctionnalités d'email.
+
+
+Nous vous conseillons d’examiner les notes de Gemini pour vérifier qu’elles ne contiennent pas d’erreur. Profitez de nos astuces et découvrez comment Gemini prend des notes
+Merci de nous donner votre avis sur l’utilisation de Gemini pour la prise de notes en répondant à courte enquête.
+📖 Transcription
+19 févr. 2026
+Réunion du 19 févr. 2026 à 10:59 EST - Transcription
+00:00:00
+ 
+Alexandre Joset: Bon voilà fait que je vais te partager mon écran. OK, on va aller dans l'ordre là. Euh je sais pas pourquoi il fait ça OK fait dans le fond dans l'ordre le login. Ben tu évidemment il y a l'adresse de courriel avec le password. Euh puis évidemment tu sais si je fais mon Pinman puis j'écris n'importe quoi 1 2 3 4 euh tu sais sign in. C'est sûr que il a pas créé un compte en arrière là. Je sûr qu'il a rien fait de bon là. C'est sûr que non.
+Tommy Bourgeois: Ben ouais c'est croire c'était super base puis Il y en a créé un,
+Alexandre Joset: Euh que je sais
+Tommy Bourgeois: c'est juste est-ce qu' sera pas online là ?
+Alexandre Joset: pas.
+Tommy Bourgeois: En tout
+Alexandre Joset: Ouais. OK. Tu vérifieras.
+Tommy Bourgeois: cas,
+Alexandre Joset: L'autre affaire c'est que j'ai fait forgot password aussi. Tu pas marcher. Ah non,
+Tommy Bourgeois: non,
+Alexandre Joset: c'est vrai.
+Tommy Bourgeois: c'est
+Alexandre Joset: Je l'ai pas implémenté ici. C'est dans si je fais je pense c'est ici que je l'ai mis.
+ 
+ 
+00:00:49
+ 
+Tommy Bourgeois: ça.
+Alexandre Joset: Non, je l'ai mis dans le profil. Je vais c'est ici dans security, je l'ai mis modifier password intercode send email
+Tommy Bourgeois: Non, c'est ça. Puis ça c'est fonctionnel. La seule différence,
+Alexandre Joset: euh
+Tommy Bourgeois: c'est si tu demandes "Ah, donne-moi le moyen de resetter le password versus donne-moi le moyen de resetter le password." Sécure sécurement, c'est vraiment la différence d'un mot pour qu'il soit bien fait versus sans validateur,
+Alexandre Joset: OK.
+Tommy Bourgeois: rien.
+Alexandre Joset: Ben c'est ça là.
+Tommy Bourgeois: Sais
+Alexandre Joset: J'ai demandé de me mettre un code scè par email, mais c'est sûr, je recevrai pas
+Tommy Bourgeois: non, non, pas non,
+Alexandre Joset: d'email.
+Tommy Bourgeois: peut-être pas. Là, il faut là, il faut un système un third party ou une
+Alexandre Joset: Le pour l'instant, je rentre 2 3 4 ça marche là, mais ça change rien là, tu sais. Mais tu sais,
+Tommy Bourgeois: Mais ça peut changer non mais ça devrait tu peux changer le password juste pas
+Alexandre Joset: j'ai fait la logique.
+Tommy Bourgeois: d'email.
+Alexandre Joset: Euh ouais, mais d'ailleurs ça, il me l'a fucké.
+ 
+ 
+00:01:47
+ 
+Alexandre Joset: Tiens, je viens tu viens de me faire marquer. Non, c'est ici. Si je clique là, change email avec le request code, il t'envoie un code à ton email, tu rentres le code et évidemment, il y a pas de code puis je reçois pas d'email. Fait que tu toutes ces affairesl email, d'envoyer des codes, j'ai a dit de le faire mais
+Tommy Bourgeois: au lieu de te dire qu'il peut pas,
+Alexandre Joset: je
+Tommy Bourgeois: il fait pareil mais il donne une version fonctionnelle.
+Alexandre Joset: Exact.
+Tommy Bourgeois: Faut que tu saches que genre qui qui va faire ça tu sais.
+Alexandre Joset: Ouais mais c'est ça. Mais si j'avais pu écrire genre
+Tommy Bourgeois: Ouais ouais ben oui,
+Alexandre Joset: use
+Tommy Bourgeois: tu aurais dû dire utilise third party là qu'on est déjà en place puis il rentre une ligne de code, c'est fonctionnel, tu sais.
+Alexandre Joset: OK parfait fait dans le fond. OK donc probement capableer
+Tommy Bourgeois: Puis ben oui, il y a moyen c'est c'est ça qui est qui est beau qui qui parlait justement avec ses library c'est rendu ça. Mais avec le le but ça ça serait de se faire un genre de template pour t'accompagner d'une certaine manière de fonctionner puis après ça c'est c'est ça va être automatisé à
+ 
+ 
+00:02:38
+ 
+Alexandre Joset: Ouais. Oui,
+Tommy Bourgeois: 90 %.
+Alexandre Joset: exact.
+Tommy Bourgeois: C'est sûr que après si tu décides de changer puis de faire des jeux vidéos au lieu de faire des des sites comme tu faisais,
+Alexandre Joset: Ah,
+Tommy Bourgeois: ben là va fallir tu recommences, tu sais. Ne.
+Alexandre Joset: exact. Ben, c'est ça. Moi, j'ai beaucoup beaucoup testé les avec la musique puis les vidéos, tu sais. Puis la musique, le premier album que j'ai fait, j'avais des méthodologies mais j'obtenais pas tout à fait ce que je voulais. C'était difficile de faire des changements. Mais là, j'ai continué. Ben maintenant, m oublie ça. Là, j'utilise Ace. J'utilise Suno, je sais comment écrire les prompt, j'utilise chat GPT, tu sais, j'ai une méthodologie puis j'ai des prompts de fait que j'ai mis,
+Tommy Bourgeois: Ouais ouais, c'est
+Alexandre Joset: tu sais,
+Tommy Bourgeois: C'est
+Alexandre Joset: je me suis gardé dans un fichier mettons pour savoir comment écrire les choses pour c'est ça, c'est exactement ça que ça revient à dire. Tu sais, c'est comme là toi si tu sais que faut que tu écris telle ligne pour qu'il utilise tel API,
+ 
+ 
+00:03:30
+ 
+Tommy Bourgeois: Ouais, mais c'est ça.
+Alexandre Joset: ben pr ça fonctionner.
+Tommy Bourgeois: Je je te parlais la dernière fois quand je disais que tu peux rajouter des des règles directement dans ton dans ton projet. C'est c'est ça une règle de sais jamais faire de get commit là.
+Alexandre Joset: Ouais.
+Tommy Bourgeois: Après ça, à chaque fois qu'il rentre un promp,
+Alexandre Joset: Ouais,
+Tommy Bourgeois: il utilise les règles en considération fait qu'on pourra avoir des règles de compagnie par
+Alexandre Joset: exactement. Ouais.
+Tommy Bourgeois: exemple.
+Alexandre Joset: Écoute Tomy, c'est cool parce que je pense que tu es comme moi, tu es un peu la tu sais mais tu comme tu es le profil de Microsoft quand Bill Gates avait dit ça mon
+Tommy Bourgeois: Ouais, ouais, c'est ça. Ouais,
+Alexandre Joset: il disait like lazy people because
+Tommy Bourgeois: c'est job.
+Alexandre Joset: J un peu comme toi tu sais je le voyais tantôt dans le meeting parce
+Tommy Bourgeois: Mais ouais, c'est ça exact.
+Alexandre Joset: que tous les autres mettaient beaucoup de résistance parce qu'évidemment ils veulent pas perdre
+Tommy Bourgeois: Il ont peur. Je comprends ça doit tellement faire chier.
+Alexandre Joset: Mais oui.
+Tommy Bourgeois: Imagine,
+Alexandre Joset: M.
+Tommy Bourgeois: tu as mis 10000 heures à coder pour être vite à codé puis là tu te fais remplacer par des prom.
+ 
+ 
+00:04:25
+ 
+Tommy Bourgeois: C'est c'est c'est sûr c'est plat. Puis ça l'explique pourquoi ça l'explique la stilité genre 50 % des webdv.
+Alexandre Joset: Ben oui oui oui.
+Tommy Bourgeois: Mais ouais.
+Alexandre Joset: Ben mes amis musiciens là justement c'est drôle parce que j'ai un mes amis musiciens M GRF il fait un podcast sais puis là il son dernier podcast m'ont invité dedans puis on jose les tu sais puis c'est super le fun je te partager si tu veux mais parce que lui écoutait ma musique évidemment puis ça le fait chier tu saisé je faisais aussi sur
+Tommy Bourgeois: Ah ouais !
+Alexandre Joset: mon TikTok à chaque semaine mais j'ai arrêté depuis un petit bout là puis mais je fais un vidéo qui c'était genre devine quelle tun est je prends une vraie t puis l'autre c'est là faut que tu dises c'est elle ou c'est elle tu sais je le postais puis lui à chaque fois était
+Tommy Bourgeois: Ouais !
+Alexandre Joset: comme ça ça le rendait enragé parce qu'il était comme je suis pas même pas capable de dire tu sais puis lui c un musicien depuis 20 ans compose fait que là on a eu une discussion tu sais puis il était il était comme ça le fait tellement chip puis comme puis parce que tout le monde é un peu aussi méritocrate tu sais c'est comme on donne beaucoup de de mérite au travail tu sais c'est comme combien de temps ça t'a pris faire ça ah 10 ans.
+ 
+ 
+00:05:26
+ 
+Tommy Bourgeois: Ouais
+Alexandre Joset: Oh mon dieu, c'est fou,
+Tommy Bourgeois: ouais
+Alexandre Joset: tu sais. Mais moi je disais, moi je m'excuse, tu me dis que tu as sculpté de la merde pendant 2 ans, ça reste de la merde. Je m'encisse.
+Tommy Bourgeois: c'est ça
+Alexandre Joset: Sais mais tout le monde sait ça, c'est comme tellement tu sais là,
+Tommy Bourgeois: C'est
+Alexandre Joset: je le voyais tantôt dans le meeting. Ouais, ça bon pour faire des maquettes. J'étais comme j'ai hâte de voir ce que Tomy va faire avec. Mais d'après moi dans une semaine, on va faire non, l'app est finie, tout fonctionne, tu sais. Pied
+Tommy Bourgeois: Mais c'est c'est ça dépend, c'est juste la complexité là. J'ai un un app de même comme tu as fait, il y a moyen il y a réellement moyen de le faire de A à Z fonctionnel à un pump
+Alexandre Joset: Ouais ouais
+Tommy Bourgeois: là réellement. J'ai aucune exagération. C'est comme une tout douce ou Ouais.
+Alexandre Joset: !
+Tommy Bourgeois: Non, c'est c'est
+Alexandre Joset: C'est ça à partir du moment où tu es capable formuler.
+ 
+ 
+00:06:15
+ 
+Alexandre Joset: Ça ça dit qu' est là le défi puis c'est c'est là-dessus que la les gens vont fair qu'il travaillent tu sais parce que moi mon je la vois dans ma tête fa je capable de dire je veux ça je veux ça mais je me suis rendu compte dans mon expérience beaucoup de clients pu c'est ça qui est drôle n'ont pas une vision claire puis ils se servent de tous les gens avec qui il qui travaillent pour clarifier leur vision
+Tommy Bourgeois: Ouais ouais ouais comme justement rend ça plus funky tu es comme qu'est-ce que je vais faire je changer la couleur puis
+Alexandre Joset: mais
+Tommy Bourgeois: là c'est ça qu'il voulait ah tu
+Alexandre Joset: Exact. Exact. Puis dans le fond, c'est ce qui m'a souvent fait chier, c'est que les gens veulent pas payer pour ça.
+Tommy Bourgeois: sais
+Alexandre Joset: C'est comme "Ah ben mon film c'est 50 shot fait ça vaut combien ?" 5 millions. OK. Mais tu es comme moi mais qu'est-ce qu'il y a dans tes chots ? Ben des dinosaures. Quel g ? Ben je sais pas. Voyons pourquoi tu as besoin de ça ?
+Tommy Bourgeois: ouais c'est ça une méchante différence s'il nous faut s'il faut louer une Ferrari ou s'il Faut
+ 
+ 
+00:07:01
+ 
+Alexandre Joset: Parce que ça c'est ça c'est comme Chris
+Tommy Bourgeois: euh
+Alexandre Joset: puis là ben là ils te font souscoster là après ça il te font niaiser pendant 3h parce que leur idée est pas clair ou pendant des heures des heures puis là comme ils veulent pas payer pour ça tu comme mais c'est pour ça que
+Tommy Bourgeois: Ouais, ils font changer la même scène 20 fois mais ils vont quand même payer pour une scène
+Alexandre Joset: tu Ouais ouais exact jusqu'àatt que Oh oui c'est ça je voulais mais tu sais puis moi c'est toujours ce que j'ai trouvé débile puis que j'aime pas le système de j'aime pas le fonctionnement tout ça parce que je fais surtout les fixed price parce que c'est comme puis c'est les va amener ça les va juste faire réaliser au monde que ce qui vaut de l'argent c'est pas le nombre d' tu passes dessus c'est ta capacité à à être clair puis à définir tu sais les choses
+Tommy Bourgeois: Ouais ouais. C'est c'est ça être capable de de bien prendre une idée puis de l'expliquer
+Alexandre Joset: fait
+Tommy Bourgeois: en mot.
+Alexandre Joset: exact en tout cas j'ai hâte de voir mais là bon comme je te dit il y a le email sign avec Google tout ça qui est à faire que j'ai fait de quoi Mais je suis pas mal sûr qu'il y a comme rien codé d'intéressant.
+ 
+ 
+00:08:02
+ 
+Alexandre Joset: Après ça ici ça ça fonctionne le timer. Euh tout fonctionne ici. Ça c'est beau. Tu fais play ça route. J'ai tout checké tout fonctionne. Have a happy pause ça fonctionne.
+Tommy Bourgeois: Il y a pas a pas il y a pas il y a pas d'animation mais tu sais ça c'est une autre affaire tu aurais pu demander une règle
+Alexandre Joset: Ouais ouais.
+Tommy Bourgeois: je veux des animations à chaque clic en tout cas ouais
+Alexandre Joset: Ben tu vois il y en a fait une ici quand je vois dans la pipe puis que je paye sur tu que ça
+Tommy Bourgeois: ouais
+Alexandre Joset: ici il y a un je fais ça tu vois il revient c'est pas moi qui a dit de faire ça il l' fait bon c'est cool c'est correct fait dans ce menul c'est pas mal tout correct la seule problème c'est que l'image du logo à l'autre pas puis il l'a pas mis dans
+Tommy Bourgeois: Je fais le t écrit lui dis-lui le logo l'autre pas fa juste dire ça juste voir qu'est-ce
+Alexandre Joset: Ah oui souvent je fais question pour pas qu'il touche au au cod
+Tommy Bourgeois: qui Non il faut qu'il touche au cod il faut qu'il répare et dis-lui le logo l'image du logo est brisée c'est aussi simple que
+ 
+ 
+00:08:56
+ 
+Alexandre Joset: Tu veux quoi le l'image du logo
+Tommy Bourgeois: ça l'image du logo est
+Alexandre Joset: ?
+Tommy Bourgeois: brisé bah ça c'est partout
+Alexandre Joset: Ouais. Non mais je toujours où là ? C'est dans page de focus là. S'appelle focus celle parce que c'est focus.
+Tommy Bourgeois: Ouais ouais ouais mais moi avec Ouais même que tu sais ce que j'ai trouvé le plus nice de tout ce que tu as montré c'est de pouvoir sélectionner l'élément tandis que moi je je clique droit puis je vais
+Alexandre Joset: Ouais. Oui.
+Tommy Bourgeois: inspecter l'élément pour y copier le code puis dire que c'est ça que je veux changer quand je sais pas trop quoi il dire
+Alexandre Joset: Ouais. Ouais. Ouais.
+Tommy Bourgeois: ça mais c'est Ouais ça c'est ben c'est peut-être c'est même une option C'est sais c'est ils vont le
+Alexandre Joset: Exact.
+Tommy Bourgeois: rajouter si c'est pas déjà.
+Alexandre Joset: Tuas le dit là les vidéos la musique joué un peu studio ?
+Tommy Bourgeois: Non non, il y en a tellement. Il y en a tellement. Il y en a un, il faudrait que je te montre. Le premier que j'ai j'ai parti c'est exactement comme c'est exactement la même chose que AI Studio.
+ 
+ 
+00:09:54
+ 
+Tommy Bourgeois: Euh c'est 100 % fonctionnel. J'ai sorti un app.
+Alexandre Joset: Il y en a plein mais tu sais comme Suno Studio pour la musique là quand j'ai commencé à
+Tommy Bourgeois: Ouais, c'est ça. Il y en a plein.
+Alexandre Joset: l'utiliser.
+Tommy Bourgeois: J'ai pas j'ai pas la musique
+Alexandre Joset: OK mais sino c'est mal tout le monde capote parce que il y a un gars qui a fait un vidéo là je suis pas un
+Tommy Bourgeois: C
+Alexandre Joset: guitariste là puis tu peux littéralement écrire je veux une tun de drum and base puis dire génère-moi lyrics puis je veux que ça soit une fille qui chante puis te fait une tun puis il t'en fait un autre puis il t'en fait un autre ok fait faire des tons recette là tu peux en faire tu peux en chier là facile. OK mais suo ouaiso si tu payes pas
+Tommy Bourgeois: Ah
+Alexandre Joset: par tu peux pas utiliser t en tout cas whatever mais tu sais littéralement tu écris le prop de drum and
+Tommy Bourgeois: je
+Alexandre Joset: base attaque des styles un peu rap telle vitesse avec tel instrument
+Tommy Bourgeois: ça Ouais. Puis là ça revient.
+Alexandre Joset: puis je veux parler de l'amour que j'ai pour les chiens des lyric je veux que soit une fille qui chante
+ 
+ 
+00:10:49
+ 
+Tommy Bourgeois: Ouais, ça ça revient à ce qu'on disait tantôt pour que ta tonne soit bonne,
+Alexandre Joset: Bon,
+Tommy Bourgeois: mais là faut que tu dises "Ah ben je veux tel BPM, je veux tel instrument à telle partie,
+Alexandre Joset: exact.
+Tommy Bourgeois: j'ai besoin d'un drop là." Mais si tu dis pas ça, ça va être générique. Eu
+Alexandre Joset: Puis moi au début quand je l'ai utilisé la première fois, j'avais des idées de t fait que j'écrivais toutes mes paroles là, j'utilisais un petit peu de chat GPT pour des fois les phrases je trou longu m' raptisser mais garder la rine tu des affain puis là j'ai toutes composé mes paroles j'éis allé j'ai mis mes paroles puis là j'écrivais ça c'est une tonne euh
+Tommy Bourgeois: Ouais ouais.
+Alexandre Joset: de tel je donnais beaucoup de spécifications puis là je générais là je générais je générais puis là ça me sortait des tonnes et des tonnes de tonnes puis là mettons une tune je trouvais que la base était bonne fait que là je
+Tommy Bourgeois: Tu gardes juste la baisse de celle-là.
+Alexandre Joset: faisais Ouais, exact. Mais tu peux extract les stems fait que là,
+Tommy Bourgeois: Genre Ah
+Alexandre Joset: il sort toutes les pistes.
+ 
+ 
+00:11:36
+ 
+Alexandre Joset: Fait que là, je gardais juste la baisse de une là. Là,
+Tommy Bourgeois: ok.
+Alexandre Joset: je remontais ça. C'est comme ça je faisais
+Tommy Bourgeois: À la fin,
+Alexandre Joset: au
+Tommy Bourgeois: c'est ça fin c'est même plus du c'est comme si tu avais accès à immense library puis tu faisais juste prendre ce que tu voulais tu sais.
+Alexandre Joset: Exact. Exactement.
+Tommy Bourgeois: C'est h mais arrêtez c'est ça les c'est pas de la magie c'est du copiercollé
+Alexandre Joset: Mais là il ont exact mais en fait
+Tommy Bourgeois: d'ailleurs là c'est ça ouais
+Alexandre Joset: ça j'expliquais à mon chum c'est que c'est le même principe que si j'étais dans un studio avec 50 musiciens puis je disais au
+Tommy Bourgeois: c'est ça
+Alexandre Joset: guitaristes fais-moi don genre de guitare funk qui fait ni me le fait un petit peu moins
+Tommy Bourgeois: ouais plus dans le style
+Alexandre Joset: de c'est exactement ça mais là ouais exact puis c'est
+Tommy Bourgeois: V c'est
+Alexandre Joset: pour ça aussi que j'ai de la misère toutes les compagnies qui veulent sous le pour parce qu'il il étudie
+Tommy Bourgeois: c'est
+Alexandre Joset: dit des musiques copyrighté parce que je suis comme qu'est-ce que tu penses que je fais moi comme humain ?
+ 
+ 
+00:12:23
+ 
+Alexandre Joset: J'ai j'aiécouté du led, j'ai fait j'aime la baisse je aller payer la zep si je fais une t que la baisse s inspiré de la zep. Non fait pour Oui.
+Tommy Bourgeois: inspiré non mais oui c'est vient touché Mais
+Alexandre Joset: Ouais mais ils disent on veut pas là ils veulent sous puis là ils sont en train de perdre il voulait sous Suno puis tout ça parce
+Tommy Bourgeois: ouais.
+Alexandre Joset: que il disait vous avez train vos a sur notre musique.
+Tommy Bourgeois: M.
+Alexandre Joset: Je suis comme ben comment tu penses qu'un humain fonctionne
+Tommy Bourgeois: Ouais ouais,
+Alexandre Joset: ?
+Tommy Bourgeois: c'est ça. C'est c'est l'inspiration. C'est Ouais.
+Alexandre Joset: Ben moi je me je me suis pas juste trainé en allant à l'école en me faisant expliquer gam j'aiécouté de la musique toute ma vie. J'ai fait ça, j'aime ça. On est tout le produit de ce qu'on a écouté. Fait que les pareil, comment tu veux comme défendre ça en tout cas ? Mais bref, c'est intéressant parce que là, tu vois le le Suno Studio là, j'étais en train de faire mon nouvel album là,
+Tommy Bourgeois: Non, je vais aller je vais aller jouer
+ 
+ 
+00:13:13
+ 
+Alexandre Joset: ils ont rajouté des outils d'autres ça a juste plus de crise de bon sens.
+Tommy Bourgeois: un
+Alexandre Joset: Je peux sortir toutes mes stems puis là, je peux dire sélectionner une section dire "Ah, j'aime pas ça comment il dit ça ? Fais le phrasing de mê je peux chanter mettre ma traque de voix trompette.
+Tommy Bourgeois: Ouais pour Ouais, c'est ça. Là, tu dis change ma voix complètement si tu veux.
+Alexandre Joset: Ah ouais, puis là il y a A Studio qui est sorti A Studio,
+Tommy Bourgeois: Ouais.
+Alexandre Joset: c'est un peu le même principe mais tu peux aussi utiliser une midi fait que là tu peux dessiner les notes de ta mélodie puis dire ça c'est un clavier, ça c'est une trompette, c'est une guitare trqu puis tu génère puis où tu peux faire l'inverse, tu peux chanter là dire prends ma voix,
+Tommy Bourgeois: OK.
+Alexandre Joset: fais une track de midi avec les convertis ta voix en midi puis là tu peux dire map map
+Tommy Bourgeois: Ouais.
+Alexandre Joset: une trompette mais le pire c'est que ce qui est vraiment rendu c'est comme c'est qu' il garde les inflexions, tu peux les ajuster parce ça le problème avec les midis les midi c'est des blocs de notes tu fais rijouté qu'ure il y a des inflexions fait que tu peux voir si tu
+ 
+ 
+00:14:09
+ 
+Tommy Bourgeois: M.
+Alexandre Joset: sais mainant je suis un vibrato là je suis un mi je vais faire mi fait que je suis pas sur le mi je suis sur le mi mais je monte puis je descends fait puis si je fais ben il y a tu sais ça ça monte ça fait pas venir mais midi tu pas de faire ça mais maintenant des inflexions,
+Tommy Bourgeois: Ça sonnait.
+Alexandre Joset: tuas une cur exact ou ça paraissait que c'était fait par
+Tommy Bourgeois: Ouais. OK. fait que ça paraissait que c'est fait pareil tandis que
+Alexandre Joset: midi mais là avec l'inflexion tu peux dire fais moins vibrato puis là tu transitionnes dans l'autre note smoothly puis tu peux tu as non seulement l'inflexion mais tuas aussi l'amplitude fa que là je pourrais faire fais un vibrateau puis quand tu transiges dans l'autre diminue le son puis remonte après ça sonne non seulement ça sonne vrai mais en plus tu as le contrôle sur tout fait, tu sais là mon chum il capote puis compte ça puis j'ai j'ai pour finir là-dessus il il y avait une vieille tun qui avait composé ok prendsla fais ce que tu vas avec puis faisit que j'ai refait sa t puis j'ai envoyé était comme il en est comme tout le
+Tommy Bourgeois: Ouais,
+Alexandre Joset: monde ça non
+ 
+ 
+00:15:21
+ 
+Tommy Bourgeois: c'est ça. Ouais. Ouais. Mais en même temps, il Ouais, c'est c'est je comprends pas. En même temps, c'est c'est comme ça te réduit ton travail. Tu peux atteindre ton résultat plus vite, tu sais. Tu es en utilisant tes skills fait que genre je vois pas pourquoi le monde il embarque pas mais en même temps c'est frustrant
+Alexandre Joset: Ouais, parce
+Tommy Bourgeois: quand tu vois du monde qui qui ont pas mis leur 10000 he qui font de quoi d' aussi bon que toi fait que
+Alexandre Joset: que
+Tommy Bourgeois: c'est Ouais ouais ouais ouais ouais
+Alexandre Joset: tuas un deuil. Tuas un deuil. Honnêtement, je comprends. C'est juste que moi je tu sais,
+Tommy Bourgeois: Test.
+Alexandre Joset: je pense toi puis moi, on est tous les deux des gens qui ont beaucoup d'imagination puis on crée dans notre tête qu'on est content. Mais il y a beaucoup de gens dans vie qui ont développé des skills appliqués, tu sais. Fait que pour eux c'est comme Chris, ça m'a pris 10 ans à être bon à f****** guitare, man. Je viens de tout perdre ça.
+ 
+ 
+00:16:10
+ 
+Alexandre Joset: Je comprends. C'est vrai que c'est fâchant. C'est fâchant. Mais rendu là comme ça sert à quoi que tu continues d'être comme non je veux pas que ça avance ça va avancer d'autres faiton
+Tommy Bourgeois: Non, c'est ça. Non, c'est ça. Exact.
+Alexandre Joset: de
+Tommy Bourgeois: surtout surtout qu'à un moment on fera pas la différence entre le puis le vrai va falloir qu' comme voir de la musique certifiée pas puis
+Alexandre Joset: Ah.
+Tommy Bourgeois: ça c'est
+Alexandre Joset: Moi je peux déjà dire en vidéo c'est pas tout à fait là mais on est vraiment pas loin en musique on est déjà là les
+Tommy Bourgeois: ça c'est
+Alexandre Joset: gens moi je te je te garantis là je suis un test avec mes meilleurs amis en musique j'ai un ami qui fait du studio depuis 30 ans là j'y fais j' je donne aucun indice je dis écoute deux tones tu me dis c'est laquelle qui est pas gra de dire je peux je sais j'en fait des t j'ai même fait une t des
+Tommy Bourgeois: Ouais.
+Alexandre Joset: années 70 québécoises là puis celle que j'ai généré pour fourer le monde là la fille
+Tommy Bourgeois: Ouais.
+Alexandre Joset: chante avec un accent comme Michel Richard puis tu entends un peu les scratch de 10 dedans
+ 
+ 
+00:17:06
+ 
+Tommy Bourgeois: Ouais. OK.
+Alexandre Joset: puis tu sais ça sonne comme ça avait été enregistré dans le temps. Le monde écoutait était comme je sais pas c'est laquel fait c'est fini là ils sont ils vont être obligé de
+Tommy Bourgeois: Ouais. Non. Ouais.
+Alexandre Joset: mettre des time stamp dans le
+Tommy Bourgeois: Non. Mais c'est ça, mais c'est ça,
+Alexandre Joset: méthodatos.
+Tommy Bourgeois: c'est ça. Je je me disais, j'ai hâte que le monde fasse plus la différence puis qu' arrête de chialer avec les images puis tout
+Alexandre Joset: Ouais.
+Tommy Bourgeois: là. C'est c'est c'est vraiment bizarre. Le monde pose de quoi sur Redit puis là dès qu'il y en a un qui qui spot que c'est tout le monde donne puis là tout le monde aime pas ça puis c'est comme a secondes tout le monde tripait dessus là.
+Alexandre Joset: Ouais, c'est ça.
+Tommy Bourgeois: C'est quoi le problème là tu sais ?
+Alexandre Joset: Ouais.
+Tommy Bourgeois: C'est c'est Ouais.
+Alexandre Joset: Ah non, non, mais ma musique c'était pareil. Quand j'ai fait mon premier album,
+Tommy Bourgeois: Ouais.
+Alexandre Joset: je faisais le test, des fois je le faisais écouter à du monde, je disais rien.
+ 
+ 
+00:17:49
+ 
+Alexandre Joset: Je pas j'ai fait du temps. Le monde écoutab du moment que je disais pour faire pas vraiment bon.
+Tommy Bourgeois: C'est ça exact.
+Alexandre Joset: Tu venais de dire cé là
+Tommy Bourgeois: Pu tu essay de expliquer qu' un processus,
+Alexandre Joset: ?
+Tommy Bourgeois: c'est pas juste fais-moi une t puis ils veulent rien savoir, tu
+Alexandre Joset: Mais non mais bon,
+Tommy Bourgeois: sais.
+Alexandre Joset: on verra bien ce mais moi ça me fait bien rire tu sais. Puis moi je moi je bien moi je m'en s f*** off là. J'étais en train de faire un projet de série que ça fait 20 ans qui traîn
+Tommy Bourgeois: Moi j'ai j'ai juste hâte que je puisse faire mes propre séries puis que j'ai plus à me fier sur Hollywood.
+Alexandre Joset: Exact. Non mais exact puis jeis ça à mes amis,
+Tommy Bourgeois: Ça vient, ça s'en vient.
+Alexandre Joset: je me suis dit là en réalité c'est une bonne chose parce que qu'est-ce juste la musique qu'est-ce qui va arriver toute la musique corporate là radio friendly là 3 minutes formaté qui nous font depuis 25 ans là n'importe qui va pouvoir t'encher 50 par jour là puis je te dis
+Tommy Bourgeois: M.
+Alexandre Joset: là Spotify bientôt je je je l'attends là ils vont faire listen to your style of music with AI puis tu vas juste dire moi aujourd'hui j'ai goû d'écouter du funk puis il va te générer des crises de t banque,
+ 
+ 
+00:18:57
+ 
+Alexandre Joset: c'est sûr qu' vont faire ça puis besoin de payer les artistes puis ils vont pouvoir vendre la pub. C'est sûr que s'en vont là. OK, mais ce qui va arriver c'est que le monde vont faire Chris, je t'anné d'entendre des tunes pareil. Qu'est-ce qui va arriver selon moi ? On va on va retourner comme des années 70 là. Les musiciens vont faire et moi j'ai une idée originale 15 minutes et popé puis là ça ils vont user les peut-être pour le faire mais ils vont le diriger beaucoup plus fait toute la radio friendly formatage d'industrie là. d**********
+Tommy Bourgeois: Ouais ouais ouais.
+Alexandre Joset: mon est
+Tommy Bourgeois: Le monde aura pas le choix d'être d'être créatif des trucs
+Alexandre Joset: exact puis les gens qui ont
+Tommy Bourgeois: uniques. Pas juste Ouais.
+Alexandre Joset: l'argent au lieu de dire parce que moi c'est ce qui m'énerve je suis plus capable je le vois bien là j'ai présenté mon idée de série à mon chum fred il é excité au début puis a débandé vite fait parce que il se ramène il est comme ouais mais faut trouver faut que ça fasse de l'argent il présente à d'autres produt ça fasse l'argent fait tout le monde est obligé de suivre la commande des craves qui ont de l'argent pour faire plus d'argent fait que toutes les projets deviennent num down viennent formatés viennent plat plus personne n de fun sauf ceux qui font comme king kiting fait f***
+ 
+ 
+00:20:13
+ 
+Tommy Bourgeois: C'est
+Alexandre Joset: off tu sais là moi je dis je suis bien content si quelqu'un sort des séries sur YouTube fait avec les pu c'est bon je vais les écouter je
+Tommy Bourgeois: ça.
+Alexandre Joset: m'encore liste sais pour sur Netflix anyway un de long log de de AI anyways
+Tommy Bourgeois: Hm.
+Alexandre Joset: de de de conversation je mets une pause bip tu vas voir un gros bip dans le dans le chat c'est là qu'on parle des choses sérieux donc le email avec le login tout le sign in faut vérifier je sais pas trop je l'ai pas bien fait faut le faire après ça ça marche il y a pas grand chos bravo il l' arrangé
+Tommy Bourgeois: C'est ça.
+Alexandre Joset: quoi c'est incroyable
+Tommy Bourgeois: Mais là là, ce qui est important là, ça ça serait d'aller voir comment il rangé puis pourquoi est-ce qu'il a fait l'erreur pour pas qu'il tout le temps le refaire.
+Alexandre Joset: I will update views timer tab.
+Tommy Bourgeois: Il changera pas sa il changera pas sa méthode de travail, tu
+Alexandre Joset: Il dit ici ouais mais c'est je te dis où la technique là je pourrais
+Tommy Bourgeois: sais.
+Alexandre Joset: ajouter please use this method whatever je sais pas moi je sais
+Tommy Bourgeois: Ouais. Ouais mais c'est ça c'est la prochaine fois si tu aurais refaire le même projet mais là tu t'en rappellerais puis tu dirais tu mettrais soit comme
+ 
+ 
+00:21:16
+ 
+Alexandre Joset: pas
+Tommy Bourgeois: règle ou tu dirais ben suite en SVG whatever
+Alexandre Joset: exact fait que ça c'est beau ce page là tout est beau je suis bien dans celle-ci, tout est beau presque sauf ça parce que j'y avais fourni des images qui sont 31 de ratio pour qu'il mettent là qui sont identifiés spécifiquement et là je sais pas pourquoi il les a pas mis puis j'ai demandé plusieurs fois pu ça niisait je sais pas fait que je sais pas comment y dire tu sais upload les images dans database en fait tout ça c'est la grosse partie qu' va falloir trouver c'est comment faire que mon information je t'en vér fichier là toutes les informations d'activité je les ai formaté d'une façon Il faut que ça soit l'adé du serveur. Faut que quand tu ouvres l'app ça ça soit l'adé du serveur parce que c'est pas la personne qui l'écrit elle-même à peu mais initialement on t'en suggère un paquet tu
+Tommy Bourgeois: Ouais. OK. Oui. Oui.
+Alexandre Joset: comprends ou regarde bien dans le
+Tommy Bourgeois: OK. C'est des activités ça. Tu parles ?
+Alexandre Joset: fond ben tu comprends l'idée de l'ap là c'est dans le fond à chaque x nombre de temps au bout
+ 
+ 
+00:22:19
+ 
+Tommy Bourgeois: Ouais.
+Alexandre Joset: de ça ça va partir automatiquement mais j'ai mis un bouton si je veux l'apprendre tout suite. J'ai juste mis ça ça fait comme si le timer était fini. B et là ça dit ben tu sais dans mind la catégorie mind on va faire du mindful listening ça explique. Si je clique dessus ça ouvre un URL pour m'expliquer comment faire.
+Tommy Bourgeois: ou un vidéo whatever.
+Alexandre Joset: Ouais exact.
+Tommy Bourgeois: Ouais.
+Alexandre Joset: Puis là il une icône simple qui qui montre c'est quoi l'activité un que
+Tommy Bourgeois: OK.
+Alexandre Joset: visuel.
+Tommy Bourgeois: Puis ça tu les as déjà dans tes tuas déjà OK.
+Alexandre Joset: J'ai fait des templates. Je les ai déjà faites. Ouais je vais te le montrer mais j'ai uploadé ou je sais pas trop.
+Tommy Bourgeois: OK. Ok.
+Alexandre Joset: Je les ai toutes ajouté ici. J'ai d utilises mais ça a pas marché. J'ai quelque chose pas fait de correct.
+Tommy Bourgeois: Ok.
+Alexandre Joset: fait donc ces icônes là tout ce data là je l'ai puis il vaut qu' chercher quelque part là je sais pas où il va le chercher mais c'est ça que je m'en dire c'est que si je vais dans mon projet dans image tu vois j'ai fait activité icon export là tu vois sont je pense je les ai renommé ici.
+ 
+ 
+00:23:15
+ 
+Alexandre Joset: Voilà, j'ai un code aussi. J'ai une méthode que j'ai dit pour les appeler là je l'enver si tu veux. Donc là c'est toute la même image. Je m'en fous là, je les ai juste créer générique. Là,
+Tommy Bourgeois: M.
+Alexandre Joset: c'est tout gen une affaire par rapport de même. OK, mais je les ai nommé la catégorie tirait un code qui correspond le premier digit correspond à euh si c'est euh fait par nous ou par l'usager. Si c'est un bouon le premier fait si c'est zéro, c'est sur c'est nous autres qui l' créé. Si c'est un c'est que c'est le user qui l' créé. Après ça, les trois suivants, c'est la catégorie. Là, c'est 001, c'est fitness. Tuir que les jeux, c'est 002. Puis après ça, toutes les chiffres qui suivent là, les quatre ou les huit chiffres qui suivent, c'est l'identification de l'image. Fait que là, il y en a juste 10 par catégorie. Fait que ça va dans le fond 1 2 3 4 5 6 7 8 9 10. OK.
+ 
+ 
+00:24:03
+ 
+Alexandre Joset: dans le fond ça ces images-là sont codées pour que quand il loadent dans la data euh dans excuse-moi le ben la bonne
+Tommy Bourgeois: il puissent tout identifier la bonne couleur le bonne
+Alexandre Joset: icône la couleur on s'en fout là ça fait que si je vois dans la fichier ici dans
+Tommy Bourgeois: Ouais.
+Alexandre Joset: tiens activité XLS je l'ai exporté CSV je ai donné il l'a ajouté parce que ça fonctionne mais je il l' ajouté parce que regarde ici c'est écrit le mindful si je fais ça là tu vois scan il y en a plein il il m' random plein d'ailleurs en passant dans les dans les options aussi,
+Tommy Bourgeois: Ouais,
+Alexandre Joset: je pourrais dire moi je veux juste les jeux.
+Tommy Bourgeois: mais toi toi tu veux que ça ça soit dans une database to ça ?
+Alexandre Joset: Exact.
+Tommy Bourgeois: Ou ouai. OK. Oui, c'est
+Alexandre Joset: Et là, tu vois, j'ai dit juste les il va justement sortir les jeux.
+Tommy Bourgeois: c'est
+Alexandre Joset: Fait que là pour l'instant, j'ai juste feed un fichier CSV comme ça. Je sais pas comment il organisé le data. Tu comprends
+Tommy Bourgeois: OK. Ben c'est juste c'est juste au lieu d'avoir un fichier CSV,
+Alexandre Joset: ?
+Tommy Bourgeois: c'est c'est un fichier point DB.
+ 
+ 
+00:24:58
+ 
+Tommy Bourgeois: C'est aussi simple que ça.
+Alexandre Joset: Exact.
+Tommy Bourgeois: Ouais. Non non non mais j'en appends aussi tu sais comme le comme le le système de nommage des images tuis j'aurais pas pensé nécessairement à ça mais c'est vrai que si tu si tu pour avoir 100000 images à un moment
+Alexandre Joset: Ouais.
+Tommy Bourgeois: donné tu a au moins un chiffre de 100000 puis tu penses comment ça va être uploadé puis
+Alexandre Joset: Ouais, exact. Fait que tu vois ici,
+Tommy Bourgeois: Ouais.
+Alexandre Joset: j'ai la catégorie ça correspond à la catégorie comme mettons les jeux tout ça. Après ça, j'ai l'ID de l'image. Fait que là, ça correspond à ce que je t'expliquais. Le premier chiffre en premier c'est si c'est dans notre database c'est user created. Les trois autres c'est la catégorie fait que tu as catégorie ici mais tu as aussi la catégorie dans le nom de l'image. Puis après ça
+Tommy Bourgeois: Mais moi je donnerais je donnerai CSV puis je dirais de me faire une database par rapport à ça avec ce
+Alexandre Joset: c'est
+Tommy Bourgeois: template là.
+Alexandre Joset: OK. Ben c'est j'ai du mal le formuler.
+ 
+ 
+00:25:47
+ 
+Alexandre Joset: C'est ce que j'ai demandé mais je je pas
+Tommy Bourgeois: Ouais. OK. Encore une fois je connais pas studio.
+Alexandre Joset: vérifier.
+Tommy Bourgeois: Peut-être que Cur est beaucoup mieux pour ce qui est de ça aussi. Peut-être Studio c'est plus pour le design. C'est ça je te dis. Il y en a tellement puis ont toutes leur spécialités. C'est
+Alexandre Joset: H ben je te dirais de tester avec Studio voir où tu peux le rendre puis après ça au P vois vas-y dans
+Tommy Bourgeois: C'est
+Alexandre Joset: Cursur en tout cas fait ça fait que tuas le title la description l'image de référence qui est dans le dossier mais là tu vois l'image ici j'avais même pas mis le bon nom tu sais parce que les images finalement c'est ce que je t'avais montré là c'est la même chose que c'est la même chose le naming là c'est 001 puis bla bla bla bla là fa qu'en principe ça ici là ça serait ben tu sais même l'image en principe si on utilise du code on a même pas besoin parce que l'image ça serait ça plus ça
+Tommy Bourgeois: Ouais ouais c'est ça.
+Alexandre Joset: fait que ça ça serait tu sais dans le fond en tout cas je pourrais mettre un commentaire mais en principe le nom de l'image c'est que tu
+ 
+ 
+00:26:52
+ 
+Tommy Bourgeois: Je l'
+Alexandre Joset: prendrais la catégorie tu le mets dans le nom pour l'ud puis après ça tu s du id tu mets dans le nom point
+Tommy Bourgeois: je
+Alexandre Joset: png puis après ça toutes les URL puis ça c'est les tomes Ça c'était les thums
+Tommy Bourgeois: il vont être une
+Alexandre Joset: counter puis ça c'était le flag pour dire que c'est ça a été créé par un user ou
+Tommy Bourgeois: Ouais ouais.
+Alexandre Joset: non. fait que encore là, je pense que si c'est ça aurait dû être zéro parce que c'est tout nous autres fait que c'est tout le premier chip.
+Tommy Bourgeois: C'est
+Alexandre Joset: Ben dans fond ce ID là dit tout mais bon c'est peut-être qu'on a pas besoin d'avoir ça d'avoir tout ça si on a ça c'est ça c'est de la logique de
+Tommy Bourgeois: Non, mais ça dépend c'est ça.
+Alexandre Joset: dat
+Tommy Bourgeois: Ça dépend quelle base de données qu'on a pu quel système mais tu peux pas le faire manuellement.
+Alexandre Joset: puis là finalement c'est le username creator celui qui l'a créé si c'est j'ai dit si c'est à nous autres c'est admin sinon mais c'est le nom du tu rentres là le nom du user ou le l'ID du user parce que je pense qu'on ferait des id pour les users fa bref fait c'est ça fait c'est ça que j'ai feedé puis là ben c'est ça
+ 
+ 
+00:27:51
+ 
+Tommy Bourgeois: Ouais.
+Alexandre Joset: qui a fait qui a pu me mettre ça ça mais les images marchent pas parce que pr quand j'ai fidé pas mis à bonne place mais je vais t'envoyer le
+Tommy Bourgeois: Non. Ouais.
+Alexandre Joset: stock j'ai aussi mon chat GPT personnel comme je te
+Tommy Bourgeois: Ouais.
+Alexandre Joset: disais what f*** ok toujours mon premier onglet d'habitude je pas pourquoi
+Tommy Bourgeois: M
+Alexandre Joset: il dans Happy Je pense la dernière chose Ouais, c'est ça. Ça ça c'était toute le raisonnement
+Tommy Bourgeois: OK. la logique avec le Ouais,
+Alexandre Joset: derrière fait que tu as catégorie 12
+Tommy Bourgeois: c'est ça. OK, c'est
+Alexandre Joset: digit ID puis ça donne fitness. Ça ça c'est le nom du PNG. Puis dans le fond euh custom flag c'est one digit zéro défaut activité one custom user created category code digit puis activity sequence 8 digit pu là tu avais les codes des catégories existantes fait il y en a juste six mais je me suis dit chr on sait jamais qu'on en crée plein ou les users en rajoutent mais tu as la possibilité d'en faire 1000 on s'entend que 1000 catégories là si je veux dire on va faire le tour du sujet fait que là example breakdown fitness zéro
+ 
+ 
+00:29:01
+ 
+Tommy Bourgeois: 30
+Alexandre Joset: Default notre custom 001 fitness catégory activity number one. Bon he fait que j'ai copy paster ça. J'ai fidé aussi dans le truc.
+Tommy Bourgeois: Ouais. Ouais.
+Alexandre Joset: En tout cas fait dans le fond toi toi ce que tu as vérifié c'est que cette information là ici est dans
+Tommy Bourgeois: OK.
+Alexandre Joset: une database et accéder dans la database au lieu d'être comme il l' fait probablement tout croch euh deuxièmement que le login fonctionne puis le reste je pense que c'est tout là ben il y a le ça ici là profile tu sais l'account tuas l'email ici toutes ces affaires là de request code qui fonctionne mais encore là faut qu'il y a un user pour ça pour ça fonctionne. fait faut créer le user puis système de management user avant
+Tommy Bourgeois: Ouais ben je vais le mettre ça sans sécurité rien juste pour que si on voir si ça marche c'est sûr qu'il enverra pas
+Alexandre Joset: là.
+Tommy Bourgeois: de email pour changer le password mais ça va être fonctionnel.
+Alexandre Joset: Mais comment mais ça pour que ça fonctionne c'est quoi qu'il faut faire pour qu'il envoie des
+Tommy Bourgeois: Ben, il faut utiliser AWS ou resent.
+Alexandre Joset: emails.
+Tommy Bourgeois: Je pense vous vous avez AWS,
+ 
+ 
+00:30:14
+ 
+Alexandre Joset: OK.
+Tommy Bourgeois: c'est lui qui s'occupe d'envoyer les emails.
+Alexandre Joset: Ouais.
+Tommy Bourgeois: À moins que ça fonctionne autreement. Je faire des recherches pour ça
+Alexandre Joset: Ouais. Exact.
+Tommy Bourgeois: aussi.
+Alexandre Joset: Fait fait tu sais tout le user login puis le les changements puis la sécurité par rapport au user dans le fond. En gros, tu as le user à gérer toutes les options de user puis tu as la création de la database pour le data qui permet de comme je te disais aussi faut pas oublier hein qui permet non seulement de stocker nos affaires mais aussi que ça ici je fais create happy pause mettons moi je le fais je fais fitness je donne un nom test for test
+Tommy Bourgeois: Ben ça va apparaître dans database.
+Alexandre Joset: euh soit ça ça marche pas upload une image puis là le link mais je vais y en mettre n'importe lequel puis là je vais faire c'est ça aussi make public là ça ça voudrait dire qu'il faudrait qu'il nous envoie comme un formulaire pas qu'il l'ajoute automatiement à database parce faut que nous on dise oui au formulaire puis là on l'ajoute dans base puis là
+Tommy Bourgeois: Faudrait
+Alexandre Joset: j'agree au terms policy tu vois je fais addit et là éventuellement si je cyclerais là je sais pas je l'ai mis dans quoi mais je pense que c'était dans
+ 
+ 
+00:31:23
+ 
+Tommy Bourgeois: que ouai ou oui c'est ça fait penser un des premiers des des tout premiers projets que j'ai
+Alexandre Joset: je
+Tommy Bourgeois: fait un site sur des films database de film puis je l'ai fait j'ai pas codé
+Alexandre Joset: Ouais.
+Tommy Bourgeois: du tout puis ça marche numéro 1 tuas des accounts tu peux noter les films par catégorie jeux peux te montrer si tu
+Alexandre Joset: Ça c avec tu connais feel good Philippe non pas
+Tommy Bourgeois: H
+Alexandre Joset: Philippe fait ça il est là justement tu vois il est là dans mon test il est là mais c'est sûr que je sais pas au niveau de la database encore une fois parce qu' pas je sais pas bref tu sais quoi faire la suite tu peux me le montrer 11h
+Tommy Bourgeois: C'est le c'est le premier que que j'ai tombé. Je commencais mon cours, tu sais. Puis ça fait longtemps que j'avais une idée derrière la tête que je voulais un site sur sur des films. J'attendais juste de genre savoir comment.
+Alexandre Joset: OK OK fait ça tout seul tu as fait ça tout
+Tommy Bourgeois: Mais j'ai tombé sur hein.
+Alexandre Joset: seul
+Tommy Bourgeois: Ouais. Ouais. une une journée, c'est comme comme toi 8h là, c'est sûr que après des petites touch par-ci par là,
+ 
+ 
+00:32:29
+ 
+Alexandre Joset: OK,
+Tommy Bourgeois: c'est ça ça monte vite mais la base a été faite, c'est fonctionnel avec des accords. Je veux pas je pas ben ouais, je attends,
+Alexandre Joset: tuas fait les même la database les accounts tout
+Tommy Bourgeois: je vais créer un Oui oui mais il fallait il a bien fallu que je explique la
+Alexandre Joset: ça.
+Tommy Bourgeois: logique. Ah ça marchera pas. C'est quoi un commercial avec un Je
+Alexandre Joset: C'est character
+Tommy Bourgeois: l'ai parce que ma touche Windows marche plus depuis je sais pas combien de temps je peux plus
+Alexandre Joset: 2.
+Tommy Bourgeois: changer. Ouais, j'en ai un autre là. C'est c'est bon, tu vois, il est créé, tu as même un système de notification puis un coup que tu as un compte, ben là, tu as accès euh euh tu vois ça marche plus. OK, tu vois crashé depuis la dernière fois mais tu avais vraiment un système de score, tu pouvais scorer la violence, c'est comme séparé en tout plein de scores. Tout ça c'était dans database puis après tu peux aller dans recherche puis le mettre par ce score là. Exemple, tu l'as trouvé le film le plus violent qui existe mais là tu pouvais genre le mettre par ordre de violence.
+ 
+ 
+00:33:46
+ 
+Tommy Bourgeois: Puis c'est le monde qui ont côté exemple 10/ 10 ce filmlà violence tuas la romance tu toutes les les sous-genres qu'il y a pas sur les autres
+Alexandre Joset: Nice.
+Tommy Bourgeois: site de de film c'était ça un peu mon mon idée là finalement jeai je l'ai jamais
+Alexandre Joset: Ouais.
+Tommy Bourgeois: sorti parce que j'ai jamais perfectionné la logique derrière ça parce que faut que tu sois sûr à 100 % de ton coût faut que ta database soit parfait parce qu'après ça changer les catégories ou la manière que tu rates pendant que le site
+Alexandre Joset: Ouais,
+Tommy Bourgeois: qui est live ça va être l'enfer tu sais puis ben c'est ça sinon C'est fonctionnel,
+Alexandre Joset: ouais, ouais,
+Tommy Bourgeois: tu sais,
+Alexandre Joset: ouais.
+Tommy Bourgeois: tu peux c'est en tout cas 100 % fonctionnel. Puis j'ai fait ça dans je savais pas codé dans ce
+Alexandre Joset: Ouais,
+Tommy Bourgeois: tempslà.
+Alexandre Joset: nice. Ah, c'est fou, man. C'est fou man. fait que là, je vais t'envoyer, attends je vais juste t'envoyer les affaires mais parce que j'ai pas de projet sur le Google Drive de tout ça par c'est pas un projet de mobile app.
+ 
+ 
+00:34:47
+ 
+Alexandre Joset: Euh laisse-moi juste euh Ouais,
+Tommy Bourgeois: Ben je l'ai downloadé le temp
+Alexandre Joset: mais je parlais les fichiers d'information là parce que tu auras pas tu auras pas le tu auras pas tu toutes les des les images puis toutes ces
+Tommy Bourgeois: les plumes puis les
+Alexandre Joset: affaireslà.
+Tommy Bourgeois: images
+Alexandre Joset: fait que je veux je veux juste le mettre logic. C'est quoi j'avais dit ? Naming logic. Je vais le copier là-dedans. Ce que je t'ai montré.
+Tommy Bourgeois: toutes les pr aussi que tu avais donné pendant la création ça pourrait m'aider.
+Alexandre Joset: sont posé d'être
+Tommy Bourgeois: Je pense pas que j'ai Ah ok, je vais regarder. C'est ça j'allais dire.
+Alexandre Joset: là
+Tommy Bourgeois: Je sais pas si j'ai accès à la euh back to start. Non,
+Alexandre Joset: mais quand tu es supposé de voir à gauche mais je sais pas si tu le monte ou
+Tommy Bourgeois: ben je là je suis sur le projet.
+Alexandre Joset: pas. OK.
+Tommy Bourgeois: Attendez en
+Alexandre Joset: Dans dans ce fichier, tu peux trouver prompt à
+Tommy Bourgeois: app. Ouais. Pause,
+Alexandre Joset: la fin aussi le naming.
+Tommy Bourgeois: je vois le chat à gauche mais il est vide.
+ 
+ 
+00:35:56
+ 
+Tommy Bourgeois: Je suis accès
+Alexandre Joset: OK utiliser pour les images
+Tommy Bourgeois: à
+Alexandre Joset: et data fait je tiens t'envoyer un premier qui est le prom c'est des prom principaux j'ai
+Tommy Bourgeois: OK. Ouais. OK.
+Alexandre Joset: utilisé mais tuas pas tout là-dedans là
+Tommy Bourgeois: je demander
+Alexandre Joset: puis euh ça c'est le premier prom que j'ai donné puis à la fin je t'ai mis aussi euh vraiment vraiment à la fin là structure de naming s'appelle naming logic. J'aurais dû le mettre en title mais en tout cas tu fais contrôle F naming logic, tu vas le trouver. Je vais t'envoyer aussi qu'est-ce que tu as besoin d'autre ? Les images.
+Tommy Bourgeois: Ouais, c'est les images m'a sauvé du temps.
+Alexandre Joset: Ah je t'envoyer le CSV puis le XLS que j'avais fait pour les
+Tommy Bourgeois: Ouais.
+Alexandre Joset: activités. Comme je dit, c'est pas parfait là parce que je me suis rendu compte qu'un erreur d'un nom de d'un nom de fichier de
+Tommy Bourgeois: C'est c'est juste pour me donner une idée.
+Alexandre Joset: d'image. Puis de façon comme je dis, tu as même pas besoin de créer une colonne pour ça.
+ 
+ 
+00:36:57
+ 
+Alexandre Joset: Tu as déjà utilisé l'ID puis le category, les passer ça dans un algorithme puis ça va fonctionner. Puis les images, je pense c'est les autres. Euh ouais.
+Tommy Bourgeois: OK, j'éis en train de sais j'ai juste demandé si je peux avoir l'historique puis là en train de me sortir une intégration pour le faire dans le futur. C'est pas ce que je voulais.
+Alexandre Joset: pas brancher aussi par exemple parce que tu f*** toute la chienne, j'aimerais ça être capable de
+Tommy Bourgeois: Oui oui c'est ça ou non je vais pas je vais je l'ai downloadé
+Alexandre Joset: retourner.
+Tommy Bourgeois: justement je vais soit repartir à
+Alexandre Joset: Voilà. Fait que là
+Tommy Bourgeois: zéro je vais soit repartir à zéro sur Google Studio.
+Alexandre Joset: hein.
+Tommy Bourgeois: Essayer de le refaire à ma manière si ça marche pas je vais l'envoyer dans cursor puis je vais essayer de le
+Alexandre Joset: Ouais.
+Tommy Bourgeois: réparer à place.
+Alexandre Joset: OK. Comme je dit,
+Tommy Bourgeois: Ouais ouais surtout si ça Ouais
+Alexandre Joset: sois sûr d'être capable de documenter le processus.
+Tommy Bourgeois: ouais
+Alexandre Joset: Mais pourquoi tu parles pas direct du projet que j'ai dans pour dire fais ça mainant ?
+ 
+ 
+00:38:09
+ 
+Tommy Bourgeois: ben parce que de un s'il est pas react native puis faut tout refactor je suis peut-être mieux de recommencer.
+Alexandre Joset: Ben fait donc recherche là en premier dans le
+Tommy Bourgeois: Euh ouais ben c'est ça ouis c'est ça c'est si je peux continuer je vais continuer c'est
+Alexandre Joset: fond.
+Tommy Bourgeois: juste s'il est trop si la structure est mal fait dès le début ou si tu sais la database il aurait fallu faire dès le
+Alexandre Joset: Ouais.
+Tommy Bourgeois: début je je sais pas je vais aller voir. Je va les gasser
+Alexandre Joset: OK.
+Tommy Bourgeois: avec
+Alexandre Joset: Puis je vais regarder le site mais tu comme je t'ai dit je pense qu'on est un peu en mode on attend pour les assettes puis qu'est-ce que tu veux que je fasse
+Tommy Bourgeois: D vite fait avant d'oublier sur Clickup euh juste importer l'affaire je t'ai envoyé
+Alexandre Joset: ?
+Tommy Bourgeois: si ça marche pas je trouve je trouverai un autre
+Alexandre Joset: Ah oui, c'est vrai. OK, mais juste suivre ton idée là.
+Tommy Bourgeois: moyen.
+Alexandre Joset: C'est donc tu m'as envoyé de quoi quand et tu m'as
+Tommy Bourgeois: Ouais ben partage-moi ton écran.
+Alexandre Joset: envoyé
+Tommy Bourgeois: C'est Ouais, c'est ça.
+ 
+ 
+00:38:57
+ 
+Alexandre Joset: quelqu'un.
+Tommy Bourgeois: Juste on va parce qu'il y a quelques steps à suivre,
+Alexandre Joset: OK.
+Tommy Bourgeois: ça va être plus vite.
+Alexandre Joset: OK. All right. f***.
+Tommy Bourgeois: OK. Dans l'autre que je t'ai envoyé. Import. Ouais, exact.
+Alexandre Joset: Ça
+Tommy Bourgeois: Télécharger.
+Alexandre Joset: OK.
+Tommy Bourgeois: OK.
+Alexandre Joset: Qu'est-ce que je fasse avec ça ?
+Tommy Bourgeois: Ben là va sur click up dans space dans où est-ce que les tâches mal mal
+Alexandre Joset: OK.
+Tommy Bourgeois: web fait le petit plus à côté à droite ben
+Alexandre Joset: OK. Dans dev.
+Tommy Bourgeois: de dev en dessous si t'aurais demandé fait
+Alexandre Joset: Ah ouais. OK.
+Tommy Bourgeois: importation feuille de calcul c'est le bon projet mais celui que tu new upload
+Alexandre Joset: Est-ce qu'il m' download ? Non.
+Tommy Bourgeois: Ouais.
+Alexandre Joset: Ça
+Tommy Bourgeois: Oh je s'assurer statu. Ouais tu peux faire continue.
+Alexandre Joset: ch nom de la t description contenu description status status c'est
+Tommy Bourgeois: Il fait juste comme mi les catégories qu'on a dans le la liste.
+Alexandre Joset: ça
+Tommy Bourgeois: Tu peux faire continuer tu backlog écr backlog parce que il y a pas puis complete in review.
+ 
+ 
+00:40:55
+ 
+Tommy Bourgeois: Ouais, continue.
+Alexandre Joset: marcha pas parce pas les admin
+Tommy Bourgeois: Moi ça marchait. Moi ça marchait jusque là.
+Alexandre Joset: M.
+Tommy Bourgeois: Tu sais, on voit que ça marche là. Ça devrait me sortir ça là. Là, attends qui OK, completed le fa import click up. Là, il va demander les assignés. Hop. OK.
+Alexandre Joset: en train de
+Tommy Bourgeois: OK.
+Alexandre Joset: faire
+Tommy Bourgeois: Tu vois moi c'est il bugit là cette page là elle l'ouvrait une demise puis ça fermait.
+Alexandre Joset: problème cit pas les permissions c juste un invité
+Tommy Bourgeois: Ouais, c'est ça. Mais il aurait pu me le dire mais
+Alexandre Joset: ouais non clairement stupu
+Tommy Bourgeois: ouais juste mes assignés où je ferai si je peux. D'habitude moi il me demandait à qui je voulais les assigner.
+Alexandre Joset: Euh ouais,
+Tommy Bourgeois: C'est ça bizarre un
+Alexandre Joset: j'ai peêre pas vu là. Mais donc là en partie en principe si je vois dans ma site web dev
+Tommy Bourgeois: No.
+Alexandre Joset: ça il sont toutes là là c'est
+Tommy Bourgeois: Euh ouais ben ouais c'est ça exact. Ouais il y en a qui b là il y en a beaucoup qui Ouais c'est ça bon ok tu vois c'est ça murait pris une heure facile.
+ 
+ 
+00:42:15
+ 
+Tommy Bourgeois: Copier collé.
+Alexandre Joset: Ça ici ça aussi pour les autres
+Tommy Bourgeois: Ouais tout ça ouais j'ai fait.
+Alexandre Joset: sont Ah parce que tuit complété mais
+Tommy Bourgeois: Ouais, c'est ça. C'est c'est tout ce que j'avais pas rentré encore.
+Alexandre Joset: c'était pourquoi tu les avais fait dans autre chose ou tu les avais fait dans un autre
+Tommy Bourgeois: Bah, c'est c'est Curser qui le fait pour moi. Exemple, après une journée de travail, j'ai dit "Ben,
+Alexandre Joset: Ah.
+Tommy Bourgeois: fais-moi la liste dans les copi puis tout ce qu'on a à faire puis regarde les notes de Gemini qui reste à faire, tu sais. Puis fais-moi ça en tâche." C'est puis tu donnes si tu pas ça, mais tu changes de template.
+Alexandre Joset: C'est très
+Tommy Bourgeois: Ouais. Non,
+Alexandre Joset: drôle.
+Tommy Bourgeois: c'est c'est je vois pas pourquoi j'aurais fait ça à main si ça ça fonctionnait là.
+Alexandre Joset: Clairement clairement.
+Tommy Bourgeois: H
+Alexandre Joset: Ah mais pourquoi il veut pas terras ? C'est bien bizarre. Je viens de le faire.
+Tommy Bourgeois: euh parce qu'il il décoche pas les autres.
+ 
+ 
+00:43:08
+ 
+Tommy Bourgeois: Mais en tout cas, c'est ressayle mais après un reload d'après moi. Les autres que tu avais assigné.
+Alexandre Joset: Attends, je fais ça là. OK.
+Tommy Bourgeois: Ouais, c'est
+Alexandre Joset: Ah, faut que je fasse save. Attends, je me rappelle jamais.
+Tommy Bourgeois: ça.
+Alexandre Joset: Je fais tout ça. Je fais assigner à Tommy. Ouais, il vient de le faire.
+Tommy Bourgeois: J'ai entendu. Non, c'est bon. C'est ça je dis. C'est parce que tu en avais encore de cocher en bas.
+Alexandre Joset: Mais si je fais ça,
+Tommy Bourgeois: J'ai fait la même erreur.
+Alexandre Joset: il les enlève après. Ah ok. Non ok.
+Tommy Bourgeois: C'est que quand tu coches autre chose, il décoche pas l'autre.
+Alexandre Joset: Ah ok.
+Tommy Bourgeois: Puis par défaut d'habitude,
+Alexandre Joset: Fait que je teolais.
+Tommy Bourgeois: ouais,
+Alexandre Joset: OK. Je faisais juste
+Tommy Bourgeois: c'est ça. Exact. C'est ça fait que tu me l'assignais mais ça désassignait les autres en même temps parce que tu c'est
+ 
+ 
+00:43:45
+ 
+Alexandre Joset: OK. Mais bon.
+Tommy Bourgeois: ça 60 toutes les tâches sont
+Alexandre Joset: Al
+Tommy Bourgeois: là. Good.
+Alexandre Joset: bon. Tu penses trouver ta vocation ?
+Tommy Bourgeois: Ah moi j'aime ça. Moi je suis du fan.
+Alexandre Joset: Ouais, tu aimes ça ? Ben écoute,
+Tommy Bourgeois: Ouais.
+Alexandre Joset: c'est sûr que moi, tu sais, j'en parlais avec Nick, je en profiter d'en parler pendant qu'on est là. J'en parlais avec Nick puis tu sais Nick il disait "Ouais, tu as trouvé des bons stagiaires Jessie Tommy tout ça." J'étais comme ben oui forcément tu sais puis était comme faudrait je trouve une manière de les garder. J'étais comme ben tu sais Jessie ça me surprendrait parce que je pense que elle veut aller en des études supérieures puis tu de façon pour un jeu vidéo faut que moi je trouve le financement mon projet tu sais fait que ça
+Tommy Bourgeois: Oh.
+Alexandre Joset: m elle mais c'est ça pu là je Tommy je sûr qu'il serait intéressé je pense bien en tout cas tu sais mais sais c'est c'est le climat idéal peut trava chez eux il autonome on donne des tâches est fait à son r à son groupe liv je pense que c'est vraiment condition de travail idéal Puis là il était comme "Ouais mais tu sais je sais pas si je vais avoir assez de projets pour lu faire une job à temps plein pu tout." Je dis ben
+ 
+ 
+00:44:58
+ 
+Alexandre Joset: écoute tu peu importe tu verras à fin de son stage mais tu sais je pense même pas que Tommy serait pas ouvert à avoir tu sais un genre de job à temps partiel pour commencer ou tu sais à contractuel fait que j'imagine que je va t'en parler éventuellement mais j'étais curieux de voir avec toi si toi c'était quoi tes plans aprèsis
+Tommy Bourgeois: Euh ben c'est ça, j'ai pas vraiment de plan. Je pensais justement commencer à t'en parler euh euh juste savoir où m'aligner s'il faut que je me cherche une autre
+Alexandre Joset: OK. Ouais.
+Tommy Bourgeois: job ou euh ou quelque chose du genre.
+Alexandre Joset: Ouais,
+Tommy Bourgeois: C'est sûr que il y a peut-être moyen de s'arranger euh à temps partiel. Si si juste ça,
+Alexandre Joset: ouais.
+Tommy Bourgeois: c'est sûr que je vais le considérer. Euh mais sinon ouais sinon sinon j'aime j'aime bien ça.
+Alexandre Joset: Ouais.
+Tommy Bourgeois: Je serais partant puis il y a bien des des si je peux travailler aussi sur d'autres projets, je suis pas obligé de rester sa même
+Alexandre Joset: Ouais.
+Tommy Bourgeois: affaire.
+Alexandre Joset: Ouais ben même aussi Nick tu il a peut-être pas il en a peut-être pas parlé depuis que tu es là mais Nick il aime ça financer des projets.
+ 
+ 
+00:46:03
+ 
+Alexandre Joset: C'est un gars qui qui a fait partie en fait, il était br Ouais
+Tommy Bourgeois: Ouais mais il a parlé un peu que c'était un peu sa compagnie que il peut prendre certaines tuas une idée
+Alexandre Joset: ouais
+Tommy Bourgeois: ben là on peut le financer tu sais là tout suite j'ai ça poé mon mon idée de sais les mon truc
+Alexandre Joset: ouais
+Tommy Bourgeois: de qui se bat ensemble tu sais j'éis comme rendu au step que si je voulais continuer à mettre du temps mais il aurait fallu que ça ça il aurait fallu publier puis que ça rapporte tu comprends Ouais
+Alexandre Joset: exact. Ben c'est pour ça je te dis Nick va t'en parler éventuellement mais si je te donnerais si je te dirais de te donner un devoir
+Tommy Bourgeois: ouais.
+Alexandre Joset: c'est de penser à quelle est ta situation minimale de revenu où ce que tu es correct parce que tu sais moi Nick mettons comme pour le développement de de Infinity View on est partenaire là-dedans. Moi je vois je suis 25 % là-dedans. Et moi j'ai dit clairement au début, j'ai dit Nick, j'ai travaillé là-dessus avec une autre compagnie, je t'amène la tech déjà faite, on va la customiser puis je vais faire un démo. Mais je dis là ça pour moi ça vaut 25 % de la compagnie mais je veux pas m'occuper de ça de ça et tu t'occupes du reste.
+ 
+ 
+00:47:07
+ 
+Alexandre Joset: Mais j'ai dis là ça me prend un développeur et il faut que j'ai un minimum de budget tu sais pu c'est pour ça qu' travaille avec nous autres. Mais tu sais Ellie, moi aussi j'ai demandé, j'ai dit écoute combien d'heur tu peux me donner semaine, combien tu veux puis il m'est arrivé à un prix que c'est pas un salaire de développeur à 100000 par année là tu sais mais on a trouvé un terrain d'entente où je donne aussi des parts à Ellie. Ie il travaille tu sais pas il est pas tu sais je suis pas comme 40 he semaine à taper sa
+Tommy Bourgeois: Non, c'est ça.
+Alexandre Joset: tête.
+Tommy Bourgeois: Ben c'est puis en plus il est dans un autre pays sont plus cheap aussi sûrement.
+Alexandre Joset: Oh non mais lui il est super content là tu sais il reçoit son ch US 2000 pièces pour lui cris là-bas le monde
+Tommy Bourgeois: Ouais, c'est ça.
+Alexandre Joset: il font 800 pièces par mois son
+Tommy Bourgeois: Ouais. Non, c'est ça. Mais exact, c'est ça.
+Alexandre Joset: comp
+Tommy Bourgeois: Moi c'est si je serais dans un autre pays, je prendrais ça en considération là, tu sais. Salir minimum dans un autre pays,
+ 
+ 
+00:47:52
+ 
+Alexandre Joset: exact mais c'est pour ça fait
+Tommy Bourgeois: tu es quand même très très très bien là, tu sais.
+Alexandre Joset: so je te dis réfléchis parce que tu sais si à la fin du stage il veut te garder puis tu dis ben écoute moi je suis prête à faire du temps partiel tu sais si tu Je peux me garantir X montant, tu sais,
+Tommy Bourgeois: Ouais. OK. Ouais,
+Alexandre Joset: je sais pas c'est quoi ça.
+Tommy Bourgeois: comme ça X montage correct puis je suis libre comme ça. Je peux en faire plus puis j'ai mon minimum.
+Alexandre Joset: Exact. Puis toi tu sais mettons mon champ m'écoute ça mon ça fait tu sais tu sais qu'est-ce ça prend pour arriver c'est pas c'est pas un vrai
+Tommy Bourgeois: Ouais,
+Alexandre Joset: salaire développeur là c'est pas 75000 100000 par année
+Tommy Bourgeois: mais ça sera ça sera pas un vrai job de développeur non
+Alexandre Joset: mais exactement puis si tu arrives à un point où à un moment donné tuen demandes
+Tommy Bourgeois: plus.
+Alexandre Joset: plus ben là tu tu traces avec tu fais ben écoute Nick là tu es rendu tu veux m'occuper 40h semaine puis de toute façon que je le connais là c'est s'il a besoin de toi 41 semaine il va il voudra pas te perdre il va il va t'offrir un bon salaire tu sais euh fait il a fait ça avec Olivier Olivier Ça fait 2 ans que avec nous,
+ 
+ 
+00:48:44
+ 
+Tommy Bourgeois: No.
+Alexandre Joset: c'est un stagiaire. C'est moi qui l'a pris au début. Il venait de Saint-Gérôme. Il l'a pris comme un junior temporaire au début. Puis il a demandé, il a dit combien tu as besoin pour être content ? Olivier a dit ben un montant, je sais pas mais c'était pas grand-chose mais Olivier il donnait des petits mandats à gauche à droite. Olivier av bien du temps de libre, il faisait d'autres affaires aussi de il y avait d'autres jobs, je sais pas trop. Là éventuellement ben il y a formas qui est rentré le formas ça demandait un développeur fa que il
+Tommy Bourgeois: Ouais, c'est ça. Puis OK.
+Alexandre Joset: a il a fait une offre puis là maintenant avec nous autres fait je pense qu'il va vouloir faire la même chose avec toi fait comme je dis fait juste tu sais fais pas la gaffe que j'ai déjà faite moi avec Ubisoft dans le temps que va faire une job puis tu sais j'avais j'avais demandé un salaire puis m'ont dit on peut juste offrir ça tu sais puis au début j'étais comme ok ça va aller puis j'arrive chez nous je fais mes calculs je fais je peux pas arriver que ça ou faut que je vende ma maison mon charge déménage à Montréal tu
+ 
+ 
+00:49:37
+ 
+Tommy Bourgeois: C'est
+Alexandre Joset: sais J' obligé de dire non, j'ai eu l' cis mais c'est ça puis tu sais on a la chance aussi moi c'est pour ça aussi j' Nick j'accepte certaines choses parce que je travaille de chez nous il me fait pas chier tu sais fait tu à faire pour toi si tu dis ben moi je veux m je 2000 pièces par mois ou 3000 pièces par mois puis en échange tu sais je vais travailler ce que tu veux puis il dit ben ok je devrais t'occuper 20h 20h semaine ben toi tu sais que tes billes sont payées tu tu es super efficace fait puis il y a pas de genre à te faire chier là Si tu demande de quoi tu as fini
+Tommy Bourgeois: Non non, c'est ben c'est j'ai un peu vu ça de même.
+Alexandre Joset: ?
+Tommy Bourgeois: Moi si j'ai si j'ai assez d'argent, je vais travailler moins. Je plus travailler sur mes projets personnels.
+Alexandre Joset: C'est exact.
+Tommy Bourgeois: C'est aussi simple que ça.
+Alexandre Joset: C'est exactement ce que je fais.
+Tommy Bourgeois: fait que si je pourrais si tu me donnes 100000 par année,
+Alexandre Joset: Exact.
+Tommy Bourgeois: ben attends pas à ce que je fasse 40, je vais être content tu sais je faire 15h semaine dans un autre pays
+ 
+ 
+00:50:28
+ 
+Alexandre Joset: Ouais, c'est ça. Exact. Mais c'est pour ça fais juste juste avoir une idée parce que quand il va te le proposer ça tu vas pouvoir dire
+Tommy Bourgeois: M.
+Alexandre Joset: ben Nick moi je gar je peux travailler pour toi d'heure semaine puis tant que tu me donnes ça moi je correct puis d'après moi il va être content puis moi j'aimerais ça avec toi j'ai toujours aimé ça je trouve qu'on se ressemble on
+Tommy Bourgeois: Ouais, j'ai déjà
+Alexandre Joset: trava on est efficace on on a une bonne synergie fait que puis tu es comme moi tu as tes projets moi aussi moi je suis rendu de même dans vie là je veux dire j'ai mon duplexe est presque payé mon ch est payé j'ai plus de dett je fais pas beaucoup d'argent par mois mais je m'en crisse parce que pas de ch pas
+Tommy Bourgeois: Non, c'est ça. Tu es tu es tu as pas besoin de plus. Non, c'est ça.
+Alexandre Joset: d'essence m'en fous je mange c'est tout fait que puis je traille sur mes projets
+Tommy Bourgeois: Hm.
+Alexandre Joset: puis peut-être que mes projets vont fonctionner un jour peut-être pas je
+Tommy Bourgeois: Bah, tu sais, tu ce qui fait que tu as du fun à faire tes projets,
+ 
+ 
+00:51:16
+ 
+Alexandre Joset: m'enqu
+Tommy Bourgeois: c'est que tu le fais pas pour l'argent. Ça si ça tombe que ça fait de l'argent,
+Alexandre Joset: Non exact non c'est ça puis je suis pas
+Tommy Bourgeois: tant mieux. Mais c'est c'est c'est des projets
+Alexandre Joset: victime de dire ah faut que je change tout ça tu sais je l'ai fait avec mon board game là ça m'a tellement fait
+Tommy Bourgeois: personnes.
+Alexandre Joset: chier là. J'avais commencé en 2018 un board game.
+Tommy Bourgeois: Oui, c'est
+Alexandre Joset: J'avais eu du fun, je l'aimais. J'ai rencontré un distributeur, il m'a fait "Ah, il faut que tu changes c tu changes".
+Tommy Bourgeois: vrai.
+Alexandre Joset: J'ai tout f****** changé là. Puis là, finalement, il y a eu la COVID là, je vais plus le tester. Quand la COVID est finie, la distributeur man, nowhere to be found.
+Tommy Bourgeois: Ouais.
+Alexandre Joset: Puis tu sais fait que là je suis juste genre je l'ai mis sa tablette le jeu mais je vais juste ressortir ma première
+Tommy Bourgeois: Ouais.
+Alexandre Joset: version puis je vais mettre je jouer avec des chum puis ma mettre ça sur f****** Kickstarter puis ça marche ça marche ça marche pas ça marche pas
+Tommy Bourgeois: Ouais. Ouais. Puis si c'est un jeu le fan, il va pas sais c'est simple que
+Alexandre Joset: ou exactement exactement si le jouer ben il vair une copie
+Tommy Bourgeois: ça partir
+Alexandre Joset: puis ça ça va juste lancer Puis exact puis tu sais Nick même Nick c'est ça qui est
+Tommy Bourgeois: de Exact.
+Alexandre Joset: cool vu qu'il y a de l'argent puis qui aime encourager ça c'est que je pourrais arriver à Nick faire tu infiltrateur j'ai de l'intérêt j'ai du monde mais tu sais ça me prend mainant 10000 pièces pour faire 500 5000 copies du jeu puis tu sais puis il va probablement embarquer pu faire ben je vais prendre un pourcentage tu sais puis va m'aider là-dedans.
+ 
+ 
+Transcription terminée après 00:53:08
+
+
+Cette transcription modifiable a été générée par ordinateur et peut contenir des erreurs. Les utilisateurs peuvent également modifier le texte après sa création.
