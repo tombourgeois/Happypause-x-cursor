@@ -11,8 +11,10 @@ import {
   Linking,
   Alert,
   Platform,
+  StyleSheet,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { COLORS, FONTS } from '../theme';
 import * as ImagePicker from 'expo-image-picker';
 import { useAuth } from '../contexts/AuthContext';
 import AuthModal from './AuthModal';
@@ -23,6 +25,7 @@ import {
   setAvatarUrl,
   getAvatarUrl,
 } from '../services/profileService';
+import { getStats } from '../services/statsService';
 import { apiPost, apiGet } from '../services/api';
 import type { UserProfile } from '../types';
 
@@ -41,9 +44,10 @@ interface ProfileTabProps {
 }
 
 export default function ProfileTab({ openSettings }: ProfileTabProps) {
-  const { user, isAuthenticated, login, register, logout, forgotPassword, resetPassword, applyTokens } = useAuth();
+  const { user, isAuthenticated, hasCompletedAuth, login, register, logout, forgotPassword, resetPassword, applyTokens } = useAuth();
   const [showAuth, setShowAuth] = useState(false);
   const [profile, setProfile] = useState<UserProfile | null>(null);
+  const [profileStats, setProfileStats] = useState<{ totalPausesDone: number; dayStreak: number } | null>(null);
   const [loading, setLoading] = useState(true);
   const [expandedSection, setExpandedSection] = useState<string | null>(null);
 
@@ -72,6 +76,15 @@ export default function ProfileTab({ openSettings }: ProfileTabProps) {
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [deleteCode, setDeleteCode] = useState('');
   const [deleteError, setDeleteError] = useState('');
+
+  useEffect(() => {
+    if (hasCompletedAuth) {
+      getStats().then((s) => setProfileStats({
+        totalPausesDone: s.totalPausesDone ?? 0,
+        dayStreak: s.dayStreak ?? 0,
+      })).catch(() => setProfileStats(null));
+    }
+  }, [hasCompletedAuth]);
 
   useEffect(() => {
     if (isAuthenticated) {
@@ -278,8 +291,8 @@ export default function ProfileTab({ openSettings }: ProfileTabProps) {
 
   if (loading) {
     return (
-      <View className="flex-1 bg-charcoal items-center justify-center">
-        <ActivityIndicator size="large" color="#b1b7a2" />
+      <View style={styles.loadingContainer}>
+        <ActivityIndicator size="large" color={COLORS.primarySage} />
       </View>
     );
   }
@@ -289,20 +302,28 @@ export default function ProfileTab({ openSettings }: ProfileTabProps) {
     : profile?.email?.split('@')[0] || 'Guest';
 
   return (
-    <ScrollView className="flex-1 bg-charcoal" contentContainerStyle={{ paddingBottom: 40 }}>
-      <Text className="text-offWhite text-2xl font-bold text-center mt-8 mb-4">Profile</Text>
+    <ScrollView style={styles.container} contentContainerStyle={styles.content}>
+      <View style={styles.header}>
+        <View style={styles.headerLeft}>
+          <View style={styles.logoBox}>
+            <Ionicons name="leaf" size={18} color={COLORS.charcoal} />
+          </View>
+          <Text style={styles.headerTitle}>HappyPause</Text>
+        </View>
+      </View>
+      <Text style={styles.pageTitle}>Profile</Text>
 
       {!isAuthenticated ? (
-        <View className="px-6">
-          <View className="bg-offWhite/10 rounded-xl p-4 mb-4">
-            <Text className="text-offWhite/70 text-sm">Guest mode</Text>
-            <Text className="text-offWhite mt-1">You are using the app as a guest.</Text>
+        <View style={styles.section}>
+          <View style={styles.guestCard}>
+            <Text style={styles.guestLabel}>Guest mode</Text>
+            <Text style={styles.guestText}>You are using the app as a guest.</Text>
           </View>
-          <TouchableOpacity onPress={() => setShowAuth(true)} className="bg-sage rounded-xl py-3 px-4 mb-4">
-            <Text className="text-charcoal font-bold text-center">Log in / Sign up</Text>
+          <TouchableOpacity onPress={() => setShowAuth(true)} style={styles.primaryBtn}>
+            <Text style={styles.primaryBtnText}>Log in / Sign up</Text>
           </TouchableOpacity>
-          <TouchableOpacity onPress={logout} className="py-3 mb-4">
-            <Text className="text-offWhite/60 text-center">Back to login screen</Text>
+          <TouchableOpacity onPress={logout} style={styles.secondaryBtn}>
+            <Text style={styles.secondaryBtnText}>Back to login screen</Text>
           </TouchableOpacity>
         </View>
       ) : (
@@ -327,6 +348,28 @@ export default function ProfileTab({ openSettings }: ProfileTabProps) {
             <Text className="text-offWhite text-xl font-bold mt-4">{displayName}</Text>
             <Text className="text-sage text-sm">{profile?.email}</Text>
           </View>
+
+          {profileStats && (
+            <View style={styles.statsAtGlance}>
+              <Text style={styles.statsSectionLabel}>Stats at a glance</Text>
+              <View style={styles.statsCards}>
+                <View style={styles.statCard}>
+                  <Ionicons name="checkmark-circle" size={28} color={COLORS.zenAccent} />
+                  <View>
+                    <Text style={styles.statValue}>{profileStats.totalPausesDone}</Text>
+                    <Text style={styles.statLabel}>Pauses Done</Text>
+                  </View>
+                </View>
+                <View style={styles.statCard}>
+                  <Ionicons name="flame" size={28} color={COLORS.vibrantGreen} />
+                  <View>
+                    <Text style={styles.statValue}>{profileStats.dayStreak}</Text>
+                    <Text style={styles.statLabel}>Day Streak</Text>
+                  </View>
+                </View>
+              </View>
+            </View>
+          )}
 
           <View className="px-6">
             <Text className="text-offWhite/60 text-xs font-bold uppercase tracking-widest mb-2 px-2">Account</Text>
@@ -479,6 +522,33 @@ export default function ProfileTab({ openSettings }: ProfileTabProps) {
               </View>
             )}
 
+            {/* Support */}
+            <Text className="text-offWhite/60 text-xs font-bold uppercase tracking-widest mb-2 px-2 mt-6">Support</Text>
+            <TouchableOpacity
+              onPress={() => Linking.openURL('https://www.ajis.ca/legal')}
+              className="bg-offWhite/5 rounded-xl p-4 mb-3 flex-row justify-between items-center"
+            >
+              <View className="flex-row items-center gap-3">
+                <View className="w-8 h-8 rounded-lg bg-sage/10 items-center justify-center">
+                  <Ionicons name="document-text" size={18} color="#b1b7a2" />
+                </View>
+                <Text className="text-offWhite font-medium">Privacy Policy</Text>
+              </View>
+              <Ionicons name="chevron-forward" size={20} color="#888" />
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => Linking.openURL('mailto:info@ajis.ca')}
+              className="bg-offWhite/5 rounded-xl p-4 mb-3 flex-row justify-between items-center"
+            >
+              <View className="flex-row items-center gap-3">
+                <View className="w-8 h-8 rounded-lg bg-sage/10 items-center justify-center">
+                  <Ionicons name="help-circle" size={18} color="#b1b7a2" />
+                </View>
+                <Text className="text-offWhite font-medium">Help & Support</Text>
+              </View>
+              <Ionicons name="chevron-forward" size={20} color="#888" />
+            </TouchableOpacity>
+
             {/* Data & Privacy */}
             <TouchableOpacity
               onPress={() => toggleSection('data')}
@@ -518,11 +588,14 @@ export default function ProfileTab({ openSettings }: ProfileTabProps) {
         </>
       )}
 
-      <TouchableOpacity onPress={openSettings} className="mx-6 mt-4 bg-sage rounded-xl py-3 px-4">
-        <Text className="text-charcoal font-bold text-center">Settings</Text>
+      <TouchableOpacity onPress={openSettings} style={[styles.primaryBtn, styles.settingsBtn]}>
+        <Text style={styles.primaryBtnText}>Settings</Text>
       </TouchableOpacity>
 
-      <Text className="text-offWhite/30 text-xs text-center py-4">HappyPause v1.0.2</Text>
+      <Text style={styles.versionText}>HappyPause v1.0.2</Text>
+      {user?.userId && (
+        <Text style={styles.userIdText}>User ID: {user.userId}</Text>
+      )}
 
       {/* Avatar modal */}
       {showAvatarModal && (
@@ -723,3 +796,158 @@ export default function ProfileTab({ openSettings }: ProfileTabProps) {
     </ScrollView>
   );
 }
+
+const styles = StyleSheet.create({
+  loadingContainer: {
+    flex: 1,
+    backgroundColor: COLORS.backgroundDark,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  container: {
+    flex: 1,
+    backgroundColor: COLORS.backgroundDark,
+  },
+  content: {
+    paddingBottom: 40,
+  },
+  header: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: 16,
+    paddingTop: 24,
+    paddingBottom: 16,
+    borderBottomWidth: 1,
+    borderBottomColor: 'rgba(255,255,255,0.05)',
+  },
+  headerLeft: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 12,
+  },
+  logoBox: {
+    width: 40,
+    height: 40,
+    backgroundColor: '#fff',
+    borderRadius: 4,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  headerTitle: {
+    fontSize: 20,
+    fontWeight: '700',
+    letterSpacing: -0.5,
+    color: COLORS.zenText,
+    fontFamily: FONTS.bold,
+  },
+  pageTitle: {
+    fontSize: 32,
+    fontWeight: '700',
+    color: COLORS.zenText,
+    textAlign: 'center',
+    marginTop: 24,
+    marginBottom: 16,
+    fontFamily: FONTS.bold,
+  },
+  section: {
+    paddingHorizontal: 24,
+  },
+  guestCard: {
+    backgroundColor: 'rgba(255,255,255,0.05)',
+    borderRadius: 12,
+    padding: 16,
+    marginBottom: 16,
+    borderWidth: 1,
+    borderColor: 'rgba(255,255,255,0.05)',
+  },
+  guestLabel: {
+    fontSize: 14,
+    color: 'rgba(245,245,245,0.7)',
+    fontFamily: FONTS.regular,
+  },
+  guestText: {
+    fontSize: 16,
+    color: COLORS.zenText,
+    marginTop: 4,
+    fontFamily: FONTS.regular,
+  },
+  primaryBtn: {
+    backgroundColor: COLORS.primarySage,
+    borderRadius: 12,
+    paddingVertical: 12,
+    paddingHorizontal: 16,
+    marginBottom: 16,
+  },
+  primaryBtnText: {
+    color: COLORS.charcoal,
+    fontWeight: '700',
+    textAlign: 'center',
+    fontFamily: FONTS.bold,
+  },
+  secondaryBtn: {
+    paddingVertical: 12,
+    marginBottom: 16,
+  },
+  secondaryBtnText: {
+    color: 'rgba(245,245,245,0.6)',
+    textAlign: 'center',
+    fontFamily: FONTS.regular,
+  },
+  settingsBtn: {
+    marginHorizontal: 24,
+    marginTop: 16,
+  },
+  versionText: {
+    color: 'rgba(245,245,245,0.3)',
+    fontSize: 12,
+    textAlign: 'center',
+    paddingVertical: 16,
+    fontFamily: FONTS.regular,
+  },
+  userIdText: {
+    color: 'rgba(245,245,245,0.25)',
+    fontSize: 11,
+    textAlign: 'center',
+    paddingBottom: 24,
+    fontFamily: FONTS.regular,
+  },
+  statsAtGlance: {
+    paddingHorizontal: 24,
+    paddingVertical: 16,
+  },
+  statsSectionLabel: {
+    fontSize: 12,
+    fontWeight: '700',
+    letterSpacing: 2,
+    color: 'rgba(245,245,245,0.6)',
+    marginBottom: 16,
+    textTransform: 'uppercase',
+    fontFamily: FONTS.bold,
+  },
+  statsCards: {
+    flexDirection: 'row',
+    gap: 16,
+  },
+  statCard: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 12,
+    backgroundColor: 'rgba(255,255,255,0.05)',
+    borderWidth: 1,
+    borderColor: 'rgba(255,255,255,0.05)',
+    borderRadius: 12,
+    padding: 16,
+  },
+  statValue: {
+    fontSize: 18,
+    fontWeight: '700',
+    color: COLORS.zenText,
+    fontFamily: FONTS.bold,
+  },
+  statLabel: {
+    fontSize: 11,
+    color: 'rgba(245,245,245,0.6)',
+    fontFamily: FONTS.regular,
+  },
+});

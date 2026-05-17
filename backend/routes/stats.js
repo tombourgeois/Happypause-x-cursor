@@ -79,14 +79,31 @@ export async function statsRoutes(fastify) {
         `).all(deviceId);
 
     const insight = {};
+    let totalPausesDone = 0;
     for (const row of activityInsight) {
-      if (!insight[row.category]) insight[row.category] = { done: 0, skipped: 0 };
-      insight[row.category][row.type === 'happypause_done' ? 'done' : 'skipped'] = row.count;
+      const cat = row.category || 'Other';
+      if (!insight[cat]) insight[cat] = { done: 0, skipped: 0 };
+      insight[cat][row.type === 'happypause_done' ? 'done' : 'skipped'] = row.count;
+      if (row.type === 'happypause_done') totalPausesDone += row.count;
+    }
+
+    // Day streak: consecutive days (today backwards) with at least one happypause_done
+    const doneLogs = logs.filter(l => l.type === 'happypause_done');
+    const datesWithDone = new Set(doneLogs.map(l => new Date(l.timestamp).toISOString().slice(0, 10)));
+    let dayStreak = 0;
+    for (let i = 0; i < 365; i++) {
+      const d = new Date();
+      d.setDate(d.getDate() - i);
+      const dateStr = d.toISOString().slice(0, 10);
+      if (datesWithDone.has(dateStr)) dayStreak++;
+      else break;
     }
 
     return {
       totalFocusTime,
       totalPauseTime,
+      totalPausesDone,
+      dayStreak,
       weeklyData,
       categoryBreakdown,
       activityInsight: insight,

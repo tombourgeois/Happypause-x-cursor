@@ -7,12 +7,14 @@ import {
   Linking,
   ActivityIndicator,
   Alert,
+  StyleSheet,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import CircularTimer from '../components/CircularTimer';
 import * as activityService from '../services/activityService';
 import * as logService from '../services/logService';
 import { getImageUrl } from '../services/api';
+import { COLORS, FONTS } from '../theme';
 import type { Activity, UserSettings } from '../types';
 
 const CATEGORIES = ['FITNESS', 'LEISURE', 'SOCIAL', 'MIND', 'SPIRITUAL', 'RELAXATION'];
@@ -172,6 +174,10 @@ export default function TimerTab({ settings, openSettings, openCreateActivity }:
     if (activity) {
       activityService.updateFeedback(activity.id, 'increment_up');
       logService.addLog({ type: 'happypause_thumb_up', activityId: activity.id });
+      setActivity({
+        ...activity,
+        thumbsUpCount: Math.min(10, (activity.thumbsUpCount ?? 0) + 1),
+      });
     }
   };
 
@@ -179,6 +185,10 @@ export default function TimerTab({ settings, openSettings, openCreateActivity }:
     if (activity) {
       activityService.updateFeedback(activity.id, 'increment_down');
       logService.addLog({ type: 'happypause_thumb_down', activityId: activity.id });
+      setActivity({
+        ...activity,
+        thumbsDownCount: Math.min(10, (activity.thumbsDownCount ?? 0) + 1),
+      });
     }
   };
 
@@ -192,121 +202,500 @@ export default function TimerTab({ settings, openSettings, openCreateActivity }:
   });
 
   return (
-    <View className="flex-1 bg-charcoal">
-      <View className="flex-row justify-end pt-12 pr-4">
-        <TouchableOpacity onPress={openSettings} className="p-2">
-          <Ionicons name="settings-outline" size={28} color="#b1b7a2" />
+    <View style={styles.container}>
+      {/* Header */}
+      <View style={styles.header}>
+        <View style={styles.headerLeft}>
+          <View style={styles.logoBox}>
+            <Ionicons name="leaf" size={20} color={COLORS.charcoal} />
+          </View>
+          <Text style={styles.headerTitle}>HappyPause</Text>
+        </View>
+        <TouchableOpacity onPress={openSettings} style={styles.settingsBtn}>
+          <Ionicons name="settings-outline" size={24} color="rgba(245,245,245,0.6)" />
         </TouchableOpacity>
       </View>
 
       {mode === 'focus' && (
-        <View className="flex-1 items-center justify-center px-6">
-          <CircularTimer progress={progress}>
-            <Text className="text-offWhite/70 text-xs uppercase tracking-wider">Focus Session</Text>
-            <Text className="text-offWhite/70 text-xs mt-1">Ends at {endTime}</Text>
-            <Text className="text-offWhite text-4xl font-bold mt-2">{formatTime(timeLeft)}</Text>
-            <Text className="text-offWhite/70 text-sm mt-1">Until break</Text>
-            <TouchableOpacity
-              onPress={handleHavePause}
-              className="mt-4 bg-sage px-6 py-3 rounded-full"
-            >
-              <Text className="text-charcoal font-bold">Have a HappyPause</Text>
-            </TouchableOpacity>
-          </CircularTimer>
-          <View className="flex-row gap-4 mt-8">
-            <TouchableOpacity
-              onPress={() => setState('idle')}
-              className="w-12 h-12 rounded-full bg-offWhite/10 items-center justify-center"
-            >
-              <Ionicons name="stop" size={24} color="#f5f5f5" />
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={() => setState(state === 'running' ? 'paused' : 'running')}
-              className="w-12 h-12 rounded-full bg-sage items-center justify-center"
-            >
-              <Ionicons name={state === 'running' ? 'pause' : 'play'} size={24} color="#36333a" />
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={() => {
-                setTimeLeft(settings.focusDuration * 60);
-                setState('running');
-              }}
-              className="w-12 h-12 rounded-full bg-offWhite/10 items-center justify-center"
-            >
-              <Ionicons name="refresh" size={24} color="#f5f5f5" />
-            </TouchableOpacity>
+        <View style={styles.main}>
+          <View style={styles.timerSection}>
+            <CircularTimer progress={progress}>
+              <View style={styles.focusBadge}>
+                <Text style={styles.focusBadgeText}>Focus Session</Text>
+              </View>
+              <Text style={styles.endsAt}>Ends at {endTime}</Text>
+              <Text style={styles.timeDisplay}>{formatTime(timeLeft)}</Text>
+              <Text style={styles.untilBreak}>Until break</Text>
+              <TouchableOpacity
+                onPress={handleHavePause}
+                style={styles.havePauseBtn}
+                activeOpacity={0.9}
+              >
+                <Ionicons name="play" size={18} color={COLORS.charcoal} />
+                <Text style={styles.havePauseText}>Have a HappyPause</Text>
+              </TouchableOpacity>
+            </CircularTimer>
+            <View style={styles.controls}>
+              <TouchableOpacity
+                onPress={() => setState('idle')}
+                style={styles.controlBtn}
+                activeOpacity={0.9}
+              >
+                <Ionicons name="stop" size={24} color="rgba(245,245,245,0.8)" />
+              </TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => setState(state === 'running' ? 'paused' : 'running')}
+                style={[styles.controlBtn, styles.controlBtnPrimary]}
+                activeOpacity={0.9}
+              >
+                <Ionicons
+                  name={state === 'running' ? 'pause' : 'play'}
+                  size={32}
+                  color={COLORS.charcoal}
+                />
+              </TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => {
+                  setTimeLeft(settings.focusDuration * 60);
+                  setState('running');
+                }}
+                style={styles.controlBtn}
+                activeOpacity={0.9}
+              >
+                <Ionicons name="refresh" size={24} color="rgba(245,245,245,0.8)" />
+              </TouchableOpacity>
+            </View>
           </View>
         </View>
       )}
 
       {mode === 'pause' && (
-        <View className="flex-1 items-center justify-center px-6">
+        <View style={styles.main}>
           {loading ? (
-            <ActivityIndicator size="large" color="#b1b7a2" />
+            <ActivityIndicator size="large" color={COLORS.primarySage} />
           ) : activity ? (
-            <>
+            <View style={styles.pauseSection}>
+              <View style={styles.pauseHeader}>
+                <TouchableOpacity
+                  onPress={() => {
+                    setMode('focus');
+                    setState('idle');
+                    setTimeLeft(settings.focusDuration * 60);
+                    setActivity(null);
+                  }}
+                  style={styles.closeBtn}
+                >
+                  <Ionicons name="close" size={24} color={COLORS.primarySage} />
+                </TouchableOpacity>
+                <Text style={styles.pauseTitle}>HAPPYPAUSE IN PROGRESS</Text>
+                <View style={styles.closeBtn} />
+              </View>
+              <TouchableOpacity
+                onPress={openInfo}
+                activeOpacity={1}
+                style={styles.circleTouchable}
+              >
               <CircularTimer progress={progress}>
-                <Text className="text-offWhite/70 text-xs uppercase">{activity.category}</Text>
-                <Text className="text-offWhite text-2xl font-bold mt-2 text-center">
-                  {activity.title}
-                </Text>
+                <Text style={styles.categoryLabel}>{activity.category}</Text>
+                <Text style={styles.activityTitle}>{activity.title}</Text>
                 {activity.iconName && !imageError ? (
                   <Image
                     source={{ uri: getImageUrl(activity.iconName) }}
-                    style={{ width: 80, height: 80, marginTop: 12, borderRadius: 8 }}
+                    style={styles.activityIcon}
                     resizeMode="contain"
                     onError={() => setImageError(true)}
                   />
                 ) : (
-                  <View className="w-20 h-20 mt-3 rounded-lg bg-offWhite/10 items-center justify-center">
-                    <Ionicons name="fitness-outline" size={40} color="#b1b7a2" />
+                  <View style={styles.activityIconPlaceholder}>
+                    <Ionicons name="fitness-outline" size={48} color={COLORS.primarySage} />
                   </View>
                 )}
-                <Text className="text-offWhite/80 text-sm mt-2 text-center px-4" numberOfLines={3}>
+                <Text style={styles.activityDesc} numberOfLines={3}>
                   {activity.description}
                 </Text>
-                <Text className="text-offWhite text-3xl font-bold mt-4">{formatTime(timeLeft)}</Text>
+                <Text style={styles.timeDisplay}>{formatTime(timeLeft)}</Text>
+                <Text style={styles.remainingLabel}>Remaining</Text>
+                <Text style={styles.pressToKnowMore}>press to know more</Text>
               </CircularTimer>
-              <View className="flex-row gap-6 mt-6">
-                <TouchableOpacity onPress={handleThumbDown}>
-                  <Ionicons name="thumbs-down-outline" size={32} color="#f5f5f5" />
-                </TouchableOpacity>
-                <TouchableOpacity onPress={openInfo}>
-                  <Text className="text-sage text-sm">Learn more</Text>
-                </TouchableOpacity>
-                <TouchableOpacity onPress={handleThumbUp}>
-                  <Ionicons name="thumbs-up-outline" size={32} color="#f5f5f5" />
-                </TouchableOpacity>
-              </View>
-              <View className="flex-row gap-4 mt-6">
+              </TouchableOpacity>
+              <View style={styles.pauseActions}>
                 <TouchableOpacity
                   onPress={handleCycle}
-                  className="w-12 h-12 rounded-full bg-offWhite/10 items-center justify-center"
+                  style={styles.pauseActionBtn}
+                  activeOpacity={0.9}
                 >
-                  <Ionicons name="shuffle" size={24} color="#f5f5f5" />
+                  <Ionicons name="refresh" size={28} color="rgba(245,245,245,0.6)" />
+                  <Text style={styles.pauseActionLabel}>Cycle</Text>
                 </TouchableOpacity>
                 <TouchableOpacity
                   onPress={handleDone}
-                  className="w-12 h-12 rounded-full bg-sage items-center justify-center"
+                  style={[styles.pauseActionBtn, styles.pauseActionBtnPrimary]}
+                  activeOpacity={0.9}
                 >
-                  <Ionicons name="checkmark" size={24} color="#36333a" />
+                  <Ionicons name="checkmark" size={32} color={COLORS.charcoal} />
+                  <Text style={[styles.pauseActionLabel, styles.pauseActionLabelPrimary]}>Done</Text>
                 </TouchableOpacity>
                 <TouchableOpacity
                   onPress={handleSkip}
-                  className="w-12 h-12 rounded-full bg-offWhite/10 items-center justify-center"
+                  style={styles.pauseActionBtn}
+                  activeOpacity={0.9}
                 >
-                  <Ionicons name="close" size={24} color="#f5f5f5" />
+                  <Ionicons name="play-forward" size={28} color="rgba(245,245,245,0.6)" />
+                  <Text style={styles.pauseActionLabel}>Skip</Text>
                 </TouchableOpacity>
               </View>
-              <TouchableOpacity onPress={openCreateActivity} className="mt-8">
-                <Text className="text-sage text-sm">Create a HappyPause</Text>
+              <View style={styles.thumbsRow}>
+                <View style={styles.thumbBtn}>
+                  <TouchableOpacity onPress={handleThumbDown} style={styles.thumbBtnInner}>
+                    <Ionicons
+                      name={(activity.thumbsDownCount ?? 0) > 0 ? 'thumbs-down' : 'thumbs-down-outline'}
+                      size={24}
+                      color={(activity.thumbsDownCount ?? 0) > 0 ? '#f87171' : 'rgba(245,245,245,0.3)'}
+                    />
+                  </TouchableOpacity>
+                  <Text style={[styles.thumbCount, (activity.thumbsDownCount ?? 0) > 0 && styles.thumbCountDown]}>
+                    {activity.thumbsDownCount ?? 0}
+                  </Text>
+                </View>
+                <TouchableOpacity onPress={openInfo}>
+                  <Text style={styles.learnMoreText}>Learn more</Text>
+                </TouchableOpacity>
+                <View style={styles.thumbBtn}>
+                  <TouchableOpacity onPress={handleThumbUp} style={styles.thumbBtnInner}>
+                    <Ionicons
+                      name={(activity.thumbsUpCount ?? 0) > 0 ? 'thumbs-up' : 'thumbs-up-outline'}
+                      size={24}
+                      color={(activity.thumbsUpCount ?? 0) > 0 ? COLORS.primarySage : 'rgba(245,245,245,0.3)'}
+                    />
+                  </TouchableOpacity>
+                  <Text style={[styles.thumbCount, (activity.thumbsUpCount ?? 0) > 0 && styles.thumbCountUp]}>
+                    {activity.thumbsUpCount ?? 0}
+                  </Text>
+                </View>
+              </View>
+              <TouchableOpacity onPress={openCreateActivity} style={styles.createPauseLink}>
+                <Text style={styles.createPauseLinkText}>Create a HappyPause</Text>
               </TouchableOpacity>
-            </>
+            </View>
           ) : (
-            <Text className="text-offWhite">No activities available</Text>
+            <Text style={styles.noActivities}>No activities available</Text>
           )}
         </View>
       )}
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: COLORS.backgroundDark,
+  },
+  header: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingHorizontal: 24,
+    height: 64,
+    borderBottomWidth: 1,
+    borderBottomColor: 'rgba(255,255,255,0.05)',
+  },
+  headerLeft: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 12,
+  },
+  logoBox: {
+    width: 40,
+    height: 40,
+    backgroundColor: '#fff',
+    borderRadius: 4,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  headerTitle: {
+    fontSize: 16,
+    fontWeight: '700',
+    letterSpacing: -0.5,
+    color: 'rgba(245,245,245,0.9)',
+    fontFamily: FONTS.bold,
+  },
+  settingsBtn: {
+    width: 40,
+    height: 40,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  main: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: 24,
+  },
+  timerSection: {
+    alignItems: 'center',
+    width: '100%',
+    maxWidth: 340,
+  },
+  focusBadge: {
+    paddingHorizontal: 12,
+    paddingVertical: 4,
+    borderRadius: 9999,
+    backgroundColor: 'rgba(177,183,162,0.1)',
+    borderWidth: 1,
+    borderColor: 'rgba(177,183,162,0.2)',
+    marginBottom: 4,
+  },
+  focusBadgeText: {
+    fontSize: 10,
+    fontWeight: '700',
+    letterSpacing: 2,
+    color: COLORS.primarySage,
+    textTransform: 'uppercase',
+    fontFamily: FONTS.bold,
+  },
+  endsAt: {
+    fontSize: 11,
+    color: 'rgba(245,245,245,0.4)',
+    marginBottom: 16,
+    fontFamily: FONTS.medium,
+  },
+  timeDisplay: {
+    fontSize: 56,
+    fontWeight: '800',
+    letterSpacing: -2,
+    color: COLORS.zenText,
+    fontFamily: FONTS.bold,
+  },
+  untilBreak: {
+    fontSize: 10,
+    fontWeight: '700',
+    letterSpacing: 3,
+    color: 'rgba(245,245,245,0.4)',
+    marginTop: 12,
+    marginBottom: 24,
+    textTransform: 'uppercase',
+    fontFamily: FONTS.bold,
+  },
+  havePauseBtn: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+    backgroundColor: 'rgba(245,245,245,0.1)',
+    borderWidth: 1,
+    borderColor: 'rgba(245,245,245,0.1)',
+    paddingHorizontal: 20,
+    paddingVertical: 10,
+    borderRadius: 9999,
+  },
+  havePauseText: {
+    fontSize: 11,
+    fontWeight: '700',
+    letterSpacing: 1,
+    color: COLORS.zenText,
+    fontFamily: FONTS.bold,
+  },
+  controls: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 32,
+    marginTop: 48,
+  },
+  controlBtn: {
+    width: 64,
+    height: 64,
+    borderRadius: 9999,
+    borderWidth: 1,
+    borderColor: 'rgba(245,245,245,0.1)',
+    backgroundColor: 'rgba(245,245,245,0.05)',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  controlBtnPrimary: {
+    width: 80,
+    height: 80,
+    borderWidth: 0,
+    backgroundColor: COLORS.primarySage,
+    shadowColor: COLORS.primarySage,
+    shadowOffset: { width: 0, height: 0 },
+    shadowOpacity: 0.4,
+    shadowRadius: 20,
+    elevation: 8,
+  },
+  pauseSection: {
+    alignItems: 'center',
+    width: '100%',
+    maxWidth: 340,
+  },
+  categoryLabel: {
+    fontSize: 11,
+    fontWeight: '800',
+    letterSpacing: 3,
+    color: COLORS.primarySage,
+    marginBottom: 8,
+    fontFamily: FONTS.bold,
+  },
+  activityTitle: {
+    fontSize: 24,
+    fontWeight: '800',
+    color: COLORS.zenText,
+    textAlign: 'center',
+    marginBottom: 12,
+    fontFamily: FONTS.bold,
+  },
+  activityIcon: {
+    width: 80,
+    height: 80,
+    marginTop: 12,
+    borderRadius: 8,
+  },
+  activityIconPlaceholder: {
+    width: 80,
+    height: 80,
+    marginTop: 12,
+    borderRadius: 8,
+    backgroundColor: 'rgba(245,245,245,0.05)',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  activityDesc: {
+    fontSize: 12,
+    color: 'rgba(245,245,245,0.6)',
+    textAlign: 'center',
+    marginTop: 8,
+    marginBottom: 24,
+    paddingHorizontal: 24,
+    fontFamily: FONTS.medium,
+  },
+  remainingLabel: {
+    fontSize: 9,
+    fontWeight: '700',
+    letterSpacing: 2.5,
+    color: 'rgba(245,245,245,0.4)',
+    textTransform: 'uppercase',
+    marginTop: 6,
+    fontFamily: FONTS.bold,
+  },
+  pauseActions: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 32,
+    marginTop: 24,
+  },
+  pauseActionBtn: {
+    alignItems: 'center',
+    gap: 12,
+  },
+  pauseActionBtnPrimary: {
+    width: 80,
+    height: 80,
+    borderRadius: 9999,
+    backgroundColor: COLORS.primarySage,
+    alignItems: 'center',
+    justifyContent: 'center',
+    shadowColor: COLORS.primarySage,
+    shadowOffset: { width: 0, height: 8 },
+    shadowOpacity: 0.25,
+    shadowRadius: 32,
+    elevation: 8,
+  },
+  pauseActionLabel: {
+    fontSize: 10,
+    fontWeight: '700',
+    letterSpacing: 2,
+    color: 'rgba(245,245,245,0.3)',
+    textTransform: 'uppercase',
+    fontFamily: FONTS.bold,
+  },
+  pauseActionLabelPrimary: {
+    color: COLORS.primarySage,
+  },
+  pauseHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    width: '100%',
+    paddingHorizontal: 24,
+    paddingTop: 12,
+    paddingBottom: 16,
+  },
+  closeBtn: {
+    width: 40,
+    height: 40,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  pauseTitle: {
+    fontSize: 12,
+    fontWeight: '700',
+    letterSpacing: 2,
+    color: 'rgba(255,255,255,0.8)',
+    textTransform: 'uppercase',
+    fontFamily: FONTS.bold,
+  },
+  circleTouchable: {
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  pressToKnowMore: {
+    fontSize: 8,
+    fontWeight: '700',
+    letterSpacing: 1.5,
+    color: 'rgba(245,245,245,0.3)',
+    textTransform: 'uppercase',
+    marginTop: 8,
+    fontFamily: FONTS.bold,
+  },
+  thumbsRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 24,
+    marginTop: 24,
+  },
+  thumbBtn: {
+    alignItems: 'center',
+    gap: 4,
+  },
+  thumbBtnInner: {
+    width: 48,
+    height: 48,
+    borderRadius: 9999,
+    backgroundColor: 'rgba(245,245,245,0.05)',
+    borderWidth: 1,
+    borderColor: 'rgba(245,245,245,0.1)',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  thumbCount: {
+    fontSize: 12,
+    fontWeight: '700',
+    color: 'rgba(245,245,245,0.3)',
+    fontFamily: FONTS.bold,
+  },
+  thumbCountUp: {
+    color: COLORS.primarySage,
+  },
+  thumbCountDown: {
+    color: '#f87171',
+  },
+  learnMoreText: {
+    fontSize: 14,
+    color: COLORS.primarySage,
+    fontFamily: FONTS.medium,
+  },
+  createPauseLink: {
+    marginTop: 24,
+  },
+  createPauseLinkText: {
+    fontSize: 11,
+    fontWeight: '700',
+    letterSpacing: 1.5,
+    color: COLORS.primarySage,
+    fontFamily: FONTS.bold,
+  },
+  noActivities: {
+    fontSize: 16,
+    color: COLORS.zenText,
+    fontFamily: FONTS.regular,
+  },
+});

@@ -1,6 +1,7 @@
 import React from 'react';
 import { View } from 'react-native';
 import Svg, { Circle, G } from 'react-native-svg';
+import { COLORS } from '../theme';
 
 interface CircularTimerProps {
   radius?: number;
@@ -26,14 +27,14 @@ export default function CircularTimer({
         <G transform={`translate(${size / 2}, ${size / 2}) rotate(-90)`}>
           <Circle
             r={normalizedRadius}
-            stroke="#f5f5f5"
+            stroke={COLORS.zenText}
             strokeOpacity={0.1}
             fill="transparent"
             strokeWidth={stroke}
           />
           <Circle
             r={normalizedRadius}
-            stroke="#b1b7a2"
+            stroke={COLORS.primarySage}
             fill="transparent"
             strokeWidth={stroke}
             strokeDasharray={`${circumference} ${circumference}`}

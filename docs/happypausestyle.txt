@@ -1,0 +1,1847 @@
+<!-- HappyPause Login Page -->
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HappyPause Login</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary-sage": "#b1b7a2",
+                        "vibrant-green": "#abec13",
+                        "background-dark": "#36333a",
+                        "zen-accent": "#b1b7a2",
+                        "zen-text": "#f5f5f5",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1.25rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        body {
+            font-family: 'Manrope', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+<style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-dark text-zen-text min-h-screen flex flex-col items-center justify-between p-6">
+<div class="w-full max-w-sm flex flex-col items-center pt-12">
+<div class="mb-6">
+<div class="w-24 h-24 bg-white flex flex-col items-center justify-center text-black rounded-2xl shadow-lg">
+<span class="text-xs font-bold">Logo.png</span>
+<span class="text-[10px] opacity-60">96x96 px</span>
+</div>
+</div>
+<h1 class="text-3xl font-bold tracking-tight text-zen-text mb-2">HappyPause</h1>
+<p class="text-zen-accent font-medium text-sm">Take a pause. Be happy.</p>
+</div>
+<div class="w-full max-w-sm space-y-6 flex-1 flex flex-col justify-center">
+<div class="space-y-4">
+<div class="flex flex-col gap-2">
+<label class="text-sm font-semibold text-zen-accent ml-1">Email</label>
+<div class="relative group">
+<input class="w-full h-14 bg-[#444148] border-none rounded-xl px-4 text-zen-text placeholder:text-zen-accent/50 focus:ring-2 focus:ring-primary-sage/50 transition-all duration-300" placeholder="hello@happypause.com" type="email"/>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-sm font-semibold text-zen-accent ml-1">Password</label>
+<div class="relative flex items-center">
+<input class="w-full h-14 bg-[#444148] border-none rounded-xl px-4 text-zen-text placeholder:text-zen-accent/50 focus:ring-2 focus:ring-primary-sage/50 transition-all duration-300" placeholder="••••••••" type="password"/>
+<button class="absolute right-4 text-zen-accent hover:text-vibrant-green transition-colors">
+<span class="material-symbols-outlined text-xl">visibility</span>
+</button>
+</div>
+<div class="flex justify-end">
+<button class="text-xs font-semibold text-vibrant-green hover:brightness-110 transition-colors">Forgot Password?</button>
+</div>
+</div>
+</div>
+<button class="w-full h-14 bg-primary-sage text-[#36333a] font-bold text-lg rounded-xl shadow-lg shadow-black/20 hover:opacity-90 active:scale-[0.98] transition-all tracking-wide">
+            Login
+        </button>
+<div class="flex items-center gap-4 py-2">
+<div class="h-[1px] flex-1 bg-zen-accent/20"></div>
+<span class="text-xs font-bold text-zen-accent/60 uppercase tracking-widest">OR</span>
+<div class="h-[1px] flex-1 bg-zen-accent/20"></div>
+</div>
+<div class="grid grid-cols-1 gap-3">
+<button class="flex items-center justify-center gap-3 w-full h-12 bg-white text-[#3c4043] font-medium border border-[#dadce0] rounded-md hover:shadow-md transition-shadow px-4">
+<svg class="w-5 h-5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path>
+<path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path>
+<path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"></path>
+<path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path>
+</svg>
+<span class="text-sm font-['Roboto',sans-serif]">Continue with Google</span>
+</button>
+<button class="flex items-center justify-center gap-3 w-full h-12 bg-black text-white font-medium rounded-md hover:bg-zinc-900 transition-colors px-4">
+<svg class="w-5 h-5 fill-current" viewBox="0 0 384 512" xmlns="http://www.w3.org/2000/svg">
+<path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"></path>
+</svg>
+<span class="text-sm font-[-apple-system,BlinkMacSystemFont,sans-serif]">Continue with Apple</span>
+</button>
+</div>
+</div>
+<div class="w-full max-w-sm pt-8 pb-4">
+<div class="h-[1px] w-full bg-zen-accent/10 mb-6"></div>
+<div class="text-center">
+<p class="text-zen-accent text-sm">
+                Don't have an account? 
+                <button class="text-vibrant-green font-bold ml-1 hover:underline">Sign Up</button>
+</p>
+</div>
+</div>
+<div class="fixed top-[-10%] left-[-10%] w-64 h-64 bg-primary-sage/5 rounded-full blur-[80px] pointer-events-none"></div>
+<div class="fixed bottom-[-5%] right-[-5%] w-80 h-80 bg-vibrant-green/5 rounded-full blur-[100px] pointer-events-none"></div>
+
+</body></html>
+
+<!-- Work Cycle Timer -->
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Zen Work Cycle Timer</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#b1b7a2",
+                        "background-charcoal": "#36333a",
+                        "off-white": "#f5f5f5",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        @layer base {
+            body {
+                font-family: 'Manrope', sans-serif;
+                -webkit-font-smoothing: antialiased;
+                background-color: #36333a;
+                color: #f5f5f5;
+            }
+        }
+        .timer-ring {
+            transform: rotate(-90deg);
+        }
+        body {
+            min-height: 100dvh;
+        }
+    </style>
+<style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-charcoal text-off-white font-display flex flex-col h-screen overflow-hidden">
+<header class="w-full flex items-center justify-between px-6 h-16 shrink-0 border-b border-white/5 bg-background-charcoal z-20">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-white flex flex-col items-center justify-center rounded-sm shrink-0">
+<span class="text-[8px] font-bold text-background-charcoal leading-none">Logo.png</span>
+<span class="text-[6px] text-background-charcoal/60 mt-0.5">40x40</span>
+</div>
+<h1 class="text-base font-bold tracking-tight text-off-white/90">HappyPause</h1>
+</div>
+<button class="w-10 h-10 flex items-center justify-center text-off-white/60 hover:text-off-white transition-colors">
+<span class="material-symbols-outlined text-2xl">settings</span>
+</button>
+</header>
+<main class="flex-1 flex flex-col items-center justify-center px-4 relative">
+<div class="flex flex-col items-center w-full max-w-[340px]">
+<div class="relative w-full aspect-square flex items-center justify-center">
+<div class="absolute inset-8 rounded-full bg-primary/10 blur-[80px] opacity-40"></div>
+<svg class="w-full h-full timer-ring">
+<circle class="text-off-white/10" cx="50%" cy="50%" fill="transparent" r="48%" stroke="currentColor" stroke-width="6"></circle>
+<circle class="text-primary" cx="50%" cy="50%" fill="transparent" r="48%" stroke="currentColor" stroke-dasharray="1000 1000" stroke-dashoffset="250" stroke-linecap="round" stroke-width="6"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center text-center p-8">
+<span class="px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-bold uppercase tracking-widest mb-1">
+                        Focus Session
+                    </span>
+<p class="text-off-white/40 text-[11px] font-medium mb-4">Ends at 10:45 AM</p>
+<span class="text-7xl font-extrabold tracking-tighter tabular-nums text-off-white drop-shadow-[0_0_20px_rgba(177,183,162,0.2)] leading-none">
+                        55:00
+                    </span>
+<span class="text-off-white/40 text-[10px] font-bold uppercase tracking-[0.3em] mt-3 mb-6">
+                        Until break
+                    </span>
+<button class="bg-off-white/10 hover:bg-off-white/15 border border-off-white/10 text-off-white px-5 py-2.5 rounded-full text-[11px] font-bold tracking-wider transition-all active:scale-95 flex items-center gap-2">
+<div class="w-5 h-5 text-primary">
+<svg class="w-full h-full fill-current" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+<circle cx="50" cy="55" fill="none" r="35" stroke="currentColor" stroke-width="6"></circle>
+<rect fill="currentColor" height="18" rx="2" width="6" x="42" y="42"></rect>
+<rect fill="currentColor" height="18" rx="2" width="6" x="52" y="42"></rect>
+<path d="M38 72 Q50 82 62 72" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="6"></path>
+<g transform="translate(5, 45) scale(0.7)">
+<circle cx="15" cy="15" fill="none" r="10" stroke="currentColor" stroke-width="8"></circle>
+</g>
+</svg>
+</div>
+                        Have a HappyPause
+                    </button>
+</div>
+</div>
+<div class="flex items-center justify-center gap-8 mt-12">
+<button class="w-16 h-16 rounded-full border border-off-white/10 bg-off-white/5 flex items-center justify-center group hover:bg-off-white/10 transition-all">
+<span class="material-symbols-outlined text-off-white/80 group-hover:scale-110 transition-transform">stop</span>
+</button>
+<button class="w-20 h-20 rounded-full bg-primary flex items-center justify-center shadow-[0_0_40px_rgba(177,183,162,0.4)] hover:scale-105 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-background-charcoal text-4xl font-bold fill-1">pause</span>
+</button>
+<button class="w-16 h-16 rounded-full border border-off-white/10 bg-off-white/5 flex items-center justify-center group hover:bg-off-white/10 transition-all">
+<span class="material-symbols-outlined text-off-white/80 group-hover:scale-110 transition-transform">replay</span>
+</button>
+</div>
+</div>
+</main>
+<footer class="pb-8 px-6 shrink-0 z-10">
+<nav class="bg-off-white/5 border border-off-white/5 rounded-full px-2 py-2 flex items-center justify-around max-w-sm mx-auto backdrop-blur-xl">
+<a class="flex flex-col items-center justify-center gap-1 w-16 py-2 rounded-full bg-primary text-background-charcoal shadow-lg" href="#">
+<span class="material-symbols-outlined fill-1">timer</span>
+<span class="text-[10px] font-bold">Timer</span>
+</a>
+<a class="flex flex-col items-center justify-center gap-1 w-16 py-2 text-off-white/40 hover:text-off-white transition-colors" href="#">
+<span class="material-symbols-outlined">bar_chart</span>
+<span class="text-[10px] font-bold">Stats</span>
+</a>
+<a class="flex flex-col items-center justify-center gap-1 w-16 py-2 text-off-white/40 hover:text-off-white transition-colors" href="#">
+<span class="material-symbols-outlined">history</span>
+<span class="text-[10px] font-bold">History</span>
+</a>
+<a class="flex flex-col items-center justify-center gap-1 w-16 py-2 text-off-white/40 hover:text-off-white transition-colors" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-bold">Profile</span>
+</a>
+</nav>
+</footer>
+
+</body></html>
+
+<!-- User Profile Settings -->
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#b2b8a3",
+                        "background-light": "#f7f7f7",
+                        "background-dark": "#1a1a18",
+                        "zen-bg": "#36333a",
+                        "zen-accent": "#b1b7a2",
+                        "zen-text": "#f5f5f5"
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"],
+                        "sans": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<title>User Profile - HappyPause</title>
+<style>
+        body {
+            min-height: 100dvh;
+            padding-bottom: 80px;
+        }
+        .nav-blur {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-zen-bg font-display text-zen-text">
+<div class="flex items-center p-4 pt-6 justify-between sticky top-0 bg-zen-bg/95 backdrop-blur-md z-20 border-b border-white/5">
+<div class="flex items-center gap-3">
+<div class="bg-white size-10 rounded-sm flex flex-col items-center justify-center border border-black/10">
+<span class="text-[8px] font-bold text-black leading-none uppercase">Logo.png</span>
+<span class="text-[6px] text-black/60 leading-tight">96x96px</span>
+</div>
+<h1 class="text-zen-text text-xl font-bold leading-tight tracking-tight">HappyPause</h1>
+</div>
+<button class="text-zen-accent flex size-10 shrink-0 items-center justify-center rounded-full hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-2xl">settings</span>
+</button>
+</div>
+<div class="w-full py-6 flex justify-center">
+<h2 class="text-[#f5f5f5] text-[32px] font-bold font-sans">Profile</h2>
+</div>
+<div class="flex p-6 @container">
+<div class="flex w-full flex-col gap-6 items-center">
+<div class="flex gap-4 flex-col items-center">
+<div class="relative">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full min-h-32 w-32 border-4 border-zen-accent/30 p-1" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBeLF1CDrblx_dfkJQDJa_ftnzPOxPkzZDMtsUcKngC_JJtWQkqh8kfsKAqeYINdVU_94IBjNKFG04lasXLZTP8BT5DVTaDMf0J9RDF_6he8Gn-dOWM5LrTeK2FYbhZNuCJ7tpXE2K7bNZw8kSJLdpGfqVpMuj8NYj2ZpqcAG4hhMC1mFZapNj1yyl8aQjscgBuwlYDOKK-bzClxQ199c47Z4RDOCoMrMEppHCfFsh5GOkLfmUulzZF6YA3xFJIxiRDwQIcsLGFcvg");'>
+</div>
+<div class="absolute bottom-1 right-1 bg-zen-accent text-zen-bg rounded-full p-1.5 flex items-center justify-center border-2 border-zen-bg shadow-lg">
+<span class="material-symbols-outlined text-sm font-bold">edit</span>
+</div>
+</div>
+<div class="flex flex-col items-center justify-center text-center">
+<p class="text-zen-text text-2xl font-extrabold leading-tight tracking-tight">Julian Thorne</p>
+<p class="text-zen-accent text-base font-medium leading-normal opacity-80">julian.thorne@happypause.app</p>
+</div>
+</div>
+</div>
+</div>
+<div class="px-6 py-2">
+<div class="flex items-center justify-between pb-4">
+<h3 class="text-zen-text text-sm uppercase tracking-widest font-bold opacity-60">Stats at a glance</h3>
+<span class="text-zen-accent text-xs font-bold bg-zen-accent/10 px-2 py-1 rounded">Level 12</span>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="flex flex-1 gap-3 rounded-xl border border-white/5 bg-white/5 p-4 flex-col hover:bg-white/10 transition-all">
+<div class="text-zen-accent">
+<span class="material-symbols-outlined text-3xl">workspace_premium</span>
+</div>
+<div class="flex flex-col gap-1">
+<h2 class="text-zen-text text-sm font-bold leading-tight">100 Pauses Done</h2>
+<p class="text-zen-accent/60 text-xs font-medium leading-normal">Milestone Reached</p>
+</div>
+</div>
+<div class="flex flex-1 gap-3 rounded-xl border border-white/5 bg-white/5 p-4 flex-col hover:bg-white/10 transition-all">
+<div class="text-zen-accent">
+<span class="material-symbols-outlined text-3xl">auto_awesome</span>
+</div>
+<div class="flex flex-col gap-1">
+<h2 class="text-zen-text text-sm font-bold leading-tight">Consistency King</h2>
+<p class="text-zen-accent/60 text-xs font-medium leading-normal">14 Day Streak</p>
+</div>
+</div>
+</div>
+</div>
+<div class="px-6 pt-8 pb-4">
+<h3 class="text-zen-text text-sm uppercase tracking-widest font-bold opacity-60 pb-4">Account &amp; Preferences</h3>
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-4 bg-white/5 hover:bg-white/10 px-4 py-4 rounded-xl justify-between cursor-pointer transition-colors group">
+<div class="flex items-center gap-4">
+<div class="text-zen-accent flex items-center justify-center rounded-lg bg-zen-accent/10 shrink-0 size-10">
+<span class="material-symbols-outlined">person</span>
+</div>
+<p class="text-zen-text text-base font-medium leading-normal flex-1 truncate">Personal Information</p>
+</div>
+<div class="shrink-0 text-white/20 group-hover:text-zen-accent transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</div>
+</div>
+<div class="flex items-center gap-4 bg-white/5 hover:bg-white/10 px-4 py-4 rounded-xl justify-between cursor-pointer transition-colors group">
+<div class="flex items-center gap-4">
+<div class="text-zen-accent flex items-center justify-center rounded-lg bg-zen-accent/10 shrink-0 size-10">
+<span class="material-symbols-outlined">notifications</span>
+</div>
+<p class="text-zen-text text-base font-medium leading-normal flex-1 truncate">Notification Settings</p>
+</div>
+<div class="shrink-0 text-white/20 group-hover:text-zen-accent transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</div>
+</div>
+</div>
+<h3 class="text-zen-text text-sm uppercase tracking-widest font-bold opacity-60 pb-4 pt-8">Support</h3>
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-4 bg-white/5 hover:bg-white/10 px-4 py-4 rounded-xl justify-between cursor-pointer transition-colors group">
+<div class="flex items-center gap-4">
+<div class="text-zen-accent flex items-center justify-center rounded-lg bg-zen-accent/10 shrink-0 size-10">
+<span class="material-symbols-outlined">gavel</span>
+</div>
+<p class="text-zen-text text-base font-medium leading-normal flex-1 truncate">Privacy Policy</p>
+</div>
+<div class="shrink-0 text-white/20 group-hover:text-zen-accent transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</div>
+</div>
+<div class="flex items-center gap-4 bg-white/5 hover:bg-white/10 px-4 py-4 rounded-xl justify-between cursor-pointer transition-colors group">
+<div class="flex items-center gap-4">
+<div class="text-zen-accent flex items-center justify-center rounded-lg bg-zen-accent/10 shrink-0 size-10">
+<span class="material-symbols-outlined">help</span>
+</div>
+<p class="text-zen-text text-base font-medium leading-normal flex-1 truncate">Help &amp; Support</p>
+</div>
+<div class="shrink-0 text-white/20 group-hover:text-zen-accent transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</div>
+</div>
+</div>
+</div>
+<div class="p-6 mt-4">
+<button class="w-full py-4 rounded-xl bg-red-500/10 border border-red-500/20 text-red-400 font-bold hover:bg-red-500/20 transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">logout</span>
+            Log Out
+        </button>
+<p class="text-center text-xs text-white/20 mt-6 pb-24 uppercase tracking-tighter">HappyPause v2.4.1 (Build 882)</p>
+</div>
+<nav class="fixed bottom-0 left-0 right-0 bg-zen-bg/90 nav-blur border-t border-white/5 z-50 px-6 pb-6 pt-3">
+<div class="flex items-center justify-between max-w-lg mx-auto">
+<a class="flex flex-col items-center gap-1 group" href="#">
+<span class="material-symbols-outlined text-white/40 group-hover:text-zen-accent transition-colors text-2xl">timer</span>
+<span class="text-[10px] font-bold text-white/40 group-hover:text-zen-accent uppercase tracking-wider">Timer</span>
+</a>
+<a class="flex flex-col items-center gap-1 group" href="#">
+<span class="material-symbols-outlined text-white/40 group-hover:text-zen-accent transition-colors text-2xl">monitoring</span>
+<span class="text-[10px] font-bold text-white/40 group-hover:text-zen-accent uppercase tracking-wider">Stats</span>
+</a>
+<a class="flex flex-col items-center gap-1 group" href="#">
+<span class="material-symbols-outlined text-white/40 group-hover:text-zen-accent transition-colors text-2xl">history</span>
+<span class="text-[10px] font-bold text-white/40 group-hover:text-zen-accent uppercase tracking-wider">History</span>
+</a>
+<a class="flex flex-col items-center gap-1 group" href="#">
+<span class="material-symbols-outlined text-zen-accent text-2xl">person</span>
+<span class="text-[10px] font-bold text-zen-accent uppercase tracking-wider">Profile</span>
+</a>
+</div>
+</nav>
+
+</body></html>
+
+<!-- Break Activity Screen spinning -->
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Zen HappyPause Active Screen</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#b1b7a2",
+                        "off-white": "#f5f5f5",
+                        "background-charcoal": "#36333a",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        body {
+            font-family: 'Manrope', sans-serif;
+            min-height: max(844px, 100dvh);
+        }
+        .timer-ring {
+            transition: stroke-dashoffset 0.35s;
+            transform: rotate(-90deg);
+            transform-origin: 50% 50%;
+        }
+        .curved-text {
+            font-size: 8px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            fill: rgba(245, 245, 245, 0.3);
+        }
+    </style>
+<style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-charcoal text-off-white antialiased flex items-center justify-center min-h-screen">
+<div class="relative flex h-[844px] w-[390px] flex-col bg-background-charcoal overflow-hidden shadow-2xl border-x border-primary/10">
+<div class="flex flex-col h-full -mt-6">
+<div class="flex items-center justify-between px-6 pt-12 pb-4 shrink-0">
+<button class="text-primary hover:brightness-110 transition-colors flex items-center justify-center">
+<span class="material-symbols-outlined !text-xl font-bold">close</span>
+</button>
+<h2 class="text-off-white text-xs font-bold uppercase tracking-widest opacity-80">HAPPYPAUSE IN PROGRESS</h2>
+<div class="w-5"></div>
+</div>
+<div class="flex-1 flex flex-col items-center justify-center px-6 relative">
+<div class="relative group">
+<svg class="w-[340px] h-[340px] overflow-visible" viewBox="0 0 340 340">
+<defs>
+<path d="M 60,305 A 178,178 0 0,0 280,305" id="curvePath"></path>
+</defs>
+<circle class="stroke-off-white/5 fill-transparent" cx="170" cy="170" r="162" stroke-width="6"></circle>
+<circle class="stroke-primary fill-transparent timer-ring" cx="170" cy="170" r="162" stroke-dasharray="1017.8" stroke-dashoffset="254.4" stroke-linecap="round" stroke-width="6"></circle>
+<text class="curved-text">
+<textPath href="#curvePath" startOffset="50%" text-anchor="middle">
+                                press to know more
+                            </textPath>
+</text>
+</svg>
+<div class="absolute inset-0 pointer-events-none">
+<button class="pointer-events-auto absolute left-[3px] bottom-[3px] w-12 h-12 flex items-center justify-center rounded-full bg-off-white/5 border border-off-white/10 text-off-white/30 hover:text-red-300 backdrop-blur-sm transition-colors">
+<span class="material-symbols-outlined !text-xl">thumb_down</span>
+</button>
+<button class="pointer-events-auto absolute right-[3px] bottom-[3px] w-12 h-12 flex items-center justify-center rounded-full bg-off-white/5 border border-off-white/10 text-off-white/30 hover:text-primary backdrop-blur-sm transition-colors">
+<span class="material-symbols-outlined !text-xl">thumb_up</span>
+</button>
+</div>
+<div class="absolute inset-0 flex flex-col items-center justify-center text-center px-10">
+<span class="text-primary text-[11px] font-extrabold tracking-[0.3em] mb-2">FITNESS</span>
+<h1 class="text-off-white text-2xl font-extrabold leading-tight mb-2">Quick Stretch</h1>
+<p class="text-off-white/60 text-[12px] font-medium leading-relaxed max-w-[200px] mb-6">
+                            A 5-minute full body stretch to re-energize your posture.
+                        </p>
+<div class="flex items-center justify-center mb-8">
+<span class="material-symbols-outlined text-primary !text-7xl leading-none">accessibility_new</span>
+</div>
+<div class="flex flex-col items-center">
+<div class="text-3xl font-extrabold tracking-tighter text-off-white tabular-nums leading-none">05:00</div>
+<div class="text-off-white/40 text-[9px] font-bold uppercase tracking-[0.25em] mt-1.5">Remaining</div>
+</div>
+</div>
+</div>
+</div>
+<div class="px-8 flex items-center justify-center gap-8 shrink-0 -translate-y-[69px]">
+<div class="flex flex-col items-center gap-3">
+<button class="w-16 h-16 flex items-center justify-center rounded-full bg-off-white/5 border border-off-white/10 text-off-white/60 hover:text-off-white hover:bg-off-white/10 transition-all active:scale-90">
+<span class="material-symbols-outlined !text-3xl">refresh</span>
+</button>
+<span class="text-[10px] font-bold uppercase tracking-widest text-off-white/30">Cycle</span>
+</div>
+<div class="flex flex-col items-center gap-3">
+<button class="w-20 h-20 flex items-center justify-center rounded-full bg-primary text-background-charcoal shadow-[0_8px_32px_rgba(177,183,162,0.25)] hover:brightness-105 active:scale-90 transition-all">
+<span class="material-symbols-outlined !text-4xl font-bold">check</span>
+</button>
+<span class="text-[10px] font-bold uppercase tracking-widest text-primary">Done</span>
+</div>
+<div class="flex flex-col items-center gap-3">
+<button class="w-16 h-16 flex items-center justify-center rounded-full bg-off-white/5 border border-off-white/10 text-off-white/60 hover:text-off-white hover:bg-off-white/10 transition-all active:scale-90">
+<span class="material-symbols-outlined !text-3xl">fast_forward</span>
+</button>
+<span class="text-[10px] font-bold uppercase tracking-widest text-off-white/30">Skip</span>
+</div>
+</div>
+<div class="px-6 pb-7 flex justify-center shrink-0">
+<button class="w-full max-w-[220px] py-2 px-4 rounded-xl border border-primary/40 text-primary text-[11px] font-bold uppercase tracking-[0.12em] hover:bg-primary/5 active:scale-[0.98] transition-all flex items-center justify-center gap-1.5">
+<span class="material-symbols-outlined !text-[18px]">add_circle</span>
+                    Create a HappyPause
+                </button>
+</div>
+</div>
+<div class="absolute bottom-2 left-1/2 -translate-x-1/2 w-32 h-1.5 bg-off-white/10 rounded-full"></div>
+<div class="absolute -top-24 -right-24 w-64 h-64 bg-primary/10 rounded-full blur-[100px] pointer-events-none"></div>
+<div class="absolute -bottom-24 -left-24 w-64 h-64 bg-primary/5 rounded-full blur-[100px] pointer-events-none"></div>
+</div>
+
+</body></html>
+
+<!-- HappyPause Statistics Dashboard -->
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HappyPause Statistics Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#abec13",
+                        "background-light": "#f5f5f5",
+                        "background-dark": "#36333a",
+                        "accent-muted": "#b1b7a2",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        body {
+            font-family: 'Manrope', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+            min-height: 100dvh;
+            @apply bg-background-dark text-[#f5f5f5];
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-dark text-[#f5f5f5] min-h-screen">
+<div class="relative flex flex-col w-full max-w-md mx-auto min-h-screen shadow-2xl overflow-x-hidden pb-24">
+<header class="sticky top-0 bg-background-dark/95 backdrop-blur-md z-20 px-6 pt-6 pb-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<div class="size-9 bg-white flex flex-col items-center justify-center text-black rounded-sm leading-[1]">
+<span class="text-[7px] font-bold uppercase">Logo.png</span>
+<span class="text-[6px] opacity-70">96x96px</span>
+</div>
+<span class="text-xl font-extrabold tracking-tight text-[#f5f5f5]">HappyPause</span>
+</div>
+<button class="size-10 flex items-center justify-center rounded-full bg-white/5 hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-[#f5f5f5]">settings</span>
+</button>
+</div>
+</header>
+<div class="px-6 pt-4 pb-2 flex justify-center">
+<h1 class="text-3xl font-extrabold tracking-tight text-[#f5f5f5]">Statistics</h1>
+</div>
+<section class="px-6 py-4 grid grid-cols-2 gap-4">
+<div class="flex flex-col gap-2 rounded-2xl p-5 bg-white/5 border border-white/10">
+<div class="flex items-center gap-2 mb-1">
+<span class="material-symbols-outlined text-accent-muted text-sm">timer</span>
+<p class="text-accent-muted text-xs font-bold uppercase tracking-wider">Focus Time</p>
+</div>
+<p class="text-white text-2xl font-extrabold leading-tight">24h 15m</p>
+<div class="flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-primary text-xs">trending_up</span>
+<p class="text-primary text-[10px] font-bold">+12% vs last week</p>
+</div>
+</div>
+<div class="flex flex-col gap-2 rounded-2xl p-5 bg-primary/10 border border-primary/20">
+<div class="flex items-center gap-2 mb-1">
+<span class="material-symbols-outlined text-primary text-sm">spa</span>
+<p class="text-primary text-xs font-bold uppercase tracking-wider">HappyPause</p>
+</div>
+<p class="text-white text-2xl font-extrabold leading-tight">6h 40m</p>
+<div class="flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-primary text-xs">trending_up</span>
+<p class="text-primary text-[10px] font-bold">+5% vs last week</p>
+</div>
+</div>
+</section>
+<section class="px-6 py-6">
+<div class="flex items-end justify-between mb-6">
+<h3 class="text-lg font-bold text-[#f5f5f5]">Weekly Activity</h3>
+<div class="flex items-center gap-4 text-[10px] font-bold uppercase tracking-widest text-accent-muted">
+<div class="flex items-center gap-1.5">
+<div class="size-2 rounded-full bg-accent-muted"></div>
+<span>Focus</span>
+</div>
+<div class="flex items-center gap-1.5">
+<div class="size-2 rounded-full bg-primary"></div>
+<span>Pause</span>
+</div>
+</div>
+</div>
+<div class="relative h-40 w-full flex items-end justify-between px-2">
+<div class="absolute inset-0 flex flex-col justify-between pointer-events-none opacity-10">
+<div class="w-full h-px bg-white"></div>
+<div class="w-full h-px bg-white"></div>
+<div class="w-full h-px bg-white"></div>
+<div class="w-full h-px bg-white"></div>
+</div>
+<div class="flex flex-col items-center gap-2 h-full justify-end group">
+<div class="flex gap-1 items-end h-[60%]">
+<div class="w-2.5 h-[80%] bg-accent-muted rounded-t-full"></div>
+<div class="w-2.5 h-[30%] bg-primary rounded-t-full"></div>
+</div>
+<span class="text-[10px] font-bold text-accent-muted">M</span>
+</div>
+<div class="flex flex-col items-center gap-2 h-full justify-end group">
+<div class="flex gap-1 items-end h-[60%]">
+<div class="w-2.5 h-[90%] bg-accent-muted rounded-t-full"></div>
+<div class="w-2.5 h-[40%] bg-primary rounded-t-full"></div>
+</div>
+<span class="text-[10px] font-bold text-accent-muted">T</span>
+</div>
+<div class="flex flex-col items-center gap-2 h-full justify-end group">
+<div class="flex gap-1 items-end h-[60%]">
+<div class="w-2.5 h-[70%] bg-accent-muted rounded-t-full"></div>
+<div class="w-2.5 h-[60%] bg-primary rounded-t-full"></div>
+</div>
+<span class="text-[10px] font-bold text-accent-muted">W</span>
+</div>
+<div class="flex flex-col items-center gap-2 h-full justify-end group">
+<div class="flex gap-1 items-end h-[60%]">
+<div class="w-2.5 h-[100%] bg-accent-muted rounded-t-full"></div>
+<div class="w-2.5 h-[20%] bg-primary rounded-t-full"></div>
+</div>
+<span class="text-[10px] font-bold text-accent-muted">T</span>
+</div>
+<div class="flex flex-col items-center gap-2 h-full justify-end group">
+<div class="flex gap-1 items-end h-[60%]">
+<div class="w-2.5 h-[85%] bg-accent-muted rounded-t-full"></div>
+<div class="w-2.5 h-[50%] bg-primary rounded-t-full"></div>
+</div>
+<span class="text-[10px] font-bold text-accent-muted">F</span>
+</div>
+<div class="flex flex-col items-center gap-2 h-full justify-end group">
+<div class="flex gap-1 items-end h-[60%]">
+<div class="w-2.5 h-[40%] bg-accent-muted rounded-t-full"></div>
+<div class="w-2.5 h-[90%] bg-primary rounded-t-full"></div>
+</div>
+<span class="text-[10px] font-bold text-accent-muted">S</span>
+</div>
+<div class="flex flex-col items-center gap-2 h-full justify-end group">
+<div class="flex gap-1 items-end h-[60%]">
+<div class="w-2.5 h-[30%] bg-accent-muted rounded-t-full"></div>
+<div class="w-2.5 h-[95%] bg-primary rounded-t-full"></div>
+</div>
+<span class="text-[10px] font-bold text-accent-muted">S</span>
+</div>
+</div>
+</section>
+<section class="px-6 py-6 mt-2">
+<h3 class="text-lg font-bold text-[#f5f5f5] mb-6">Category Breakdown</h3>
+<div class="space-y-6">
+<div class="space-y-2">
+<div class="flex justify-between text-sm font-medium">
+<span class="text-[#f5f5f5]">Fitness</span>
+<span class="text-accent-muted">4h 20m</span>
+</div>
+<div class="w-full h-3 bg-white/5 rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 85%;"></div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-sm font-medium">
+<span class="text-[#f5f5f5]">Leisure</span>
+<span class="text-accent-muted">2h 15m</span>
+</div>
+<div class="w-full h-3 bg-white/5 rounded-full overflow-hidden">
+<div class="h-full bg-accent-muted rounded-full" style="width: 45%;"></div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-sm font-medium">
+<span class="text-[#f5f5f5]">Social</span>
+<span class="text-accent-muted">1h 50m</span>
+</div>
+<div class="w-full h-3 bg-white/5 rounded-full overflow-hidden">
+<div class="h-full bg-primary/60 rounded-full" style="width: 38%;"></div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-sm font-medium">
+<span class="text-[#f5f5f5]">Mind</span>
+<span class="text-accent-muted">1h 10m</span>
+</div>
+<div class="w-full h-3 bg-white/5 rounded-full overflow-hidden">
+<div class="h-full bg-accent-muted/80 rounded-full" style="width: 25%;"></div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-sm font-medium">
+<span class="text-[#f5f5f5]">Spiritual</span>
+<span class="text-accent-muted">45m</span>
+</div>
+<div class="w-full h-3 bg-white/5 rounded-full overflow-hidden">
+<div class="h-full bg-primary/40 rounded-full" style="width: 15%;"></div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-sm font-medium">
+<span class="text-[#f5f5f5]">Relaxation</span>
+<span class="text-accent-muted">30m</span>
+</div>
+<div class="w-full h-3 bg-white/5 rounded-full overflow-hidden">
+<div class="h-full bg-accent-muted/40 rounded-full" style="width: 10%;"></div>
+</div>
+</div>
+</div>
+</section>
+<section class="px-6 py-6 pb-12">
+<h3 class="text-lg font-bold text-[#f5f5f5] mb-6">Activity Insights</h3>
+<div class="grid grid-cols-1 gap-3">
+<div class="flex items-center justify-between p-4 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
+<div class="flex items-center gap-4">
+<div class="size-10 rounded-xl bg-primary/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">fitness_center</span>
+</div>
+<div>
+<p class="text-sm font-bold text-[#f5f5f5]">Fitness</p>
+<p class="text-xs text-accent-muted">Workouts completed</p>
+</div>
+</div>
+<div class="text-center">
+<p class="text-[10px] font-bold text-primary uppercase tracking-tighter">Done</p>
+<p class="text-lg font-extrabold text-[#f5f5f5]">12</p>
+</div>
+</div>
+<div class="flex items-center justify-between p-4 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
+<div class="flex items-center gap-4">
+<div class="size-10 rounded-xl bg-accent-muted/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-accent-muted">movie</span>
+</div>
+<div>
+<p class="text-sm font-bold text-[#f5f5f5]">Leisure</p>
+<p class="text-xs text-accent-muted">Personal time</p>
+</div>
+</div>
+<div class="text-center">
+<p class="text-[10px] font-bold text-primary uppercase tracking-tighter">Done</p>
+<p class="text-lg font-extrabold text-[#f5f5f5]">8</p>
+</div>
+</div>
+<div class="flex items-center justify-between p-4 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
+<div class="flex items-center gap-4">
+<div class="size-10 rounded-xl bg-primary/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">group</span>
+</div>
+<div>
+<p class="text-sm font-bold text-[#f5f5f5]">Social</p>
+<p class="text-xs text-accent-muted">Connections made</p>
+</div>
+</div>
+<div class="text-center">
+<p class="text-[10px] font-bold text-primary uppercase tracking-tighter">Done</p>
+<p class="text-lg font-extrabold text-[#f5f5f5]">15</p>
+</div>
+</div>
+<div class="flex items-center justify-between p-4 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
+<div class="flex items-center gap-4">
+<div class="size-10 rounded-xl bg-accent-muted/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-accent-muted">self_improvement</span>
+</div>
+<div>
+<p class="text-sm font-bold text-[#f5f5f5]">Mind</p>
+<p class="text-xs text-accent-muted">Meditation sessions</p>
+</div>
+</div>
+<div class="text-center">
+<p class="text-[10px] font-bold text-primary uppercase tracking-tighter">Done</p>
+<p class="text-lg font-extrabold text-[#f5f5f5]">18</p>
+</div>
+</div>
+<div class="flex items-center justify-between p-4 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
+<div class="flex items-center gap-4">
+<div class="size-10 rounded-xl bg-primary/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">auto_awesome</span>
+</div>
+<div>
+<p class="text-sm font-bold text-[#f5f5f5]">Spiritual</p>
+<p class="text-xs text-accent-muted">Reflection time</p>
+</div>
+</div>
+<div class="text-center">
+<p class="text-[10px] font-bold text-primary uppercase tracking-tighter">Done</p>
+<p class="text-lg font-extrabold text-[#f5f5f5]">5</p>
+</div>
+</div>
+<div class="flex items-center justify-between p-4 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
+<div class="flex items-center gap-4">
+<div class="size-10 rounded-xl bg-accent-muted/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-accent-muted">bedtime</span>
+</div>
+<div>
+<p class="text-sm font-bold text-[#f5f5f5]">Relaxation</p>
+<p class="text-xs text-accent-muted">Deep rest</p>
+</div>
+</div>
+<div class="text-center">
+<p class="text-[10px] font-bold text-primary uppercase tracking-tighter">Done</p>
+<p class="text-lg font-extrabold text-[#f5f5f5]">4</p>
+</div>
+</div>
+</div>
+</section>
+<nav class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-md bg-background-dark/90 backdrop-blur-xl border-t border-white/10 px-6 py-4 z-50">
+<div class="flex items-center justify-between">
+<button class="flex flex-col items-center gap-1 text-white/40 hover:text-white transition-colors">
+<span class="material-symbols-outlined text-2xl">timer</span>
+<span class="text-[10px] font-bold uppercase tracking-widest">Timer</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-accent-muted">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1">bar_chart</span>
+<span class="text-[10px] font-bold uppercase tracking-widest">Stats</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-white/40 hover:text-white transition-colors">
+<span class="material-symbols-outlined text-2xl">history</span>
+<span class="text-[10px] font-bold uppercase tracking-widest">History</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-white/40 hover:text-white transition-colors">
+<span class="material-symbols-outlined text-2xl">person</span>
+<span class="text-[10px] font-bold uppercase tracking-widest">Profile</span>
+</button>
+</div>
+</nav>
+</div>
+
+</body></html>
+
+<!-- Settings & Categories Pop-up -->
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Settings with Timer Durations</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#b1b7a2",
+                        "background-dark": "#36333a",
+                        "panel-dark": "#3e3b42",
+                        "field-dark": "#444148",
+                        "border-dark": "#504d54",
+                        "text-offwhite": "#f5f5f5",
+                        "text-muted": "#b1b7a2"
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        @layer base {
+            body {
+                @apply bg-background-dark text-text-offwhite font-display antialiased;
+                font-family: 'Manrope', sans-serif;
+            }
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            @apply bg-border-dark/50 rounded-full;
+        }
+        .custom-select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23b1b7a2' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+            background-position: right 1rem center;
+            background-repeat: no-repeat;
+            background-size: 1.5em 1.5em;
+        }
+        input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="min-h-screen bg-background-dark">
+<div class="flex flex-col min-h-screen w-full bg-background-dark relative overflow-x-hidden">
+<header class="grid grid-cols-3 items-center px-4 pt-14 pb-4 bg-background-dark/80 backdrop-blur-md sticky top-0 z-30 border-b border-border-dark/20">
+<div class="flex justify-start">
+<button class="w-10 h-10 flex items-center justify-center rounded-full bg-white/5 hover:bg-white/10 active:scale-90 transition-all">
+<span class="material-symbols-outlined text-2xl text-primary">arrow_back_ios_new</span>
+</button>
+</div>
+<h1 class="text-xl font-bold tracking-tight text-center whitespace-nowrap text-text-offwhite">Settings</h1>
+<div class="w-10"></div>
+</header>
+<main class="flex-1 px-6 py-6 space-y-10 pb-12">
+<section class="space-y-4">
+<div class="flex items-center gap-2 px-1">
+<span class="material-symbols-outlined text-primary text-xl">notifications</span>
+<h2 class="text-xs font-bold uppercase tracking-[0.15em] text-primary">Ringtone</h2>
+</div>
+<div class="relative group">
+<select class="custom-select w-full bg-field-dark border border-border-dark/50 text-text-offwhite rounded-2xl py-4 px-5 focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all outline-none text-base">
+<option value="zen">Zen Chime (Default)</option>
+<option value="forest">Forest Morning</option>
+<option value="digital">Digital Pulse</option>
+<option value="crystal">Crystal Bowl</option>
+<option value="waves">Ocean Waves</option>
+</select>
+</div>
+</section>
+<section class="space-y-4">
+<div class="flex items-center gap-2 px-1">
+<span class="material-symbols-outlined text-primary text-xl">category</span>
+<h2 class="text-xs font-bold uppercase tracking-[0.15em] text-primary">Visible Categories</h2>
+</div>
+<div class="bg-field-dark/30 rounded-2xl overflow-hidden border border-border-dark/30 divide-y divide-border-dark/20">
+<label class="flex items-center justify-between p-4 cursor-pointer hover:bg-white/5 active:bg-white/10 transition-colors">
+<div class="flex items-center gap-4">
+<div class="w-11 h-11 rounded-full bg-primary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">fitness_center</span>
+</div>
+<span class="text-base font-medium text-text-offwhite">Fitness</span>
+</div>
+<input checked="" class="h-6 w-6 rounded-full border-border-dark bg-transparent text-primary focus:ring-primary focus:ring-offset-0 focus:ring-offset-transparent transition-all cursor-pointer" type="checkbox"/>
+</label>
+<label class="flex items-center justify-between p-4 cursor-pointer hover:bg-white/5 active:bg-white/10 transition-colors">
+<div class="flex items-center gap-4">
+<div class="w-11 h-11 rounded-full bg-primary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">potted_plant</span>
+</div>
+<span class="text-base font-medium text-text-offwhite">Leisure</span>
+</div>
+<input class="h-6 w-6 rounded-full border-border-dark bg-transparent text-primary focus:ring-primary transition-all cursor-pointer" type="checkbox"/>
+</label>
+<label class="flex items-center justify-between p-4 cursor-pointer hover:bg-white/5 active:bg-white/10 transition-colors">
+<div class="flex items-center gap-4">
+<div class="w-11 h-11 rounded-full bg-primary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">groups</span>
+</div>
+<span class="text-base font-medium text-text-offwhite">Social</span>
+</div>
+<input checked="" class="h-6 w-6 rounded-full border-border-dark bg-transparent text-primary focus:ring-primary transition-all cursor-pointer" type="checkbox"/>
+</label>
+<label class="flex items-center justify-between p-4 cursor-pointer hover:bg-white/5 active:bg-white/10 transition-colors">
+<div class="flex items-center gap-4">
+<div class="w-11 h-11 rounded-full bg-primary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">psychology</span>
+</div>
+<span class="text-base font-medium text-text-offwhite">Mind</span>
+</div>
+<input checked="" class="h-6 w-6 rounded-full border-border-dark bg-transparent text-primary focus:ring-primary transition-all cursor-pointer" type="checkbox"/>
+</label>
+<label class="flex items-center justify-between p-4 cursor-pointer hover:bg-white/5 active:bg-white/10 transition-colors">
+<div class="flex items-center gap-4">
+<div class="w-11 h-11 rounded-full bg-primary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">self_improvement</span>
+</div>
+<span class="text-base font-medium text-text-offwhite">Spiritual</span>
+</div>
+<input class="h-6 w-6 rounded-full border-border-dark bg-transparent text-primary focus:ring-primary transition-all cursor-pointer" type="checkbox"/>
+</label>
+<label class="flex items-center justify-between p-4 cursor-pointer hover:bg-white/5 active:bg-white/10 transition-colors">
+<div class="flex items-center gap-4">
+<div class="w-11 h-11 rounded-full bg-primary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">spa</span>
+</div>
+<span class="text-base font-medium text-text-offwhite">Relaxation</span>
+</div>
+<input checked="" class="h-6 w-6 rounded-full border-border-dark bg-transparent text-primary focus:ring-primary transition-all cursor-pointer" type="checkbox"/>
+</label>
+</div>
+</section>
+<section class="space-y-4">
+<div class="flex items-center gap-2 px-1">
+<span class="material-symbols-outlined text-primary text-xl">timer</span>
+<h2 class="text-xs font-bold uppercase tracking-[0.15em] text-primary">Focus Session Time</h2>
+</div>
+<div class="relative flex items-center">
+<input class="w-full bg-field-dark border border-border-dark/50 text-text-offwhite rounded-2xl py-4 px-5 focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all outline-none text-base pr-16" type="number" value="55"/>
+<span class="absolute right-5 text-text-muted font-medium pointer-events-none">min</span>
+</div>
+</section>
+<section class="space-y-4">
+<div class="flex items-center gap-2 px-1">
+<span class="material-symbols-outlined text-primary text-xl">coffee</span>
+<h2 class="text-xs font-bold uppercase tracking-[0.15em] text-primary">HappyPause Time</h2>
+</div>
+<div class="relative flex items-center">
+<input class="w-full bg-field-dark border border-border-dark/50 text-text-offwhite rounded-2xl py-4 px-5 focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all outline-none text-base pr-16" type="number" value="5"/>
+<span class="absolute right-5 text-text-muted font-medium pointer-events-none">min</span>
+</div>
+</section>
+<footer class="pt-6 pb-8 space-y-6">
+<button class="w-full bg-primary hover:brightness-110 active:scale-[0.98] text-background-dark font-bold py-5 rounded-2xl transition-all shadow-[0_0_30px_rgba(177,183,162,0.15)] text-lg">
+                    Save Changes
+                </button>
+<p class="text-center text-[10px] text-primary/60 font-bold uppercase tracking-[0.3em]">
+                    Configuration v1.4.2
+                </p>
+</footer>
+</main>
+<div class="fixed -bottom-24 -right-24 w-80 h-80 bg-primary/5 rounded-full blur-[100px] pointer-events-none -z-10"></div>
+<div class="fixed -top-24 -left-24 w-80 h-80 bg-primary/5 rounded-full blur-[100px] pointer-events-none -z-10"></div>
+</div>
+
+</body></html>
+
+<!-- HappyPause Login Page -->
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HappyPause Sign Up</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#abec13",
+                        "background-dark": "#36333a",
+                        "zen-accent": "#b1b7a2",
+                        "zen-text": "#f5f5f5",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        body {
+            font-family: 'Manrope', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+            min-height: 100dvh;
+        }
+    </style>
+<style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-dark text-zen-text min-h-screen flex flex-col items-center p-6">
+<div class="w-full max-w-sm flex flex-col items-center pt-8 mb-8">
+<div class="w-[96px] h-[96px] bg-white flex flex-col items-center justify-center mb-4 rounded-lg shadow-lg">
+<span class="text-zinc-900 font-bold text-xs">Logo.png</span>
+<span class="text-zinc-500 text-[9px] mt-1 tracking-wider uppercase">96x96px</span>
+</div>
+<h1 class="text-2xl font-bold tracking-tight text-zen-text">Join HappyPause</h1>
+</div>
+<div class="w-full max-w-sm space-y-5 flex-1">
+<div class="space-y-4">
+<div class="flex flex-col gap-1.5">
+<label class="text-sm font-medium text-zen-text ml-1">Email Address</label>
+<input class="w-full h-12 bg-[#444148] border-none rounded-xl px-4 text-zen-text placeholder:text-zen-accent/40 focus:ring-2 focus:ring-zen-accent/50 transition-all" placeholder="name@example.com" type="email"/>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="text-sm font-medium text-zen-text ml-1">Password</label>
+<input class="w-full h-12 bg-[#444148] border-none rounded-xl px-4 text-zen-text placeholder:text-zen-accent/40 focus:ring-2 focus:ring-zen-accent/50 transition-all" placeholder="••••••••" type="password"/>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="text-sm font-medium text-zen-text ml-1">Confirm Password</label>
+<input class="w-full h-12 bg-[#444148] border-none rounded-xl px-4 text-zen-text placeholder:text-zen-accent/40 focus:ring-2 focus:ring-zen-accent/50 transition-all" placeholder="••••••••" type="password"/>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="text-sm font-medium text-zen-text ml-1">(Optional) Phone Number</label>
+<input class="w-full h-12 bg-[#444148] border-none rounded-xl px-4 text-zen-text placeholder:text-zen-accent/40 focus:ring-2 focus:ring-zen-accent/50 transition-all" placeholder="+1 (555) 000-0000" type="tel"/>
+</div>
+</div>
+<button class="w-full h-14 bg-[#b1b7a2] text-[#36333a] font-bold text-lg rounded-xl shadow-lg shadow-black/20 hover:opacity-95 active:scale-[0.98] transition-all mt-4">
+            Create Account
+        </button>
+<div class="flex items-center gap-4 py-4">
+<div class="h-[1px] flex-1 bg-zen-accent/20"></div>
+<span class="text-xs font-semibold text-zen-accent/60 uppercase tracking-widest whitespace-nowrap">Sign up with:</span>
+<div class="h-[1px] flex-1 bg-zen-accent/20"></div>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<button class="flex items-center justify-center gap-2 w-full h-12 bg-white text-gray-700 font-semibold rounded-xl border border-gray-200 hover:bg-gray-50 transition-colors">
+<svg class="w-5 h-5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path>
+<path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path>
+<path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"></path>
+<path d="M12 5.38c1.62 0 3.06.56 4.21 1.66l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 12-4.53z" fill="#EA4335"></path>
+</svg>
+<span class="text-sm">Google</span>
+</button>
+<button class="flex items-center justify-center gap-2 w-full h-12 bg-black text-white font-semibold rounded-xl hover:bg-zinc-900 transition-colors">
+<svg class="w-5 h-5 fill-current" viewBox="0 0 384 512" xmlns="http://www.w3.org/2000/svg">
+<path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 21.8-88.5 21.8-11.4 0-51.1-20.8-83.6-20.8-42.3 0-82.7 24.3-104.7 62.7-45.4 79-11.6 190.3 33.4 254.4 21 30.1 46.1 63.6 77.3 62.4 31.3-1.2 43.2-20.3 81.4-20.3 38.2 0 49.1 20.3 81.9 19.7 33.4-.6 54.7-30.5 75.9-61.2 24.2-35.1 34.2-69 34.4-70.7-1.1-.3-66.3-24.7-66.7-101zM285.2 79.9c15.5-18.9 25.5-45.1 22.6-71.1-22.1 1.1-48.8 15.1-64.6 33.5-14.3 16.6-26.7 43.1-23.4 68.7 24.1 1.8 49.2-12.2 65.4-31.1z"></path>
+</svg>
+<span class="text-sm">Apple</span>
+</button>
+</div>
+</div>
+<div class="w-full max-w-sm pt-8 pb-4">
+<div class="text-center">
+<p class="text-zen-accent text-sm">
+                Already have an account? 
+                <button class="text-[#abec13] font-bold ml-1 hover:underline">Log In</button>
+</p>
+</div>
+</div>
+<div class="fixed top-[-10%] left-[-10%] w-64 h-64 bg-zen-accent/5 rounded-full blur-[80px] pointer-events-none"></div>
+<div class="fixed bottom-[-5%] right-[-5%] w-80 h-80 bg-[#abec13]/5 rounded-full blur-[100px] pointer-events-none"></div>
+
+</body></html>
+
+<!-- Detailed Activity History Log -->
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Activity History - HappyPause</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#b1b7a2",
+                        "background-light": "#f5f5f5",
+                        "background-dark": "#36333a",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        body {
+            font-family: 'Manrope', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .active-tab {
+            border-bottom: 2px solid #b1b7a2;
+            color: #b1b7a2;
+        }
+    </style>
+<style>
+        body {
+            min-height: 100dvh;
+        }
+        ::-webkit-scrollbar {
+            width: 0px;
+            background: transparent;
+        }
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-dark text-white font-display min-h-screen flex justify-center overflow-x-hidden">
+<div class="relative w-full max-w-[430px] min-h-screen flex flex-col bg-background-dark shadow-2xl">
+<header class="sticky top-0 z-30 flex items-center justify-between px-6 py-4 bg-background-dark">
+<div class="flex items-center gap-3">
+<div class="flex flex-col items-center justify-center size-10 bg-white border border-gray-200 rounded text-black leading-none">
+<span class="text-[8px] font-bold uppercase">Logo.png</span>
+<span class="text-[7px] text-gray-500">96x96px</span>
+</div>
+<span class="text-lg font-bold tracking-tight text-white/90">HappyPause</span>
+</div>
+<button class="flex items-center justify-center size-10 rounded-full hover:bg-white/5 transition-colors">
+<span class="material-symbols-outlined text-white/60 text-[24px]">settings</span>
+</button>
+</header>
+<div class="sticky top-[72px] z-20 bg-background-dark/95 backdrop-blur-md">
+<div class="flex flex-col items-center px-6 pt-4 pb-4">
+<h1 class="text-[32px] font-bold tracking-tight text-white/95 text-center leading-tight">Activity History</h1>
+</div>
+<div class="flex px-6 pt-2 pb-2 gap-8 border-b border-primary/5 shrink-0 justify-center">
+<button class="pb-3 text-sm font-semibold active-tab tracking-wide">ALL</button>
+<button class="pb-3 text-sm font-medium text-white/40 tracking-wide hover:text-white/60">FOCUS</button>
+<button class="pb-3 text-sm font-medium text-white/40 tracking-wide hover:text-white/60">PAUSE</button>
+</div>
+</div>
+<main class="flex-1 overflow-y-auto px-6 pt-6 pb-32">
+<section class="mb-8">
+<h3 class="text-primary font-bold text-xs uppercase tracking-[0.2em] mb-6 opacity-80">Today</h3>
+<div class="flex gap-4 mb-8 group">
+<div class="flex flex-col items-center">
+<div class="flex size-10 items-center justify-center rounded-full bg-red-400/10 text-red-400">
+<span class="material-symbols-outlined text-[20px]">stop_circle</span>
+</div>
+<div class="w-[1px] h-full bg-primary/10 mt-2"></div>
+</div>
+<div class="flex flex-col pt-1">
+<p class="text-white/90 font-medium text-base">Focus Session: Stopped</p>
+<p class="text-white/40 text-sm mt-1">11:15 AM</p>
+</div>
+</div>
+<div class="flex gap-4 mb-8">
+<div class="flex flex-col items-center">
+<div class="flex size-10 items-center justify-center rounded-full bg-primary/20 text-primary">
+<span class="material-symbols-outlined text-[20px]">check_circle</span>
+</div>
+<div class="w-[1px] h-full bg-primary/10 mt-2"></div>
+</div>
+<div class="flex flex-col pt-1">
+<p class="text-white/90 font-medium text-base">HappyPause: Done</p>
+<p class="text-white/40 text-sm mt-1 uppercase tracking-wider">FITNESS • <span class="text-primary/80">Quick Stretch</span></p>
+<p class="text-white/30 text-xs mt-1">10:55 AM</p>
+</div>
+</div>
+<div class="flex gap-4 mb-8">
+<div class="flex flex-col items-center">
+<div class="flex size-10 items-center justify-center rounded-full bg-pink-400/10 text-pink-400">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</div>
+<div class="w-[1px] h-full bg-primary/10 mt-2"></div>
+</div>
+<div class="flex flex-col pt-1">
+<p class="text-white/90 font-medium text-base">HappyPause: Liked</p>
+<p class="text-white/40 text-sm mt-1 uppercase tracking-wider">MINDFULNESS • <span class="text-primary/80">Deep Breath</span></p>
+<p class="text-white/30 text-xs mt-1">10:52 AM</p>
+</div>
+</div>
+<div class="flex gap-4 mb-8">
+<div class="flex flex-col items-center">
+<div class="flex size-10 items-center justify-center rounded-full bg-primary/10 text-primary">
+<span class="material-symbols-outlined text-[20px]">play_arrow</span>
+</div>
+<div class="w-[1px] h-full bg-primary/10 mt-2"></div>
+</div>
+<div class="flex flex-col pt-1">
+<p class="text-white/90 font-medium text-base">Focus Session: Started</p>
+<p class="text-white/40 text-sm mt-1">09:30 AM</p>
+</div>
+</div>
+</section>
+<section class="mb-8">
+<h3 class="text-primary font-bold text-xs uppercase tracking-[0.2em] mb-6 opacity-80">Yesterday</h3>
+<div class="flex gap-4 mb-8">
+<div class="flex flex-col items-center">
+<div class="flex size-10 items-center justify-center rounded-full bg-white/5 text-white/40">
+<span class="material-symbols-outlined text-[20px]">skip_next</span>
+</div>
+<div class="w-[1px] h-full bg-primary/10 mt-2"></div>
+</div>
+<div class="flex flex-col pt-1">
+<p class="text-white/70 font-medium text-base">HappyPause: Skipped</p>
+<p class="text-white/30 text-sm mt-1 uppercase tracking-wider">CREATIVE • <span class="text-white/50">Doodle Break</span></p>
+<p class="text-white/30 text-xs mt-1">04:20 PM</p>
+</div>
+</div>
+<div class="flex gap-4 mb-8">
+<div class="flex flex-col items-center">
+<div class="flex size-10 items-center justify-center rounded-full bg-primary/10 text-primary">
+<span class="material-symbols-outlined text-[20px]">add_circle</span>
+</div>
+<div class="w-[1px] h-full bg-primary/10 mt-2"></div>
+</div>
+<div class="flex flex-col pt-1">
+<p class="text-white/90 font-medium text-base">HappyPause: Created</p>
+<p class="text-white/40 text-sm mt-1 uppercase tracking-wider">HYDRATION • <span class="text-primary/80">Water Refill</span></p>
+<p class="text-white/30 text-xs mt-1">02:15 PM</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="flex flex-col items-center">
+<div class="flex size-10 items-center justify-center rounded-full bg-primary/10 text-primary">
+<span class="material-symbols-outlined text-[20px]">replay</span>
+</div>
+</div>
+<div class="flex flex-col pt-1">
+<p class="text-white/90 font-medium text-base">Focus Session: Restarted</p>
+<p class="text-white/40 text-sm mt-1">01:00 PM</p>
+</div>
+</div>
+</section>
+</main>
+<nav class="sticky bottom-0 z-40 bg-background-dark/95 backdrop-blur-lg border-t border-white/5 px-6 pb-8 pt-4">
+<div class="flex items-center justify-between">
+<a class="flex flex-col items-center gap-1 group" href="#">
+<span class="material-symbols-outlined text-white/40 group-hover:text-white/60 transition-colors">timer</span>
+<span class="text-[10px] font-bold uppercase tracking-wider text-white/40 group-hover:text-white/60">Timer</span>
+</a>
+<a class="flex flex-col items-center gap-1 group" href="#">
+<span class="material-symbols-outlined text-white/40 group-hover:text-white/60 transition-colors">leaderboard</span>
+<span class="text-[10px] font-bold uppercase tracking-wider text-white/40 group-hover:text-white/60">Stats</span>
+</a>
+<a class="flex flex-col items-center gap-1" href="#">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">history</span>
+<span class="text-[10px] font-bold uppercase tracking-wider text-primary">History</span>
+</a>
+<a class="flex flex-col items-center gap-1 group" href="#">
+<span class="material-symbols-outlined text-white/40 group-hover:text-white/60 transition-colors">person</span>
+<span class="text-[10px] font-bold uppercase tracking-wider text-white/40 group-hover:text-white/60">Profile</span>
+</a>
+</div>
+</nav>
+<div class="absolute bottom-24 right-6 pointer-events-none opacity-10">
+<div class="size-32 rounded-full bg-primary blur-3xl"></div>
+</div>
+</div>
+
+</body></html>
+
+<!-- User Profile Settings -->
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#b2b8a3",
+                        "background-light": "#f7f7f7",
+                        "background-dark": "#1a1a18",
+                        "zen-bg": "#36333a",
+                        "zen-accent": "#b1b7a2",
+                        "zen-text": "#f5f5f5"
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"],
+                        "sans": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<title>User Profile - HappyPause</title>
+<style>
+        body {
+            min-height: 100dvh;
+            padding-bottom: 80px;
+        }
+        .nav-blur {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+<style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-zen-bg font-display text-zen-text">
+<div class="flex items-center p-4 pt-6 justify-between sticky top-0 bg-zen-bg/95 backdrop-blur-md z-20 border-b border-white/5">
+<div class="flex items-center gap-3">
+<div class="bg-white size-10 rounded-sm flex flex-col items-center justify-center border border-black/10">
+<span class="text-[8px] font-bold text-black leading-none uppercase">Logo.png</span>
+<span class="text-[6px] text-black/60 leading-tight">96x96px</span>
+</div>
+<h1 class="text-zen-text text-xl font-bold leading-tight tracking-tight">HappyPause</h1>
+</div>
+<button class="text-zen-accent flex size-10 shrink-0 items-center justify-center rounded-full hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-2xl">settings</span>
+</button>
+</div>
+<div class="w-full py-6 flex justify-center">
+<h2 class="text-[#f5f5f5] text-[32px] font-bold font-sans">Profile</h2>
+</div>
+<div class="flex p-6 @container">
+<div class="flex w-full flex-col gap-6 items-center">
+<div class="flex gap-4 flex-col items-center">
+<div class="relative">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full min-h-32 w-32 border-4 border-zen-accent/30 p-1" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBeLF1CDrblx_dfkJQDJa_ftnzPOxPkzZDMtsUcKngC_JJtWQkqh8kfsKAqeYINdVU_94IBjNKFG04lasXLZTP8BT5DVTaDMf0J9RDF_6he8Gn-dOWM5LrTeK2FYbhZNuCJ7tpXE2K7bNZw8kSJLdpGfqVpMuj8NYj2ZpqcAG4hhMC1mFZapNj1yyl8aQjscgBuwlYDOKK-bzClxQ199c47Z4RDOCoMrMEppHCfFsh5GOkLfmUulzZF6YA3xFJIxiRDwQIcsLGFcvg");'>
+</div>
+<div class="absolute bottom-1 right-1 bg-zen-accent text-zen-bg rounded-full p-1.5 flex items-center justify-center border-2 border-zen-bg shadow-lg">
+<span class="material-symbols-outlined text-sm font-bold">edit</span>
+</div>
+</div>
+<div class="flex flex-col items-center justify-center text-center">
+<p class="text-zen-text text-2xl font-extrabold leading-tight tracking-tight">Julian Thorne</p>
+<p class="text-zen-accent text-base font-medium leading-normal opacity-80">julian.thorne@happypause.app</p>
+</div>
+</div>
+</div>
+</div>
+<div class="px-6 py-2">
+<div class="flex items-center justify-between pb-4">
+<h3 class="text-zen-text text-sm uppercase tracking-widest font-bold opacity-60">Stats at a glance</h3>
+<span class="text-zen-accent text-xs font-bold bg-zen-accent/10 px-2 py-1 rounded">Level 12</span>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="flex flex-1 gap-3 rounded-xl border border-white/5 bg-white/5 p-4 flex-col hover:bg-white/10 transition-all">
+<div class="text-zen-accent">
+<span class="material-symbols-outlined text-3xl">workspace_premium</span>
+</div>
+<div class="flex flex-col gap-1">
+<h2 class="text-zen-text text-sm font-bold leading-tight">100 Pauses Done</h2>
+<p class="text-zen-accent/60 text-xs font-medium leading-normal">Milestone Reached</p>
+</div>
+</div>
+<div class="flex flex-1 gap-3 rounded-xl border border-white/5 bg-white/5 p-4 flex-col hover:bg-white/10 transition-all">
+<div class="text-zen-accent">
+<span class="material-symbols-outlined text-3xl">auto_awesome</span>
+</div>
+<div class="flex flex-col gap-1">
+<h2 class="text-zen-text text-sm font-bold leading-tight">Consistency King</h2>
+<p class="text-zen-accent/60 text-xs font-medium leading-normal">14 Day Streak</p>
+</div>
+</div>
+</div>
+</div>
+<div class="px-6 pt-8 pb-4">
+<h3 class="text-zen-text text-sm uppercase tracking-widest font-bold opacity-60 pb-4">Account &amp; Preferences</h3>
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-4 bg-white/5 hover:bg-white/10 px-4 py-4 rounded-xl justify-between cursor-pointer transition-colors group">
+<div class="flex items-center gap-4">
+<div class="text-zen-accent flex items-center justify-center rounded-lg bg-zen-accent/10 shrink-0 size-10">
+<span class="material-symbols-outlined">person</span>
+</div>
+<p class="text-zen-text text-base font-medium leading-normal flex-1 truncate">Personal Information</p>
+</div>
+<div class="shrink-0 text-white/20 group-hover:text-zen-accent transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</div>
+</div>
+<div class="flex items-center gap-4 bg-white/5 hover:bg-white/10 px-4 py-4 rounded-xl justify-between cursor-pointer transition-colors group">
+<div class="flex items-center gap-4">
+<div class="text-zen-accent flex items-center justify-center rounded-lg bg-zen-accent/10 shrink-0 size-10">
+<span class="material-symbols-outlined">shield</span>
+</div>
+<p class="text-zen-text text-base font-medium leading-normal flex-1 truncate">Account Security</p>
+</div>
+<div class="shrink-0 text-white/20 group-hover:text-zen-accent transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</div>
+</div>
+<div class="flex items-center gap-4 bg-white/5 hover:bg-white/10 px-4 py-4 rounded-xl justify-between cursor-pointer transition-colors group">
+<div class="flex items-center gap-4">
+<div class="text-zen-accent flex items-center justify-center rounded-lg bg-zen-accent/10 shrink-0 size-10">
+<span class="material-symbols-outlined">notifications</span>
+</div>
+<p class="text-zen-text text-base font-medium leading-normal flex-1 truncate">Notification Settings</p>
+</div>
+<div class="shrink-0 text-white/20 group-hover:text-zen-accent transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</div>
+</div>
+<div class="flex items-center gap-4 bg-white/5 hover:bg-white/10 px-4 py-4 rounded-xl justify-between cursor-pointer transition-colors group">
+<div class="flex items-center gap-4">
+<div class="text-zen-accent flex items-center justify-center rounded-lg bg-zen-accent/10 shrink-0 size-10">
+<span class="material-symbols-outlined">card_membership</span>
+</div>
+<div class="flex flex-col">
+<p class="text-zen-text text-base font-medium leading-normal flex-1 truncate">Subscription Plan</p>
+<p class="text-zen-accent text-xs font-bold">HappyPause Premium</p>
+</div>
+</div>
+<div class="shrink-0 text-white/20 group-hover:text-zen-accent transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</div>
+</div>
+</div>
+<h3 class="text-zen-text text-sm uppercase tracking-widest font-bold opacity-60 pb-4 pt-8">Support</h3>
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-4 bg-white/5 hover:bg-white/10 px-4 py-4 rounded-xl justify-between cursor-pointer transition-colors group">
+<div class="flex items-center gap-4">
+<div class="text-zen-accent flex items-center justify-center rounded-lg bg-zen-accent/10 shrink-0 size-10">
+<span class="material-symbols-outlined">gavel</span>
+</div>
+<p class="text-zen-text text-base font-medium leading-normal flex-1 truncate">Privacy Policy</p>
+</div>
+<div class="shrink-0 text-white/20 group-hover:text-zen-accent transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</div>
+</div>
+<div class="flex items-center gap-4 bg-white/5 hover:bg-white/10 px-4 py-4 rounded-xl justify-between cursor-pointer transition-colors group">
+<div class="flex items-center gap-4">
+<div class="text-zen-accent flex items-center justify-center rounded-lg bg-zen-accent/10 shrink-0 size-10">
+<span class="material-symbols-outlined">help</span>
+</div>
+<p class="text-zen-text text-base font-medium leading-normal flex-1 truncate">Help &amp; Support</p>
+</div>
+<div class="shrink-0 text-white/20 group-hover:text-zen-accent transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</div>
+</div>
+</div>
+</div>
+<div class="p-6 mt-4">
+<button class="w-full py-4 rounded-xl bg-red-500/10 border border-red-500/20 text-red-400 font-bold hover:bg-red-500/20 transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">logout</span>
+            Log Out
+        </button>
+<p class="text-center text-xs text-white/20 mt-6 pb-24 uppercase tracking-tighter">HappyPause v2.4.1 (Build 882)</p>
+</div>
+<nav class="fixed bottom-0 left-0 right-0 bg-zen-bg/90 nav-blur border-t border-white/5 z-50 px-6 pb-6 pt-3">
+<div class="flex items-center justify-between max-w-lg mx-auto">
+<a class="flex flex-col items-center gap-1 group" href="#">
+<span class="material-symbols-outlined text-white/40 group-hover:text-zen-accent transition-colors text-2xl">timer</span>
+<span class="text-[10px] font-bold text-white/40 group-hover:text-zen-accent uppercase tracking-wider">Timer</span>
+</a>
+<a class="flex flex-col items-center gap-1 group" href="#">
+<span class="material-symbols-outlined text-white/40 group-hover:text-zen-accent transition-colors text-2xl">monitoring</span>
+<span class="text-[10px] font-bold text-white/40 group-hover:text-zen-accent uppercase tracking-wider">Stats</span>
+</a>
+<a class="flex flex-col items-center gap-1 group" href="#">
+<span class="material-symbols-outlined text-white/40 group-hover:text-zen-accent transition-colors text-2xl">history</span>
+<span class="text-[10px] font-bold text-white/40 group-hover:text-zen-accent uppercase tracking-wider">History</span>
+</a>
+<a class="flex flex-col items-center gap-1 group" href="#">
+<span class="material-symbols-outlined text-zen-accent text-2xl">person</span>
+<span class="text-[10px] font-bold text-zen-accent uppercase tracking-wider">Profile</span>
+</a>
+</div>
+</nav>
+
+</body></html>
+
+<!-- HappyPause-Logo-LR.png -->
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Create HappyPause</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#b1b7a2",
+                        "background-dark": "#36333a",
+                        "off-white": "#f5f5f5"
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        body {
+            font-family: 'Manrope', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+            min-height: 100dvh;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #b1b7a2;
+            border-radius: 10px;
+        }
+        .sage-glow {
+            box-shadow: 0 4px 15px rgba(177, 183, 162, 0.2);
+        }
+        select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23b1b7a2'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 1.5em;
+        }
+    </style>
+<style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-dark text-off-white min-h-screen flex flex-col">
+<header class="sticky top-0 z-50 bg-background-dark/90 backdrop-blur-md px-4 py-6 border-b border-primary/20">
+<div class="max-w-md mx-auto flex items-center justify-between">
+<button class="w-10 h-10 flex items-center justify-center rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition-colors">
+<span class="material-symbols-outlined">arrow_back_ios_new</span>
+</button>
+<h1 class="text-xl font-bold tracking-tight text-off-white">Create a HappyPause</h1>
+<div class="w-10"></div>
+</div>
+</header>
+<main class="flex-1 overflow-y-auto px-6 py-8 custom-scrollbar">
+<form class="max-w-md mx-auto space-y-8">
+<div class="space-y-2">
+<label class="block text-sm font-semibold text-primary uppercase tracking-wider ml-1">Category</label>
+<div class="relative">
+<select class="w-full h-14 px-5 rounded-xl border-2 border-primary/30 bg-primary/5 text-off-white focus:border-primary focus:ring-0 transition-all text-base appearance-none">
+<option class="bg-background-dark text-off-white" disabled="" selected="" value="">Select Category</option>
+<option class="bg-background-dark text-off-white" value="fitness">Fitness</option>
+<option class="bg-background-dark text-off-white" value="leisure">Leisure</option>
+<option class="bg-background-dark text-off-white" value="social">Social</option>
+<option class="bg-background-dark text-off-white" value="mind">Mind</option>
+<option class="bg-background-dark text-off-white" value="spiritual">Spiritual</option>
+<option class="bg-background-dark text-off-white" value="relaxation">Relaxation</option>
+<option class="bg-background-dark text-off-white" value="suggest">Suggest new...</option>
+</select>
+</div>
+</div>
+<div class="space-y-2">
+<label class="block text-sm font-semibold text-primary uppercase tracking-wider ml-1">HappyPause Name</label>
+<input class="w-full h-14 px-5 rounded-xl border-2 border-primary/30 bg-primary/5 text-off-white placeholder:text-off-white/30 focus:border-primary focus:ring-0 transition-all text-base" placeholder="e.g., Morning Zen Flow" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="block text-sm font-semibold text-primary uppercase tracking-wider ml-1">HappyPause Description</label>
+<textarea class="w-full px-5 py-4 rounded-xl border-2 border-primary/30 bg-primary/5 text-off-white placeholder:text-off-white/30 focus:border-primary focus:ring-0 transition-all text-base resize-none" placeholder="What will you do during this break? Describe your ritual..." rows="4"></textarea>
+</div>
+<div class="space-y-2">
+<label class="block text-sm font-semibold text-primary uppercase tracking-wider ml-1">HappyPause Icon</label>
+<div class="flex items-center gap-4 p-4 rounded-xl border-2 border-dashed border-primary/40 bg-primary/5 group cursor-pointer hover:border-primary transition-colors">
+<div class="w-14 h-14 rounded-full bg-primary/20 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl">add_photo_alternate</span>
+</div>
+<div class="flex-1">
+<p class="text-sm font-medium text-off-white/80">Upload custom icon</p>
+<p class="text-xs text-off-white/40">PNG, JPG up to 5MB</p>
+</div>
+<span class="material-symbols-outlined text-primary">upload</span>
+</div>
+</div>
+<div class="space-y-2">
+<label class="block text-sm font-semibold text-primary uppercase tracking-wider ml-1">Additional Info Link</label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 material-symbols-outlined text-off-white/30">link</span>
+<input class="w-full h-14 pl-12 pr-5 rounded-xl border-2 border-primary/30 bg-primary/5 text-off-white placeholder:text-off-white/30 focus:border-primary focus:ring-0 transition-all text-base" placeholder="https://example.com/guide" type="url"/>
+</div>
+</div>
+<div class="space-y-4 pt-2">
+<label class="flex items-start gap-3 group cursor-pointer">
+<div class="relative flex items-center mt-1">
+<input class="peer h-6 w-6 rounded-md border-2 border-primary/40 bg-transparent text-primary focus:ring-0 focus:ring-offset-0 checked:bg-primary transition-all" type="checkbox"/>
+<span class="material-symbols-outlined absolute opacity-0 peer-checked:opacity-100 text-background-dark text-sm left-1 transition-opacity pointer-events-none font-bold">check</span>
+</div>
+<span class="text-sm font-medium text-off-white/70 leading-snug group-hover:text-primary transition-colors">
+                        I want to make this HappyPause public for the community
+                    </span>
+</label>
+<label class="flex items-start gap-3 group cursor-pointer">
+<div class="relative flex items-center mt-1">
+<input class="peer h-6 w-6 rounded-md border-2 border-primary/40 bg-transparent text-primary focus:ring-0 focus:ring-offset-0 checked:bg-primary transition-all" type="checkbox"/>
+<span class="material-symbols-outlined absolute opacity-0 peer-checked:opacity-100 text-background-dark text-sm left-1 transition-opacity pointer-events-none font-bold">check</span>
+</div>
+<span class="text-sm font-medium text-off-white/70 leading-snug group-hover:text-primary transition-colors">
+                        I agree to the <a class="text-primary underline decoration-primary/30" href="#">Terms of Service</a> and <a class="text-primary underline decoration-primary/30" href="#">Privacy Policy</a>
+</span>
+</label>
+</div>
+<div class="pt-8 pb-12">
+<button class="w-full h-16 bg-primary text-background-dark font-extrabold text-lg uppercase tracking-widest rounded-xl sage-glow hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center gap-2" type="submit">
+                    Add &amp; Submit
+                    <span class="material-symbols-outlined font-bold">rocket_launch</span>
+</button>
+</div>
+</form>
+</main>
+
+</body></html>

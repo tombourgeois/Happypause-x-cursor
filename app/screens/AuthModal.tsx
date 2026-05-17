@@ -9,7 +9,10 @@ import {
   ActivityIndicator,
   KeyboardAvoidingView,
   Platform,
+  StyleSheet,
 } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
+import { COLORS, FONTS } from '../theme';
 
 type Mode = 'login' | 'signup' | 'forgot' | 'reset';
 
@@ -41,6 +44,7 @@ export default function AuthModal({
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const [codeSent, setCodeSent] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const resetForm = () => {
     setEmail('');
@@ -141,105 +145,129 @@ export default function AuthModal({
     <Modal visible={visible} animationType="slide" transparent>
       <KeyboardAvoidingView
         behavior={Platform.OS === 'ios' ? 'padding' : undefined}
-        className="flex-1 bg-charcoal/98 justify-center"
+        style={styles.container}
       >
         <ScrollView
-          contentContainerStyle={{ flexGrow: 1, justifyContent: 'center', padding: 24 }}
+          contentContainerStyle={styles.scrollContent}
           keyboardShouldPersistTaps="handled"
         >
-          <View className="flex-row justify-between items-center mb-6">
-            <Text className="text-sage text-lg" onPress={handleClose}>
-              Cancel
-            </Text>
-            <Text className="text-offWhite text-xl font-bold">
+          <View style={styles.header}>
+            <TouchableOpacity onPress={handleClose}>
+              <Text style={styles.cancelText}>Cancel</Text>
+            </TouchableOpacity>
+            <Text style={styles.title}>
               {mode === 'login' && 'Log in'}
               {mode === 'signup' && 'Sign up'}
               {mode === 'forgot' && 'Forgot password'}
               {mode === 'reset' && 'Reset password'}
             </Text>
-            <View style={{ width: 60 }} />
+            <View style={styles.headerSpacer} />
           </View>
 
           {error ? (
-            <View className="bg-red-500/20 rounded-lg p-3 mb-4">
-              <Text className="text-red-400">{error}</Text>
+            <View style={styles.errorBox}>
+              <Text style={styles.errorText}>{error}</Text>
             </View>
           ) : null}
 
-          <Text className="text-offWhite/70 text-sm mb-2">Email</Text>
-          <TextInput
-            value={email}
-            onChangeText={setEmail}
-            placeholder="you@example.com"
-            placeholderTextColor="#888"
-            keyboardType="email-address"
-            autoCapitalize="none"
-            autoCorrect={false}
-            className="bg-offWhite/10 text-offWhite rounded-lg px-4 py-3 mb-4"
-            editable={mode !== 'reset' || !codeSent}
-          />
+          <View style={styles.field}>
+            <Text style={styles.label}>Email</Text>
+            <TextInput
+              value={email}
+              onChangeText={setEmail}
+              placeholder="hello@happypause.com"
+              placeholderTextColor="rgba(181,183,162,0.5)"
+              keyboardType="email-address"
+              autoCapitalize="none"
+              autoCorrect={false}
+              style={styles.input}
+              editable={mode !== 'reset' || !codeSent}
+            />
+          </View>
 
           {mode !== 'forgot' && mode !== 'reset' && (
-            <>
-              <Text className="text-offWhite/70 text-sm mb-2">Password</Text>
-              <TextInput
-                value={password}
-                onChangeText={setPassword}
-                placeholder="••••••••"
-                placeholderTextColor="#888"
-                secureTextEntry
-                className="bg-offWhite/10 text-offWhite rounded-lg px-4 py-3 mb-4"
-              />
-            </>
+            <View style={styles.field}>
+              <Text style={styles.label}>Password</Text>
+              <View style={styles.passwordRow}>
+                <TextInput
+                  value={password}
+                  onChangeText={setPassword}
+                  placeholder="••••••••"
+                  placeholderTextColor="rgba(181,183,162,0.5)"
+                  secureTextEntry={!showPassword}
+                  style={[styles.input, styles.passwordInput]}
+                />
+                <TouchableOpacity
+                  onPress={() => setShowPassword(!showPassword)}
+                  style={styles.visibilityBtn}
+                >
+                  <Ionicons
+                    name={showPassword ? 'eye-off-outline' : 'eye-outline'}
+                    size={20}
+                    color={COLORS.zenAccent}
+                  />
+                </TouchableOpacity>
+              </View>
+              {mode === 'login' && (
+                <TouchableOpacity onPress={() => setMode('forgot')} style={styles.forgotBtn}>
+                  <Text style={styles.forgotLink}>Forgot Password?</Text>
+                </TouchableOpacity>
+              )}
+            </View>
           )}
 
           {mode === 'signup' && (
-            <>
-              <Text className="text-offWhite/70 text-sm mb-2">Confirm password</Text>
+            <View style={styles.field}>
+              <Text style={styles.label}>Confirm password</Text>
               <TextInput
                 value={confirmPassword}
                 onChangeText={setConfirmPassword}
                 placeholder="••••••••"
-                placeholderTextColor="#888"
+                placeholderTextColor="rgba(181,183,162,0.5)"
                 secureTextEntry
-                className="bg-offWhite/10 text-offWhite rounded-lg px-4 py-3 mb-4"
+                style={styles.input}
               />
-            </>
+            </View>
           )}
 
           {mode === 'reset' && (
             <>
-              <Text className="text-offWhite/70 text-sm mb-2">Reset code (from email)</Text>
-              <TextInput
-                value={code}
-                onChangeText={setCode}
-                placeholder="123456"
-                placeholderTextColor="#888"
-                keyboardType="number-pad"
-                maxLength={6}
-                className="bg-offWhite/10 text-offWhite rounded-lg px-4 py-3 mb-4"
-              />
-              <Text className="text-offWhite/70 text-sm mb-2">New password</Text>
-              <TextInput
-                value={newPassword}
-                onChangeText={setNewPassword}
-                placeholder="••••••••"
-                placeholderTextColor="#888"
-                secureTextEntry
-                className="bg-offWhite/10 text-offWhite rounded-lg px-4 py-3 mb-4"
-              />
+              <View style={styles.field}>
+                <Text style={styles.label}>Reset code (from email)</Text>
+                <TextInput
+                  value={code}
+                  onChangeText={setCode}
+                  placeholder="123456"
+                  placeholderTextColor="rgba(181,183,162,0.5)"
+                  keyboardType="number-pad"
+                  maxLength={6}
+                  style={styles.input}
+                />
+              </View>
+              <View style={styles.field}>
+                <Text style={styles.label}>New password</Text>
+                <TextInput
+                  value={newPassword}
+                  onChangeText={setNewPassword}
+                  placeholder="••••••••"
+                  placeholderTextColor="rgba(181,183,162,0.5)"
+                  secureTextEntry
+                  style={styles.input}
+                />
+              </View>
             </>
           )}
 
           <TouchableOpacity
             onPress={handleSubmit}
             disabled={loading}
-            className="bg-sage rounded-xl py-4 mt-4"
+            style={styles.primaryBtn}
+            activeOpacity={0.9}
           >
             {loading ? (
-              <ActivityIndicator color="#36333a" />
+              <ActivityIndicator color={COLORS.charcoal} />
             ) : (
-              <Text className="text-charcoal font-bold text-center">
+              <Text style={styles.primaryBtnText}>
                 {mode === 'login' && 'Log in'}
                 {mode === 'signup' && 'Create account'}
                 {mode === 'forgot' && 'Send code'}
@@ -248,30 +276,42 @@ export default function AuthModal({
             )}
           </TouchableOpacity>
 
-          <View className="flex-row justify-center gap-4 mt-6">
+          <View style={styles.footer}>
             {mode === 'login' && (
               <>
+                <Text style={styles.footerText}>Don&apos;t have an account? </Text>
                 <TouchableOpacity onPress={() => setMode('signup')}>
-                  <Text className="text-sage">Sign up</Text>
+                  <Text style={styles.linkText}>Sign Up</Text>
                 </TouchableOpacity>
+                <View style={styles.footerSpacer} />
                 <TouchableOpacity onPress={() => setMode('forgot')}>
-                  <Text className="text-sage">Forgot password?</Text>
+                  <Text style={styles.forgotLink}>Forgot Password?</Text>
                 </TouchableOpacity>
               </>
             )}
             {mode === 'signup' && (
-              <TouchableOpacity onPress={() => setMode('login')}>
-                <Text className="text-sage">Already have an account? Log in</Text>
-              </TouchableOpacity>
+              <>
+                <Text style={styles.footerText}>Already have an account? </Text>
+                <TouchableOpacity onPress={() => setMode('login')}>
+                  <Text style={styles.linkText}>Log In</Text>
+                </TouchableOpacity>
+              </>
             )}
             {mode === 'forgot' && (
               <TouchableOpacity onPress={() => setMode('login')}>
-                <Text className="text-sage">Back to login</Text>
+                <Text style={styles.linkText}>Back to login</Text>
               </TouchableOpacity>
             )}
             {mode === 'reset' && (
-              <TouchableOpacity onPress={() => { setMode('forgot'); setCodeSent(false); setCode(''); setNewPassword(''); }}>
-                <Text className="text-sage">Request new code</Text>
+              <TouchableOpacity
+                onPress={() => {
+                  setMode('forgot');
+                  setCodeSent(false);
+                  setCode('');
+                  setNewPassword('');
+                }}
+              >
+                <Text style={styles.linkText}>Request new code</Text>
               </TouchableOpacity>
             )}
           </View>
@@ -280,3 +320,125 @@ export default function AuthModal({
     </Modal>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: COLORS.backgroundDark,
+    justifyContent: 'center',
+  },
+  scrollContent: {
+    flexGrow: 1,
+    justifyContent: 'center',
+    padding: 24,
+  },
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 24,
+  },
+  cancelText: {
+    fontSize: 16,
+    color: COLORS.zenAccent,
+    fontFamily: FONTS.medium,
+  },
+  title: {
+    fontSize: 20,
+    fontWeight: '700',
+    color: COLORS.zenText,
+    fontFamily: FONTS.bold,
+  },
+  headerSpacer: {
+    width: 60,
+  },
+  errorBox: {
+    backgroundColor: 'rgba(239,68,68,0.2)',
+    borderRadius: 12,
+    padding: 12,
+    marginBottom: 16,
+  },
+  errorText: {
+    color: '#f87171',
+    fontSize: 14,
+    fontFamily: FONTS.regular,
+  },
+  field: {
+    marginBottom: 16,
+  },
+  label: {
+    fontSize: 14,
+    fontWeight: '600',
+    color: COLORS.zenAccent,
+    marginBottom: 8,
+    marginLeft: 4,
+    fontFamily: FONTS.semibold,
+  },
+  input: {
+    width: '100%',
+    height: 56,
+    backgroundColor: COLORS.inputBg,
+    borderRadius: 12,
+    paddingHorizontal: 16,
+    color: COLORS.zenText,
+    fontSize: 16,
+    fontFamily: FONTS.regular,
+  },
+  passwordRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  passwordInput: {
+    flex: 1,
+    paddingRight: 48,
+  },
+  visibilityBtn: {
+    position: 'absolute',
+    right: 16,
+    padding: 4,
+  },
+  primaryBtn: {
+    width: '100%',
+    height: 56,
+    backgroundColor: COLORS.primarySage,
+    borderRadius: 12,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 16,
+  },
+  primaryBtnText: {
+    fontSize: 18,
+    fontWeight: '700',
+    color: COLORS.charcoal,
+    fontFamily: FONTS.bold,
+  },
+  footer: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
+    alignItems: 'center',
+    gap: 4,
+    marginTop: 24,
+  },
+  footerText: {
+    fontSize: 14,
+    color: COLORS.zenAccent,
+    fontFamily: FONTS.regular,
+  },
+  forgotBtn: {
+    alignSelf: 'flex-end',
+    marginTop: 4,
+  },
+  forgotLink: {
+    fontSize: 12,
+    fontWeight: '600',
+    color: COLORS.vibrantGreen,
+    fontFamily: FONTS.semibold,
+  },
+  linkText: {
+    fontSize: 14,
+    fontWeight: '700',
+    color: COLORS.vibrantGreen,
+    fontFamily: FONTS.bold,
+  },
+});

@@ -35,6 +35,8 @@ export interface UserSettings {
 export interface Stats {
   totalFocusTime: number;
   totalPauseTime: number;
+  totalPausesDone?: number;
+  dayStreak?: number;
   weeklyData: { date: string; focusMinutes: number; pauseMinutes: number }[];
   categoryBreakdown: Record<string, number>;
   activityInsight: Record<string, { done: number; skipped: number }>;

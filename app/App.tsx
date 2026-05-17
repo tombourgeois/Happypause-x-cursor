@@ -1,5 +1,6 @@
 import './global.css';
 import React, { useState, useEffect } from 'react';
+import { useFonts, Manrope_400Regular, Manrope_500Medium, Manrope_600SemiBold, Manrope_700Bold } from '@expo-google-fonts/manrope';
 import { StatusBar } from 'expo-status-bar';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -28,6 +29,12 @@ const DEFAULT_SETTINGS: UserSettings = {
 };
 
 function AppContent() {
+  const [fontsLoaded] = useFonts({
+    Manrope_400Regular,
+    Manrope_500Medium,
+    Manrope_600SemiBold,
+    Manrope_700Bold,
+  });
   const [settings, setSettings] = useState<UserSettings>(DEFAULT_SETTINGS);
   const [settingsLoaded, setSettingsLoaded] = useState(false);
   const [showSettings, setShowSettings] = useState(false);
@@ -43,7 +50,7 @@ function AppContent() {
       .finally(() => setSettingsLoaded(true));
   }, [authLoading, hasCompletedAuth]);
 
-  if (authLoading) {
+  if (!fontsLoaded || authLoading) {
     return (
       <View className="flex-1 bg-charcoal items-center justify-center">
         <ActivityIndicator size="large" color="#b1b7a2" />
@@ -80,9 +87,13 @@ function AppContent() {
         <Tab.Navigator
           screenOptions={{
             headerShown: false,
-            tabBarStyle: { backgroundColor: '#36333a', borderTopColor: '#555' },
+            tabBarStyle: {
+              backgroundColor: 'rgba(54,51,58,0.95)',
+              borderTopColor: 'rgba(255,255,255,0.05)',
+              borderTopWidth: 1,
+            },
             tabBarActiveTintColor: '#b1b7a2',
-            tabBarInactiveTintColor: '#888',
+            tabBarInactiveTintColor: 'rgba(255,255,255,0.4)',
           }}
         >
           <Tab.Screen
@@ -103,22 +114,24 @@ function AppContent() {
           </Tab.Screen>
           <Tab.Screen
             name="Stats"
-            component={StatsTab}
             options={{
               tabBarIcon: ({ color, size }) => (
                 <Ionicons name="stats-chart-outline" size={size} color={color} />
               ),
             }}
-          />
+          >
+            {() => <StatsTab openSettings={() => setShowSettings(true)} />}
+          </Tab.Screen>
           <Tab.Screen
             name="History"
-            component={HistoryTab}
             options={{
               tabBarIcon: ({ color, size }) => (
                 <Ionicons name="time-outline" size={size} color={color} />
               ),
             }}
-          />
+          >
+            {() => <HistoryTab openSettings={() => setShowSettings(true)} />}
+          </Tab.Screen>
           <Tab.Screen
             name="Profile"
             options={{
